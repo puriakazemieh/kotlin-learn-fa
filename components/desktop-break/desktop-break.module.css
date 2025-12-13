@@ -1,9 +1,0 @@
-.break {
-    display: none;
-}
-
-@media (min-width: 768px) {
-    .break {
-        display: inline;
-    }
-}
