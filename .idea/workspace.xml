@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26cf9b56-2dfe-483c-8a83-a17ad62654d7" name="Changes" comment="move to topics">
-      <change beforePath="$PROJECT_DIR$/topics/classes.md" beforeDir="false" afterPath="$PROJECT_DIR$/topics/classes.md" afterDir="false" />
-    </list>
+    <list default="true" id="26cf9b56-2dfe-483c-8a83-a17ad62654d7" name="Changes" comment="keyword-reference - fa" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,24 +42,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "translate-to-persian",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/p.kazemiyeh/Documents/Obsidian kotlin/kotlin-learn-fa",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "settings.editor.splitter.proportion": "0.23511904"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;translate-to-persian&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/p.kazemiyeh/Documents/Obsidian kotlin/kotlin-learn-fa&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.23511904&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\p.kazemiyeh\Documents\Obsidian kotlin\kotlin-learn-fa" />
@@ -91,7 +89,23 @@
       <option name="project" value="LOCAL" />
       <updated>1765638541806</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="basic-syntax-fa">
+      <option name="closed" value="true" />
+      <created>1766214287362</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1766214287362</updated>
+    </task>
+    <task id="LOCAL-00004" summary="keyword-reference - fa">
+      <option name="closed" value="true" />
+      <created>1766214504602</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1766214504602</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -108,6 +122,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="remove other files" />
     <MESSAGE value="move to topics" />
-    <option name="LAST_COMMIT_MESSAGE" value="move to topics" />
+    <MESSAGE value="basic-syntax-fa" />
+    <MESSAGE value="keyword-reference - fa" />
+    <option name="LAST_COMMIT_MESSAGE" value="keyword-reference - fa" />
   </component>
 </project>
