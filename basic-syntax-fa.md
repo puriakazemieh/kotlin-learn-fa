@@ -81,7 +81,7 @@ print(yourWord)
 // You entered the word: Happiness
 ```
 
-برای اطلاعات بیشتر ببینید: [Read standard input](read-standard-input.md).
+برای اطلاعات بیشتر ببینید: [Read standard input](read-standard-input-fa.md).
 
 ## توابع
 

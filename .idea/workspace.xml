@@ -4,300 +4,16 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26cf9b56-2dfe-483c-8a83-a17ad62654d7" name="Changes" comment="packages - fa">
-      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/advent-of-code.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/all-open-plugin.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/android-overview.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/annotations-fa.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/annotations.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ant.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/api-references.topic" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/arrays.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/async-programming.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/basic-syntax-fa.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/basic-syntax.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/books.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/booleans.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/build-tools-api.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/characters.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/classes.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/code-style-migration-guide.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/coding-conventions.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/collection-aggregate.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/collection-elements.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/collection-filtering.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/collection-grouping.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/collection-operations.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/collection-ordering.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/collection-parts.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/collection-plus-minus.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/collection-transformations.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/collection-write.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/collections-overview.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/command-line.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/compatibility-guides/compatibility-guide-13.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/compatibility-guides/compatibility-guide-14.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/compatibility-guides/compatibility-guide-15.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/compatibility-guides/compatibility-guide-16.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/compatibility-guides/compatibility-guide-17.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/compatibility-guides/compatibility-guide-1720.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/compatibility-guides/compatibility-guide-18.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/compatibility-guides/compatibility-guide-19.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/compatibility-guides/compatibility-guide-20.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/compatibility-guides/compatibility-guide-21.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/compatibility-guides/compatibility-guide-22.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/competitive-programming.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/compiler-reference.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/components-stability-pre-1.4.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/components-stability.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/compose-compiler-migration-guide.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/compose-compiler-options.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/configure-build-for-eap.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/constructing-collections.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/context-parameters.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/contribute.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/control-flow.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/coroutines-overview.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/data-analysis-overview.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/data-analysis/data-analysis-connect-to-db.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/data-analysis/data-analysis-libraries.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/data-analysis/data-analysis-notebooks-output-formats.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/data-analysis/data-analysis-visualization.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/data-analysis/data-analysis-work-with-api.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/data-analysis/data-analysis-work-with-data-sources.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/data-analysis/get-started-with-kotlin-notebooks.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/data-analysis/kotlin-notebook-add-dependencies.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/data-analysis/kotlin-notebook-create.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/data-analysis/kotlin-notebook-set-up-env.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/data-analysis/kotlin-notebook-share.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/data-analysis/lets-plot.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/data-classes.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/delegated-properties.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/delegation.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/destructuring-declarations.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/eap.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/edu-tools-educator.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/edu-tools-learner.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/enum-classes.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/equality.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/exceptions.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/extensions.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/faq.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/fun-interfaces.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/functions.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/generics.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/getting-started.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/gradle/get-started-with-jvm-gradle-project.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/gradle/gradle-best-practices.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/gradle/gradle-binary-compatibility-validation.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/gradle/gradle-compilation-and-caches.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/gradle/gradle-compiler-options.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/gradle/gradle-configure-project.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/gradle/gradle-plugin-variants.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/gradle/gradle.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/gsoc-2023.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/gsoc-2024.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/gsoc-2025.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/gsoc-overview.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/home.topic" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/idioms.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/inheritance.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/inline-classes.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/inline-functions.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/interfaces.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/iterators.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js-frameworks.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js/browser-api-dom.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js/dev-server-continuous-compilation.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js/dynamic-type.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js/js-debugging.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js/js-get-started.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js/js-interop.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js/js-ir-compiler.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js/js-modules.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js/js-overview.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js/js-plain-objects.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js/js-project-setup.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js/js-react.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js/js-reflection.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js/js-running-tests.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js/js-to-kotlin-interop.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js/running-kotlin-js.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js/typesafe-html-dsl.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/js/using-packages-from-npm.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm/comparison-to-java.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm/java-interop.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm/java-to-kotlin-collections-guide.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm/java-to-kotlin-idioms-strings.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm/java-to-kotlin-interop.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm/java-to-kotlin-nullability-guide.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm/jvm-create-project-with-spring-boot.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm/jvm-get-started-spring-boot.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm/jvm-get-started.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm/jvm-records.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm/jvm-spring-boot-add-data-class.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm/jvm-spring-boot-add-db-support.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm/jvm-spring-boot-collections.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm/jvm-spring-boot-restful.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm/jvm-spring-boot-using-crudrepository.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm/jvm-test-using-junit.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/jvm/mixing-java-kotlin-intellij.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/k2-compiler-migration-guide.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/kapt.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/keyword-reference - fa.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/keyword-reference.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/koans.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/kotlin-ai-apps-development-overview.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/kotlin-and-ci.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/kotlin-brand-assets.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/kotlin-daemon.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/kotlin-doc.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/kotlin-evolution-principles.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/kotlin-hands-on.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/kotlin-ide.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/kotlin-language-features-and-proposals.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/kotlin-mascot.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/kotlin-night-guidelines.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/kotlin-notebook-overview.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/kotlin-osgi.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/kotlin-pdf.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/kotlin-tips.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ksp/ksp-additional-details.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ksp/ksp-command-line.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ksp/ksp-examples.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ksp/ksp-faq.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ksp/ksp-incremental.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ksp/ksp-multi-round.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ksp/ksp-multiplatform.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ksp/ksp-overview.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ksp/ksp-quickstart.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ksp/ksp-reference.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ksp/ksp-why-ksp.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/kug-guidelines.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/lambdas.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/learning-materials-overview.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/list-operations.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/lombok.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/map-operations.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/maven.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/metadata-jvm.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/multiplatform.topic" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/apple-framework.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/mapping-function-pointers-from-c.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/mapping-primitive-data-types-from-c.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/mapping-strings-from-c.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/mapping-struct-union-types-from-c.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-app-with-c-and-libcurl.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-arc-integration.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-binary-licenses.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-binary-options.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-c-interop-stability.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-c-interop.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-debugging.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-definition-file.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-dynamic-libraries.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-faq.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-get-started.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-improving-compilation-time.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-libraries.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-llvm-passes.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-memory-manager.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-migration-guide.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-objc-interop.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-overview.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-platform-libs.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-swift-export.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/native/native-target-support.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/nested-classes.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/no-arg-plugin.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/null-safety.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/numbers.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/object-declarations.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/operator-overloading.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/opt-in-requirements.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/packages - fa.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/packages.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/power-assert.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/properties.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/ranges.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/read-standard-input.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/reflection.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/releases.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/returns.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/roadmap.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/run-code-snippets.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/sam-with-receiver-plugin.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/scope-functions.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/scripting/custom-script-deps-tutorial.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/sealed-classes.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/security.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/sequences.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/serialization.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/server-overview.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/set-operations.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/slack-code-of-conduct.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/spring-ai-guide.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/standard-input.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/strings.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/test-page.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/this-expressions.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/time-measurement.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/tour/kotlin-tour-basic-types.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/tour/kotlin-tour-classes.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/tour/kotlin-tour-collections.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/tour/kotlin-tour-control-flow.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/tour/kotlin-tour-functions.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/tour/kotlin-tour-hello-world.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/tour/kotlin-tour-intermediate-classes-interfaces.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/tour/kotlin-tour-intermediate-extension-functions.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/tour/kotlin-tour-intermediate-lambdas-receiver.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/tour/kotlin-tour-intermediate-libraries-and-apis.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/tour/kotlin-tour-intermediate-null-safety.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/tour/kotlin-tour-intermediate-objects.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/tour/kotlin-tour-intermediate-open-special-classes.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/tour/kotlin-tour-intermediate-properties.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/tour/kotlin-tour-intermediate-scope-functions.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/tour/kotlin-tour-null-safety.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/tour/kotlin-tour-welcome.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/type-aliases.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/type-safe-builders.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/typecasts.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/types-overview.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/unsigned-integer-types.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/using-builders-with-builder-inference.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/visibility-modifiers.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/wasm/wasm-configuration.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/wasm/wasm-debugging.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/wasm/wasm-get-started.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/wasm/wasm-js-interop.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/wasm/wasm-overview.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/wasm/wasm-wasi.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew-eap.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew11.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew12.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew13.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew14.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew1420.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew1430.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew15.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew1520.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew1530.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew16.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew1620.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew17.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew1720.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew18.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew1820.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew19.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew1920.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew20.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew2020.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew21.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew2120.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew22.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topics/whatsnew/whatsnew2220.md" beforeDir="false" />
+    <list default="true" id="26cf9b56-2dfe-483c-8a83-a17ad62654d7" name="Changes" comment="move all to kotlin-learn-fa folder">
+      <change beforePath="$PROJECT_DIR$/basic-syntax-fa.md" beforeDir="false" afterPath="$PROJECT_DIR$/basic-syntax-fa.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enum-classes.md" beforeDir="false" afterPath="$PROJECT_DIR$/enum-classes.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generics.md" beforeDir="false" afterPath="$PROJECT_DIR$/generics.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyword-reference - fa.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/object-declarations.md" beforeDir="false" afterPath="$PROJECT_DIR$/object-declarations.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ranges.md" beforeDir="false" afterPath="$PROJECT_DIR$/ranges.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/read-standard-input.md" beforeDir="false" afterPath="$PROJECT_DIR$/read-standard-input.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/returns.md" beforeDir="false" afterPath="$PROJECT_DIR$/returns.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/standard-input.md" beforeDir="false" afterPath="$PROJECT_DIR$/standard-input.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -407,7 +123,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766818314651</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="move all to kotlin-learn-fa folder">
+      <option name="closed" value="true" />
+      <created>1769238769364</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1769238769364</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -427,6 +151,7 @@
     <MESSAGE value="basic-syntax-fa" />
     <MESSAGE value="keyword-reference - fa" />
     <MESSAGE value="packages - fa" />
-    <option name="LAST_COMMIT_MESSAGE" value="packages - fa" />
+    <MESSAGE value="move all to kotlin-learn-fa folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="move all to kotlin-learn-fa folder" />
   </component>
 </project>
