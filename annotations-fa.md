@@ -128,9 +128,11 @@ val f = @Suspendable { Fiber.sleep(10) }
 هنگامی که یک ویژگی (property) یا یک پارامتر سازنده اصلی را آنوتِیت می‌کنید، عناصر جاوای متعددی از عنصر متناظر کاتلین تولید می‌شوند، و بنابراین مکان‌های احتمالی متعددی برای قرارگیری آنوتیشن در بایت‌کد جاوای تولید شده وجود دارد. برای تعیین دقیق نحوه تولید آنوتیشن، از نحو (syntax) زیر استفاده کنید:
 
 ```kotlin
-class Example(@field:Ann val foo,    // فقط فیلد جاوا را آنوتِیت کن
-              @get:Ann val bar,      // فقط getter جاوا را آنوتِیت کن
-              @param:Ann val quux)   // فقط پارامتر سازنده جاوا را آنوتِیت کن
+class Example(
+		@field:Ann val foo,          // فقط فیلد جاوا را آنوتِیت کن
+         @get:Ann val bar,           // فقط getter جاوا را آنوتِیت کن
+        @param:Ann val quux    // فقط پارامتر سازنده جاوا را آنوتِیت کن
+        )   
 ```
 
 همین نحو را می‌توان برای آنوتِیت کردن کل فایل استفاده کرد. برای این کار، یک آنوتیشن با هدف `file` را در بالاترین سطح فایل، قبل از دستور package یا قبل از تمام importها (اگر فایل در پکیج پیش‌فرض است) قرار دهید:
@@ -187,9 +189,10 @@ public @interface Email { }
 با این آنوتیشن، مثال زیر را در نظر بگیرید:
 
 ```kotlin
-data class User(val username: String,
-                // @Email معادل @param:Email است
-                @Email val email: String) {
+data class User(
+	val username: String,// @Email معادل @param:Email است
+    @Email val email: String
+	     ) {
     // @Email معادل @field:Email است
     @Email val secondaryEmail: String? = null
 }
@@ -206,9 +209,10 @@ data class User(val username: String,
 با استفاده از همان مثال:
 
 ```kotlin
-data class User(val username: String,
-                // @Email اکنون معادل @param:Email @field:Email است
-                @Email val email: String) {
+data class User(
+		val username: String,// @Email اکنون معادل @param:Email @field:Email است
+         @Email val email: String
+         ) {
     // @Email هنوز معادل @field:Email است
     @Email val secondaryEmail: String? = null
 }
@@ -440,3 +444,49 @@ annotation class Tags(val value: Array<Tag>)
 برای استخراج آنوتیشن‌های تکرارپذیر کاتلین یا جاوا از طریق reflection، از تابع [`KAnnotatedElement.findAnnotations()`](https://www.google.com/search?q=%5Bhttps://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/find-annotations.html%5D\(https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/find-annotations.html\)) استفاده کنید.
 
 درباره آنوتیشن‌های تکرارپذیر کاتلین در [این KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/repeatable-annotations.md) بیشتر بیاموزید.
+
+
+
+
+
+---
+# محتوای شخصی:
+
+
+### 📌  ویژگی‌های اضافی آنوتیشن
+
+|annotation|معنی خیلی خلاصه|
+|---|---|
+|`@Target`|کجا می‌توان این annotation را استفاده کرد|
+|`@Retention`|تا چه مرحله‌ای باقی بماند|
+|`@Repeatable`|می‌شود چند بار استفاده شود یا نه|
+|`@MustBeDocumented`|در مستندات API نمایش داده شود یا نه|
+
+### 📌 جدول use-site targetهای annotation در Kotlin
+
+|use-site target|در Java روی چی اعمال می‌شود|توضیح ساده|کاربردهای رایج|
+|---|---|---|---|
+|`file`|خودِ فایل (کلاس تولیدشده)|annotation روی کل فایل Kotlin|`@JvmName`، تنظیمات فایل|
+|`field`|فیلد کلاس|annotation روی متغیر private|JPA، Validation، Serialization|
+|`property`|❌ فقط Kotlin (در Java دیده نمی‌شود)|annotation روی property منطقی|ابزارهای Kotlin|
+|`get`|متد getter|annotation روی `getX()`|Jackson، Bean Validation|
+|`set`|متد setter|annotation روی `setX()`|Validation، Frameworkها|
+|`param`|پارامتر سازنده|annotation روی constructor parameter|DI (Hilt/Dagger)، Validation|
+|`setparam`|پارامتر setter|annotation روی پارامتر setter|Validation|
+|`receiver`|پارامتر receiver متد|annotation روی receiver تابع extension|DSLها، APIهای خاص|
+|`delegate`|فیلد delegate|annotation روی شیء delegate|delegated propertyها|
+|`all` _(experimental)_|param + field + get + setparam|اعمال annotation روی همه‌ی بخش‌ها|ساده‌سازی Validation|
+
+### 🧠 یک راهنمای خیلی سریع
+
+- ❓ فریم‌ورک Java annotation را نمی‌بیند؟  
+    ➜ احتمالاً باید از `@field:` یا `@get:` استفاده کنی
+- ❓ Dependency Injection کار نمی‌کند؟  
+    ➜ معمولاً `@param:` لازم است
+- ❓ فقط خود Kotlin مهم است؟  
+    ➜ `@property:` کافی است
+- ❓ می‌خواهی همه‌جا اعمال شود؟  
+    ➜ `@all:` (اگر فعالش کرده باشی)
+
+
+

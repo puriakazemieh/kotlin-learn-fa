@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26cf9b56-2dfe-483c-8a83-a17ad62654d7" name="Changes" comment="move all to kotlin-learn-fa folder">
-      <change beforePath="$PROJECT_DIR$/basic-syntax-fa.md" beforeDir="false" afterPath="$PROJECT_DIR$/basic-syntax-fa.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/enum-classes.md" beforeDir="false" afterPath="$PROJECT_DIR$/enum-classes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generics.md" beforeDir="false" afterPath="$PROJECT_DIR$/generics.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keyword-reference - fa.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/object-declarations.md" beforeDir="false" afterPath="$PROJECT_DIR$/object-declarations.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ranges.md" beforeDir="false" afterPath="$PROJECT_DIR$/ranges.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/read-standard-input.md" beforeDir="false" afterPath="$PROJECT_DIR$/read-standard-input.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/returns.md" beforeDir="false" afterPath="$PROJECT_DIR$/returns.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/standard-input.md" beforeDir="false" afterPath="$PROJECT_DIR$/standard-input.md" afterDir="false" />
+    <list default="true" id="26cf9b56-2dfe-483c-8a83-a17ad62654d7" name="Changes" comment="keyword-reference-fa">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +123,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769238769364</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="keyword-reference-fa">
+      <option name="closed" value="true" />
+      <created>1769255190402</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1769255190402</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,6 +152,7 @@
     <MESSAGE value="keyword-reference - fa" />
     <MESSAGE value="packages - fa" />
     <MESSAGE value="move all to kotlin-learn-fa folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="move all to kotlin-learn-fa folder" />
+    <MESSAGE value="keyword-reference-fa" />
+    <option name="LAST_COMMIT_MESSAGE" value="keyword-reference-fa" />
   </component>
 </project>
