@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26cf9b56-2dfe-483c-8a83-a17ad62654d7" name="Changes" comment="coding-conventions-fa" />
+    <list default="true" id="26cf9b56-2dfe-483c-8a83-a17ad62654d7" name="Changes" comment="numbers-fa">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numbers-fa.md" beforeDir="false" afterPath="$PROJECT_DIR$/numbers-fa.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -145,7 +148,23 @@
       <option name="project" value="LOCAL" />
       <updated>1771053246998</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="idioms-fa">
+      <option name="closed" value="true" />
+      <created>1771661017387</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1771661017387</updated>
+    </task>
+    <task id="LOCAL-00011" summary="numbers-fa">
+      <option name="closed" value="true" />
+      <created>1771661179784</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1771661179784</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -169,6 +188,8 @@
     <MESSAGE value="keyword-reference-fa" />
     <MESSAGE value="visibility-modifiers-fa" />
     <MESSAGE value="coding-conventions-fa" />
-    <option name="LAST_COMMIT_MESSAGE" value="coding-conventions-fa" />
+    <MESSAGE value="idioms-fa" />
+    <MESSAGE value="numbers-fa" />
+    <option name="LAST_COMMIT_MESSAGE" value="numbers-fa" />
   </component>
 </project>
