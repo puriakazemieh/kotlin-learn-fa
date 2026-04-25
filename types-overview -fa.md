@@ -10,9 +10,9 @@ tags:
 
 این بخش نوع‌های پایه‌ای استفاده‌شده در کاتلین را توضیح می‌دهد:
 
-- [عددها](numbers.md) و [نوع‌های بدون علامت آن‌ها](unsigned-integer-types.md)
-- [Booleanها](booleans.md)
-- [نویسه‌ها](characters.md)
+- [عددها](numbers-fa.md) و [نوع‌های بدون علامت آن‌ها](unsigned-integer-types-fa.md)
+- [Booleanها](booleans-fa.md)
+- [نویسه‌ها](characters-fa.md)
 - [رشته‌ها](strings.md)
 - [آرایه‌ها](arrays.md)
 
