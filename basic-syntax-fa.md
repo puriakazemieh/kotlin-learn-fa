@@ -21,7 +21,7 @@ import kotlin.text.*
 
 لازم نیست مسیر دایرکتوری‌ها با نام پکیج‌ها یکی باشد؛ فایل‌های سورس می‌توانند به‌صورت دلخواه در سیستم فایل قرار بگیرند.
 
-ببینید: [Packages](kotlin-learn-fa/packages-fa.md).
+ببینید: [Packages](packages-fa.md).
 
 ## نقطهٔ شروع برنامه
 
@@ -81,7 +81,7 @@ print(yourWord)
 // You entered the word: Happiness
 ```
 
-برای اطلاعات بیشتر ببینید: [Read standard input](read-standard-input-fa.md).
+برای اطلاعات بیشتر ببینید: [Read standard input](read-standard-input.md).
 
 ## توابع
 
@@ -298,7 +298,7 @@ fun main() {
     println(s2)
 }
 ```
-برای جزئیات بیشتر ببینید: [String templates](strings.md#string-templates).
+برای جزئیات بیشتر ببینید: [String templates](strings-fa.md#string-templates).
 
 ## عبارات شرطی
 

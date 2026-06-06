@@ -4,13 +4,13 @@
 
 یک آرایه، یک ساختار داده است که تعداد ثابتی از مقادیر با یک نوع مشخص (یا زیرنوع‌های آن) را در خود نگه‌داری می‌کند.
 
-رایج‌ترین نوع آرایه در کاتلین، آرایه از نوع شیء (Object-type array) است که با کلاس `Array` نمایش داده می‌شود.
+رایج‌ترین نوع آرایه در کاتلین، آرایه از نوع شیء (Object-type array) است که با کلاس [`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/) نمایش داده می‌شود.
 
-> **نکته:** اگر از نوع‌های اولیه (Primitives) در یک آرایه از نوع شیء استفاده کنید، این کار به دلیل تبدیل نوع‌های اولیه به اشیاء (Boxing)، بر روی کارایی (Performance) برنامه تأثیر منفی می‌گذارد. برای جلوگیری از این هزینه بار اضافی (Boxing overhead)، به جای آن از آرایه‌های نوع اولیه (Primitive-type arrays) استفاده کنید.
+> **نکته:** اگر از نوع‌های اولیه (Primitives) در یک آرایه از نوع شیء استفاده کنید، این کار به دلیل تبدیل نوع‌های اولیه به اشیاء ([Boxing](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html))، بر روی کارایی (Performance) برنامه تأثیر منفی می‌گذارد. برای جلوگیری از این هزینه بار اضافی (Boxing overhead)، به جای آن از [آرایه‌های نوع اولیه](#primitive-type-arrays) استفاده کنید.
 
 ### چه زمانی از آرایه‌ها استفاده کنیم؟
 
-زمانی در کاتلین از آرایه‌ها استفاده کنید که نیازمندی‌های خاص و سطح پایینی (Low-level) برای برآورده کردن داشته باشید. به عنوان مثال، اگر نیازمند کارایی بسیار بالایی فراتر از نیاز برنامه‌های معمولی هستید، یا می‌خواهید ساختارهای داده سفارشی بسازید. در غیر این صورت، از مجموعه‌ها (Collections) استفاده کنید.
+زمانی در کاتلین از آرایه‌ها استفاده کنید که نیازمندی‌های خاص و سطح پایینی (Low-level) برای برآورده کردن داشته باشید. به عنوان مثال، اگر نیازمند کارایی بسیار بالایی فراتر از نیاز برنامه‌های معمولی هستید، یا می‌خواهید ساختارهای داده سفارشی بسازید. در غیر این صورت، از [مجموعه‌ها](collections-overview.md) استفاده کنید.
 
 مجموعه‌ها در مقایسه با آرایه‌ها مزایای زیر را دارند:
 
@@ -35,16 +35,16 @@ fun main() {
 
 - شما می‌توانید از عملگر مساوی (`==`) برای بررسی برابری ساختاری (Structural equality) مجموعه‌ها استفاده کنید. اما نمی‌توانید از این عملگر برای آرایه‌ها استفاده کنید. در عوض، باید از یک تابع خاص استفاده کنید که در بخش «مقایسه آرایه‌ها» درباره آن بیشتر می‌خوانید.
 
-برای اطلاعات بیشتر درباره مجموعه‌ها، بخش Collections overview را ببینید.
+برای اطلاعات بیشتر درباره مجموعه‌ها، بخش [Collections overview](collections-overview.md) را ببینید.
 
 ### ساخت آرایه‌ها (Create arrays)
 
 برای ساخت آرایه‌ها در کاتلین، می‌توانید از روش‌های زیر استفاده کنید:
 
-- توابعی مانند `arrayOf()`، `arrayOfNulls()` یا `emptyArray()`.
+- توابعی مانند [`arrayOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/array-of.html)، [`arrayOfNulls()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/array-of-nulls.html#kotlin$arrayOfNulls(kotlin.Int)) یا [`emptyArray()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/empty-array.html).
 - سازنده کلاس `Array` (همان Array constructor).
 
-در مثال زیر از تابع `arrayOf()` استفاده شده و مقادیر عناصر به آن پاس داده شده است:
+در مثال زیر از تابع [`arrayOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/array-of.html) استفاده شده و مقادیر عناصر به آن پاس داده شده است:
 
 ```kotlin
 fun main() {
@@ -57,7 +57,7 @@ fun main() {
 }
 ```
 
-در مثال زیر از تابع `arrayOfNulls()` برای ایجاد آرایه‌ای با اندازه مشخص که با عناصر `null` پر شده، استفاده شده است:
+در مثال زیر از تابع [`arrayOfNulls()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/array-of-nulls.html#kotlin$arrayOfNulls(kotlin.Int)) برای ایجاد آرایه‌ای با اندازه مشخص که با عناصر `null` پر شده، استفاده شده است:
 
 ```kotlin
 fun main() {
@@ -70,7 +70,7 @@ fun main() {
 }
 ```
 
-در مثال زیر از تابع `emptyArray()` برای ایجاد یک آرایه خالی استفاده شده است:
+در مثال زیر از تابع [`emptyArray()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/empty-array.html) برای ایجاد یک آرایه خالی استفاده شده است:
 
 ```kotlin
     var exampleArray = emptyArray<String>()
@@ -128,7 +128,7 @@ fun main() {
 
 ### دسترسی و اصلاح عناصر (Access and modify elements)
 
-آرایه‌ها همیشه تغییرپذیر (Mutable) هستند. برای دسترسی و اصلاح عناصر یک آرایه، از عملگر دسترسی ایندکس‌شده `[]` استفاده کنید:
+آرایه‌ها همیشه تغییرپذیر (Mutable) هستند. برای دسترسی و اصلاح عناصر یک آرایه، از [عملگر دسترسی ایندکس‌شده](operator-overloading.md#indexed-access-operator) `[]` استفاده کنید:
 
 ```kotlin
 fun main() {
@@ -155,7 +155,7 @@ fun main() {
 
 #### پاس دادن تعداد متغیر آرگومان‌ها به یک تابع
 
-در کاتلین، می‌توانید تعداد متغیری از آرگومان‌ها را از طریق پارامتر `vararg` به یک تابع پاس دهید. این ویژگی زمانی مفید است که تعداد آرگومان‌ها را از قبل نمی‌دانید، مانند زمان قالب‌بندی یک پیام یا ایجاد یک کوئری SQL.
+در کاتلین، می‌توانید تعداد متغیری از آرگومان‌ها را از طریق پارامتر [`vararg`](functions.md#variable-number-of-arguments-varargs) به یک تابع پاس دهید. این ویژگی زمانی مفید است که تعداد آرگومان‌ها را از قبل نمی‌دانید، مانند زمان قالب‌بندی یک پیام یا ایجاد یک کوئری SQL.
 
 برای پاس دادن آرایه‌ای حاوی تعداد متغیری از آرگومان‌ها به یک تابع، از **عملگر پخش‌کننده (Spread operator)** یعنی `*` استفاده کنید. عملگر پخش‌کننده هر عنصر از آرایه را به عنوان آرگومان‌های مجزا به تابع مورد نظر شما پاس می‌دهد:
 
@@ -174,11 +174,11 @@ fun printAllStrings(vararg strings: String) {
 ```
 
 
-برای اطلاعات بیشتر، بخش (Variable number of arguments (varargs را ببینید.
+برای اطلاعات بیشتر، بخش [Variable number of arguments (varargs)](functions.md#variable-number-of-arguments-varargs) را ببینید.
 
 #### مقایسه آرایه‌ها (Compare arrays)
 
-برای مقایسه اینکه آیا دو آرایه دارای عناصر یکسان و با ترتیب یکسانی هستند، از توابع `.contentEquals()` و `.contentDeepEquals()` استفاده کنید:
+برای مقایسه اینکه آیا دو آرایه دارای عناصر یکسان و با ترتیب یکسانی هستند، از توابع [`.contentEquals()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/content-equals.html) و [`.contentDeepEquals()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/content-deep-equals.html) استفاده کنید:
 
 ```kotlin
 fun main() {
@@ -199,15 +199,15 @@ fun main() {
 }
 ```
 
-> **هشدار:** از عملگرهای مساوی (`==`) و نامساوی (`!=`) برای مقایسه محتوای آرایه‌ها استفاده نکنید. این عملگرها بررسی می‌کنند که آیا متغیرهای تخصیص‌داده‌شده به یک شیء واحد اشاره می‌کنند یا خیر (بررسی برابری مرجع). برای کسب اطلاعات بیشتر درباره اینکه چرا آرایه‌ها در کاتلین اینگونه رفتار می‌کنند، پست وبلاگ ما را بخوانید.
+> **هشدار:** از عملگرهای مساوی (`==`) و نامساوی (`!=`) [بررسی‌های برابری](equality.md#structural-equality) برای مقایسه محتوای آرایه‌ها استفاده نکنید. این عملگرها بررسی می‌کنند که آیا متغیرهای تخصیص‌داده‌شده به یک شیء واحد اشاره می‌کنند یا خیر (بررسی برابری مرجع). برای کسب اطلاعات بیشتر درباره اینکه چرا آرایه‌ها در کاتلین اینگونه رفتار می‌کنند، [پست وبلاگ](https://blog.jetbrains.com/kotlin/2015/09/feedback-request-limitations-on-data-classes/#Appendix.Comparingarrays) ما را بخوانید.
 
 #### تبدیل و تحول آرایه‌ها (Transform arrays)
 
-کاتلین توابع مفید بسیاری برای تبدیل آرایه‌ها دارد. این سند به چند مورد اشاره می‌کند اما این یک لیست کامل نیست. برای مشاهده لیست کامل توابع، مرجع API ما را ببینید.
+کاتلین توابع مفید بسیاری برای تبدیل آرایه‌ها دارد. این سند به چند مورد اشاره می‌کند اما این یک لیست کامل نیست. برای مشاهده لیست کامل توابع، [مرجع API](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/) ما را ببینید.
 
 ##### مجموع (Sum)
 
-برای بازگرداندن مجموع تمام عناصر یک آرایه، از تابع `.sum()` استفاده کنید:
+برای بازگرداندن مجموع تمام عناصر یک آرایه، از تابع [`.sum()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sum.html) استفاده کنید:
 
 ```Kotlin
 fun main() {
@@ -221,11 +221,11 @@ fun main() {
 }
 ```
 
-> **نکته:** تابع `.sum()` فقط برای آرایه‌هایی با انواع داده‌های عددی مانند `Int` قابل استفاده است.
+> **نکته:** تابع `.sum()` فقط برای آرایه‌هایی با انواع داده‌های عددی مانند [`Int`](numbers-fa.md) قابل استفاده است.
 
 ##### برهم‌زدن ترتیب / شافل (Shuffle)
 
-برای برهم‌زدن تصادفی ترتیب عناصر در یک آرایه، از تابع `.shuffle()` استفاده کنید:
+برای برهم‌زدن تصادفی ترتیب عناصر در یک آرایه، از تابع [`.shuffle()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/shuffle.html) استفاده کنید:
 
 ```Kotlin
 fun main() {
@@ -245,11 +245,11 @@ fun main() {
 
 #### تبدیل آرایه‌ها به مجموعه‌ها (Convert arrays to collections)
 
-اگر با APIهای مختلفی کار می‌کنید که برخی از آن‌ها از آرایه‌ها و برخی از مجموعه‌ها استفاده می‌کنند، می‌توانید آرایه‌های خود را به مجموعه‌ها و بالعکس تبدیل کنید.
+اگر با APIهای مختلفی کار می‌کنید که برخی از آن‌ها از آرایه‌ها و برخی از مجموعه‌ها استفاده می‌کنند، می‌توانید آرایه‌های خود را به [مجموعه‌ها](collections-overview.md) و بالعکس تبدیل کنید.
 
 ##### تبدیل به List یا Set
 
-برای تبدیل یک آرایه به یک `List` یا `Set`، از توابع `.toList()` و `.toSet()` استفاده کنید.
+برای تبدیل یک آرایه به یک `List` یا `Set`، از توابع [`.toList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-list.html) و [`.toSet()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-set.html) استفاده کنید.
 
 ```kotlin
 fun main() {
@@ -269,9 +269,9 @@ fun main() {
 
 ##### تبدیل به Map
 
-برای تبدیل یک آرایه به یک `Map`، از تابع `.toMap()` استفاده کنید.
+برای تبدیل یک آرایه به یک `Map`، از تابع [`.toMap()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-map.html) استفاده کنید.
 
-تنها آرایه‌ای از نوع `Pair<K,V>` می‌تواند به یک `Map` تبدیل شود. مقدار اول از یک نمونه `Pair` تبدیل به کلید (Key) و مقدار دوم تبدیل به مقدار (Value) می‌شود. این مثال از نشانه‌گذاری اینفیکس برای فراخوانی تابع `to` جهت ایجاد تاپل‌های `Pair` استفاده می‌کند:
+تنها آرایه‌ای از نوع [`Pair<K,V>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/) می‌تواند به یک `Map` تبدیل شود. مقدار اول از یک نمونه `Pair` تبدیل به کلید (Key) و مقدار دوم تبدیل به مقدار (Value) می‌شود. این مثال از [نشانه‌گذاری اینفیکس](functions.md#infix-notation) برای فراخوانی تابع [`to`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to.html) جهت ایجاد تاپل‌های `Pair` استفاده می‌کند:
 
 ```kotlin
 fun main() {
@@ -319,10 +319,10 @@ fun main() {
 }
 ```
 
-> **نکته:** برای تبدیل آرایه‌های نوع اولیه به آرایه‌های نوع شیء، از تابع `.toTypedArray()` استفاده کنید. برای تبدیل آرایه‌های نوع شیء به آرایه‌های نوع اولیه، از توابع `.toBooleanArray()`، `.toByteArray()`، `.toCharArray()` و غیره استفاده کنید.
+> **نکته:** برای تبدیل آرایه‌های نوع اولیه به آرایه‌های نوع شیء، از تابع [`.toTypedArray()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-typed-array.html) استفاده کنید. برای تبدیل آرایه‌های نوع شیء به آرایه‌های نوع اولیه، از توابع [`.toBooleanArray()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-boolean-array.html)، [`.toByteArray()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-byte-array.html)، [`.toCharArray()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-char-array.html) و غیره استفاده کنید.
 
 ### قدم بعدی چیست؟
 
-- برای اینکه بیشتر بدانید چرا توصیه می‌کنیم برای اکثر موارد از مجموعه‌ها استفاده کنید، بخش Collections overview را بخوانید.
-- درباره سایر انواع پایه (Basic types) یاد بگیرید.
-- اگر توسعه‌دهنده جاوا هستید، راهنمای مهاجرت از جاوا به کاتلین برای مجموعه‌ها (Java to Kotlin migration guide for Collections) را مطالعه کنید.
+- برای اینکه بیشتر بدانید چرا توصیه می‌کنیم برای اکثر موارد از مجموعه‌ها استفاده کنید، بخش [Collections overview](collections-overview.md) را بخوانید.
+- درباره سایر [انواع پایه](types-overview%20-fa.md) یاد بگیرید.
+- اگر توسعه‌دهنده جاوا هستید، راهنمای مهاجرت از جاوا به کاتلین برای مجموعه‌ها ([Java to Kotlin migration guide for Collections](java-to-kotlin-collections-guide.md)) را مطالعه کنید.

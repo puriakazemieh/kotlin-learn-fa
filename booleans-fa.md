@@ -43,7 +43,7 @@ fun main() {
 - اگر عملوند اول `true` باشد، عملگر `||` عملوند دوم را ارزیابی نمی‌کند.
 - اگر عملوند اول `false` باشد، عملگر `&&` عملوند دوم را ارزیابی نمی‌کند.
 
-> روی JVM، ارجاع‌های nullable به شیءهای بولین در کلاس‌های Java باکس می‌شوند، درست مانند [اعداد](numbers.md#boxing-and-caching-numbers-on-the-java-virtual-machine).
+> روی JVM، ارجاع‌های nullable به شیءهای بولین در کلاس‌های Java باکس می‌شوند، درست مانند [اعداد](numbers-fa.md#boxing-and-caching-numbers-on-the-java-virtual-machine).
 
 
 ---

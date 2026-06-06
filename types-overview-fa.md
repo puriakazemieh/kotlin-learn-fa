@@ -13,8 +13,8 @@ tags:
 - [عددها](numbers-fa.md) و [نوع‌های بدون علامت آن‌ها](unsigned-integer-types-fa.md)
 - [Booleanها](booleans-fa.md)
 - [نویسه‌ها](characters-fa.md)
-- [رشته‌ها](strings.md)
-- [آرایه‌ها](arrays.md)
+- [رشته‌ها](strings-fa.md)
+- [آرایه‌ها](arrays-fa.md)
 
 برای یادگیری دربارهٔ نوع‌های دیگر کاتلین، مانند `Nothing`، `Any` و `Unit`، به مرجع API کاتلین مراجعه کنید:
 

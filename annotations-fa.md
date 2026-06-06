@@ -11,10 +11,10 @@ annotation class Fancy
 
 ویژگی‌های اضافی آنوتیشن را می‌توان با آنوتِیت کردن کلاسِ آنوتیشن توسط «متا-آنوتیشن‌ها» (meta-annotations) مشخص کرد:
 
-- در واقع [`@Target`](https://www.google.com/search?q=%5Bhttps://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-target/index.html%5D\(https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-target/index.html\)) انواع عناصری که می‌توانند با این آنوتیشن نشانه‌گذاری شوند را مشخص می‌کند (مانند کلاس‌ها، توابع، ویژگی‌ها و عبارت‌ها)؛
-- در واقع [`@Retention`](https://www.google.com/search?q=%5Bhttps://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-retention/index.html%5D\(https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-retention/index.html\)) مشخص می‌کند که آیا آنوتیشن در فایل‌های کلاسِ کامپایل شده ذخیره شود و آیا در زمان اجرا از طریق reflection قابل مشاهده باشد یا خیر (به‌طور پیش‌فرض، هر دو مورد true هستند)؛
-- در واقع [`@Repeatable`](https://www.google.com/search?q=%5Bhttps://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-repeatable/index.html%5D\(https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-repeatable/index.html\)) اجازه می‌دهد تا از یک آنوتیشن بر روی یک عنصر واحد به دفعات استفاده شود؛
-- در واقع [`@MustBeDocumented`](https://www.google.com/search?q=%5Bhttps://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-must-be-documented/index.html%5D\(https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-must-be-documented/index.html\)) مشخص می‌کند که آنوتیشن بخشی از API عمومی است و باید در امضای کلاس یا متد که در مستندات تولید شده API نشان داده می‌شود، گنجانده شود.
+- در واقع [`@Target`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-target/index.html) انواع عناصری که می‌توانند با این آنوتیشن نشانه‌گذاری شوند را مشخص می‌کند (مانند کلاس‌ها، توابع، ویژگی‌ها و عبارت‌ها)؛
+- در واقع [`@Retention`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-retention/index.html) مشخص می‌کند که آیا آنوتیشن در فایل‌های کلاسِ کامپایل شده ذخیره شود و آیا در زمان اجرا از طریق reflection قابل مشاهده باشد یا خیر (به‌طور پیش‌فرض، هر دو مورد true هستند)؛
+- در واقع [`@Repeatable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-repeatable/index.html) اجازه می‌دهد تا از یک آنوتیشن بر روی یک عنصر واحد به دفعات استفاده شود؛
+- در واقع [`@MustBeDocumented`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-must-be-documented/index.html) مشخص می‌کند که آنوتیشن بخشی از API عمومی است و باید در امضای کلاس یا متد که در مستندات تولید شده API نشان داده می‌شود، گنجانده شود.
 
 ```kotlin
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION,
@@ -159,7 +159,7 @@ class Example {
 - `property` (آنوتیشن‌های با این هدف برای جاوا قابل مشاهده نیستند)
 - `get` (گتر ویژگی)
 - `set` (ستر ویژگی)
-- `all` (یک متا-هدف آزمایشی برای ویژگی‌ها، برای هدف و نحوه استفاده [بخش پایین](https://www.google.com/search?q=%23all-meta-target) را ببینید)
+- `all` (یک متا-هدف آزمایشی برای ویژگی‌ها، برای هدف و نحوه استفاده [بخش پایین](#متا-هدف-all) را ببینید)
 - `receiver` (پارامتر گیرنده یک تابع الحاقی یا ویژگی الحاقی)
 
     برای آنوتِیت کردن پارامتر گیرنده یک تابع الحاقی، از نحو زیر استفاده کنید
@@ -179,7 +179,7 @@ class Example {
 - `property`
 - `field`
 
-بیایید از [آنوتیشن `@Email` از Jakarta Bean Validation](https://www.google.com/search?q=%5Bhttps://jakarta.ee/specifications/bean-validation/3.0/apidocs/jakarta/validation/constraints/email%5D\(https://jakarta.ee/specifications/bean-validation/3.0/apidocs/jakarta/validation/constraints/email\)) استفاده کنیم:
+بیایید از [آنوتیشن `@Email` از Jakarta Bean Validation](https://jakarta.ee/specifications/bean-validation/3.0/apidocs/jakarta/validation/constraints/email) استفاده کنیم:
 
 ```java
 @Target(value={METHOD,FIELD,ANNOTATION_TYPE,CONSTRUCTOR,PARAMETER,TYPE_USE})
@@ -260,7 +260,7 @@ kotlin {
 - به پارامتر ستر (`setparam`) اگر ویژگی به صورت `var` تعریف شده باشد.
 - به هدف مختص جاوای `RECORD_COMPONENT` اگر کلاس دارای آنوتیشن `@JvmRecord` باشد.
 
-بیایید از [آنوتیشن `@Email` از Jakarta Bean Validation](https://www.google.com/search?q=%5Bhttps://jakarta.ee/specifications/bean-validation/3.0/apidocs/jakarta/validation/constraints/email%5D\(https://jakarta.ee/specifications/bean-validation/3.0/apidocs/jakarta/validation/constraints/email\)) استفاده کنیم که به صورت زیر تعریف شده است:
+بیایید از [آنوتیشن `@Email` از Jakarta Bean Validation](https://jakarta.ee/specifications/bean-validation/3.0/apidocs/jakarta/validation/constraints/email) استفاده کنیم که به صورت زیر تعریف شده است:
 
 ```java
 @Target(value={METHOD,FIELD,ANNOTATION_TYPE,CONSTRUCTOR,PARAMETER,TYPE_USE})
@@ -294,7 +294,7 @@ data class User(
     @all:[A B] // forbidden, use @all:A @all:B
     val x: Int = 5
     ```
-- نمی‌توان از آن با [ویژگی‌های delegate شده](https://www.google.com/search?q=delegated-properties.md) استفاده کرد.
+- نمی‌توان از آن با [ویژگی‌های delegate شده](delegated-properties.md) استفاده کرد.
 
 #### نحوه فعال‌سازی
 
@@ -421,7 +421,7 @@ fun foo(ann: Ann) {
 
 ## آنوتیشن‌های تکرارپذیر (Repeatable annotations)
 
-درست مانند [در جاوا](https://docs.oracle.com/javase/tutorial/java/annotations/repeating.html)، کاتلین دارای آنوتیشن‌های تکرارپذیر است که می‌توانند چندین بار به یک عنصر کد واحد اعمال شوند. برای تکرارپذیر کردن آنوتیشن خود، اعلان آن را با متا-آنوتیشن [`@kotlin.annotation.Repeatable`](https://www.google.com/search?q=%5Bhttps://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-repeatable/%5D\(https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-repeatable/\)) علامت‌گذاری کنید. این کار باعث می‌شود که هم در کاتلین و هم در جاوا تکرارپذیر باشد. آنوتیشن‌های تکرارپذیر جاوا نیز از سمت کاتلین پشتیبانی می‌شوند.
+درست مانند [در جاوا](https://docs.oracle.com/javase/tutorial/java/annotations/repeating.html)، کاتلین دارای آنوتیشن‌های تکرارپذیر است که می‌توانند چندین بار به یک عنصر کد واحد اعمال شوند. برای تکرارپذیر کردن آنوتیشن خود، اعلان آن را با متا-آنوتیشن [`@kotlin.annotation.Repeatable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-repeatable/) علامت‌گذاری کنید. این کار باعث می‌شود که هم در کاتلین و هم در جاوا تکرارپذیر باشد. آنوتیشن‌های تکرارپذیر جاوا نیز از سمت کاتلین پشتیبانی می‌شوند.
 
 تفاوت اصلی با طرح استفاده شده در جاوا، نبودِ یک «آنوتیشنِ حاوی» (containing annotation) است که کامپایلر کاتلین آن را به‌طور خودکار با یک نام از پیش تعریف شده تولید می‌کند. برای آنوتیشن در مثال زیر، آنوتیشن حاویِ `@Tag.Container` را تولید خواهد کرد:
 
@@ -432,7 +432,7 @@ annotation class Tag(val name: String)
 // کامپایلر آنوتیشن حاوی @Tag.Container را تولید می‌کند
 ```
 
-می‌توانید با اعمال متا-آنوتیشن [`@kotlin.jvm.JvmRepeatable`](https://www.google.com/search?q=%5Bhttps://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-repeatable/%5D\(https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-repeatable/\)) و ارسال یک کلاس آنوتیشن حاوی که صریحاً اعلان شده به عنوان آرگومان، یک نام سفارشی برای آنوتیشن حاوی تنظیم کنید:
+می‌توانید با اعمال متا-آنوتیشن [`@kotlin.jvm.JvmRepeatable`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-repeatable/) و ارسال یک کلاس آنوتیشن حاوی که صریحاً اعلان شده به عنوان آرگومان، یک نام سفارشی برای آنوتیشن حاوی تنظیم کنید:
 
 ```kotlin
 @JvmRepeatable(Tags::class)
@@ -441,7 +441,7 @@ annotation class Tag(val name: String)
 annotation class Tags(val value: Array<Tag>)
 ```
 
-برای استخراج آنوتیشن‌های تکرارپذیر کاتلین یا جاوا از طریق reflection، از تابع [`KAnnotatedElement.findAnnotations()`](https://www.google.com/search?q=%5Bhttps://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/find-annotations.html%5D\(https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/find-annotations.html\)) استفاده کنید.
+برای استخراج آنوتیشن‌های تکرارپذیر کاتلین یا جاوا از طریق reflection، از تابع [`KAnnotatedElement.findAnnotations()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/find-annotations.html) استفاده کنید.
 
 درباره آنوتیشن‌های تکرارپذیر کاتلین در [این KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/repeatable-annotations.md) بیشتر بیاموزید.
 

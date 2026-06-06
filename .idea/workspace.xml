@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26cf9b56-2dfe-483c-8a83-a17ad62654d7" name="Changes" comment="unsigned-integer-types-fa.md">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="26cf9b56-2dfe-483c-8a83-a17ad62654d7" name="Changes" comment="arrays-fa.md">
+      <change beforePath="$PROJECT_DIR$/annotations-fa.md" beforeDir="false" afterPath="$PROJECT_DIR$/annotations-fa.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arrays-fa.md" beforeDir="false" afterPath="$PROJECT_DIR$/arrays-fa.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic-syntax-fa.md" beforeDir="false" afterPath="$PROJECT_DIR$/basic-syntax-fa.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booleans-fa.md" beforeDir="false" afterPath="$PROJECT_DIR$/booleans-fa.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyword-reference-fa.md" beforeDir="false" afterPath="$PROJECT_DIR$/keyword-reference-fa.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numbers-fa.md" beforeDir="false" afterPath="$PROJECT_DIR$/numbers-fa.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/strings-fa.md" beforeDir="false" afterPath="$PROJECT_DIR$/strings-fa.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types-overview -fa.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/visibility-modifiers-fa.md" beforeDir="false" afterPath="$PROJECT_DIR$/visibility-modifiers-fa.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +203,23 @@
       <option name="project" value="LOCAL" />
       <updated>1777122593245</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="strings-fa.md">
+      <option name="closed" value="true" />
+      <created>1780730606763</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1780730606763</updated>
+    </task>
+    <task id="LOCAL-00017" summary="arrays-fa.md">
+      <option name="closed" value="true" />
+      <created>1780730633637</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1780730633637</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,6 +249,8 @@
     <MESSAGE value="booleans-fa.md" />
     <MESSAGE value="characters-fa.md" />
     <MESSAGE value="unsigned-integer-types-fa.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="unsigned-integer-types-fa.md" />
+    <MESSAGE value="strings-fa.md" />
+    <MESSAGE value="arrays-fa.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="arrays-fa.md" />
   </component>
 </project>
