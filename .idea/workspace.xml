@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26cf9b56-2dfe-483c-8a83-a17ad62654d7" name="Changes" comment="types-overview-fa" />
+    <list default="true" id="26cf9b56-2dfe-483c-8a83-a17ad62654d7" name="Changes" comment="unsigned-integer-types-fa.md">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,12 +29,12 @@
     &quot;assignee&quot;: &quot;puriakazemieh&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/puriakazemieh/kotlin-learn-fa&quot;,
-    &quot;accountId&quot;: &quot;77838b22-a816-48e9-adea-1fd31fd0c119&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/puriakazemieh/kotlin-learn-fa",
+    "accountId": "cde21301-7693-4745-b904-54b82ea36cb1"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -42,24 +44,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;translate-to-persian&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/p.kazemiyeh/Documents/Obsidian kotlin/kotlin-learn-fa&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.23511904&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "translate-to-persian",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/puria/Obsidian kotlin/kotlin-learn-fa",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "settings.editor.splitter.proportion": "0.23511904"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\p.kazemiyeh\Documents\Obsidian kotlin\kotlin-learn-fa" />
@@ -169,7 +171,31 @@
       <option name="project" value="LOCAL" />
       <updated>1775451094852</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="booleans-fa.md">
+      <option name="closed" value="true" />
+      <created>1777122558375</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1777122558375</updated>
+    </task>
+    <task id="LOCAL-00014" summary="characters-fa.md">
+      <option name="closed" value="true" />
+      <created>1777122574596</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1777122574596</updated>
+    </task>
+    <task id="LOCAL-00015" summary="unsigned-integer-types-fa.md">
+      <option name="closed" value="true" />
+      <created>1777122593245</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1777122593245</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -196,6 +222,9 @@
     <MESSAGE value="idioms-fa" />
     <MESSAGE value="numbers-fa" />
     <MESSAGE value="types-overview-fa" />
-    <option name="LAST_COMMIT_MESSAGE" value="types-overview-fa" />
+    <MESSAGE value="booleans-fa.md" />
+    <MESSAGE value="characters-fa.md" />
+    <MESSAGE value="unsigned-integer-types-fa.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="unsigned-integer-types-fa.md" />
   </component>
 </project>
