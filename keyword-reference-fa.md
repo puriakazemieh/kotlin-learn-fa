@@ -12,29 +12,29 @@
 - `break` [اجرای یک حلقه را متوقف می‌کند](returns.md).
 - `class` یک [کلاس](classes.md) را تعریف می‌کند.
 - `continue` [به مرحلهٔ بعدی نزدیک‌ترین حلقهٔ دربرگیرنده می‌رود](returns.md).
-- `do` شروع یک [حلقهٔ do/while](control-flow.md#while-loops) است (حلقه‌ای با شرط پس از اجرا).
-- `else` شاخه‌ای از یک [عبارت if](control-flow.md#if-expression) را تعریف می‌کند که زمانی اجرا می‌شود که شرط نادرست باشد.
+- `do` شروع یک [حلقهٔ do/while](control-flow-fa.md#while-loops) است (حلقه‌ای با شرط پس از اجرا).
+- `else` شاخه‌ای از یک [عبارت if](control-flow-fa.md#if-expression) را تعریف می‌کند که زمانی اجرا می‌شود که شرط نادرست باشد.
 - `false` مقدار «نادرست» از [نوع Boolean](booleans-fa.md) را مشخص می‌کند.
-- `for` شروع یک [حلقهٔ for](control-flow.md#for-loops) است.
+- `for` شروع یک [حلقهٔ for](control-flow-fa.md#for-loops) است.
 - `fun` یک [تابع](functions.md) را تعریف می‌کند.
-- `if` شروع یک [عبارت if](control-flow.md#if-expression) است.
+- `if` شروع یک [عبارت if](control-flow-fa.md#if-expression) است.
 - `in`
-    - شیئی را که در یک [حلقهٔ for](control-flow.md#for-loops) پیمایش می‌شود مشخص می‌کند.
+    - شیئی را که در یک [حلقهٔ for](control-flow-fa.md#for-loops) پیمایش می‌شود مشخص می‌کند.
     - به‌عنوان یک عملگر میانی برای بررسی اینکه یک مقدار متعلق به [یک بازه](ranges.md)،  
         یک کالکشن، یا موجودیت دیگری است که [متد «contains» را تعریف کرده](operator-overloading.md#in-operator) استفاده می‌شود.
-    - در [عبارات when](control-flow.md#when-expressions-and-statements) نیز برای همین منظور استفاده می‌شود.
+    - در [عبارات when](control-flow-fa.md#when-expressions-and-statements) نیز برای همین منظور استفاده می‌شود.
     - یک پارامتر نوع را به‌عنوان [contravariant](generics.md#declaration-site-variance) علامت‌گذاری می‌کند.
 - `!in`
     - به‌عنوان عملگر برای بررسی اینکه یک مقدار به [یک بازه](ranges.md)،  
         یک کالکشن، یا موجودیت دیگری که [متد «contains» را تعریف کرده](operator-overloading.md#in-operator) تعلق ندارد استفاده می‌شود.
-    - در [عبارات when](control-flow.md#when-expressions-and-statements) نیز برای همین منظور استفاده می‌شود.
+    - در [عبارات when](control-flow-fa.md#when-expressions-and-statements) نیز برای همین منظور استفاده می‌شود.
 - `interface` یک [اینترفیس](interfaces.md) را تعریف می‌کند.
 - `is`
     - بررسی می‌کند که [یک مقدار دارای نوع خاصی هست یا نه](typecasts.md#is-and-is-operators).
-    - در [عبارات when](control-flow.md#when-expressions-and-statements) نیز برای همین منظور استفاده می‌شود.
+    - در [عبارات when](control-flow-fa.md#when-expressions-and-statements) نیز برای همین منظور استفاده می‌شود.
 - `!is`
     - بررسی می‌کند که [یک مقدار دارای نوع خاصی نیست](typecasts.md#is-and-is-operators).
-    - در [عبارات when](control-flow.md#when-expressions-and-statements) نیز برای همین منظور استفاده می‌شود.
+    - در [عبارات when](control-flow-fa.md#when-expressions-and-statements) نیز برای همین منظور استفاده می‌شود.
 - `null` یک ثابت است که نمایانگر مرجعی است که به هیچ شیئی اشاره نمی‌کند.
 - `object` [یک کلاس و نمونهٔ آن را هم‌زمان](object-declarations.md) تعریف می‌کند.
 - `package` [پکیج فایل جاری](packages-fa.md) را مشخص می‌کند.
@@ -52,8 +52,8 @@
 - `typeof` برای استفادهٔ آینده رزرو شده است.
 - `val` یک [property فقط‌خواندنی](properties.md) یا [متغیر محلی](basic-syntax-fa.md#variables) تعریف می‌کند.
 - `var` یک [property قابل‌تغییر](properties.md) یا [متغیر محلی](basic-syntax-fa.md#variables) تعریف می‌کند.
-- `when` شروع یک [عبارت when](control-flow.md#when-expressions-and-statements) است (یکی از شاخه‌های داده‌شده را اجرا می‌کند).
-- `while` شروع یک [حلقهٔ while](control-flow.md#while-loops) است (حلقه‌ای با شرط قبل از اجرا).
+- `when` شروع یک [عبارت when](control-flow-fa.md#when-expressions-and-statements) است (یکی از شاخه‌های داده‌شده را اجرا می‌کند).
+- `while` شروع یک [حلقهٔ while](control-flow-fa.md#while-loops) است (حلقه‌ای با شرط قبل از اجرا).
 
 ## کلمات کلیدی نرم (Soft keywords)
 
@@ -154,7 +154,7 @@ Kotlin از عملگرها و نمادهای ویژهٔ زیر پشتیبانی 
 - `->`
     - پارامترها و بدنهٔ یک [lambda expression](lambdas.md#lambda-expression-syntax) را جدا می‌کند.
     - پارامترها و اعلان نوع بازگشتی را در یک [function type](lambdas.md#function-types) جدا می‌کند.
-    - شرط و بدنهٔ یک شاخه از [عبارت when](control-flow.md#when-expressions-and-statements) را جدا می‌کند.
+    - شرط و بدنهٔ یک شاخه از [عبارت when](control-flow-fa.md#when-expressions-and-statements) را جدا می‌کند.
 - `@`
     - معرفی یک [annotation](annotations-fa.md#usage).
     - معرفی یا ارجاع به یک [label حلقه](returns.md#break-and-continue-labels).

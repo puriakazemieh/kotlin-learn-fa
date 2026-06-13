@@ -328,7 +328,7 @@ fun main() {
     println("max of 0 and 42 is ${maxOf(0, 42)}")
 }
 ```
-ببینید: [`if`-expressions](control-flow.md#if-expression).
+ببینید: [`if`-expressions](control-flow-fa.md#if-expression).
 
 ## حلقهٔ for
 
@@ -354,7 +354,7 @@ fun main() {
 //sampleEnd
 }
 ```
-ببینید: [for loop](control-flow.md#for-loops).
+ببینید: [for loop](control-flow-fa.md#for-loops).
 
 ## حلقهٔ while
 
@@ -370,7 +370,7 @@ fun main() {
 //sampleEnd
 }
 ```
-ببینید: [while loop](control-flow.md#while-loops).
+ببینید: [while loop](control-flow-fa.md#while-loops).
 
 ## عبارت when
 
@@ -394,7 +394,7 @@ fun main() {
     println(describe("other"))
 }
 ```
-ببینید: [when expressions and statements](control-flow.md#when-expressions-and-statements).
+ببینید: [when expressions and statements](control-flow-fa.md#when-expressions-and-statements).
 
 ## بازه‌ها (Ranges)
 
