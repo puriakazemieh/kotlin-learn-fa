@@ -1,18 +1,7 @@
-[//]: # (title: Intermediate: Extension functions)
+[//]: # (title: Extension functions)
 
 <no-index/>
 
-<tldr>
-    <p><img src="icon-1.svg" width="20" alt="First step" /> <strong>Extension functions</strong><br />
-        <img src="icon-2-todo.svg" width="20" alt="Second step" /> <a href="kotlin-tour-intermediate-scope-functions.md">Scope functions</a><br />
-        <img src="icon-3-todo.svg" width="20" alt="Third step" /> <a href="kotlin-tour-intermediate-lambdas-receiver.md">Lambda expressions with receiver</a><br />
-        <img src="icon-4-todo.svg" width="20" alt="Fourth step" /> <a href="kotlin-tour-intermediate-classes-interfaces.md">Classes and interfaces</a><br />
-        <img src="icon-5-todo.svg" width="20" alt="Fifth step" /> <a href="kotlin-tour-intermediate-objects.md">Objects</a><br />
-        <img src="icon-6-todo.svg" width="20" alt="Sixth step" /> <a href="kotlin-tour-intermediate-open-special-classes.md">Open and special classes</a><br />
-        <img src="icon-7-todo.svg" width="20" alt="Seventh step" /> <a href="kotlin-tour-intermediate-properties.md">Properties</a><br />
-        <img src="icon-8-todo.svg" width="20" alt="Eighth step" /> <a href="kotlin-tour-intermediate-null-safety.md">Null safety</a><br />
-        <img src="icon-9-todo.svg" width="20" alt="Ninth step" /> <a href="kotlin-tour-intermediate-libraries-and-apis.md">Libraries and APIs</a></p>
-</tldr>
 
 In this chapter, you'll explore special Kotlin functions that make your code more concise and readable. Learn how they
 can help you use efficient design patterns to take your projects to the next level.
@@ -34,7 +23,7 @@ In this example, the `main()` function calls the [`.first()`](https://kotlinlang
 The `.first()` function is called **on** the `readOnlyShapes` variable, so the `readOnlyShapes` variable is the receiver.
 
 To create an extension function, write the name of the class that you want to extend followed by a `.` and the name of
-your function. Continue with the rest of the function declaration, including its arguments and return type.
+your function. Continue with the rest of the function declaration, including its parameters and return type.
 
 For example:
 
@@ -64,7 +53,7 @@ In this example:
 You can define extension functions anywhere, which enables you to create extension-oriented designs. These designs separate 
 core functionality from useful but non-essential features, making your code easier to read and maintain.
 
-A good example is the [`HttpClient`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client/-http-client/index.html) class from the Ktor library, which helps perform network requests. The core of
+A good example is the [`HttpClient`](https://api.ktor.io/ktor-client-core/io.ktor.client/-http-client/index.html) class from the Ktor library, which helps perform network requests. The core of
 its functionality is a single function `request()`, which takes all the information needed for an HTTP request:
 
 ```kotlin
@@ -119,13 +108,13 @@ to help you work with strings.
 
 For more information about extension functions, see [Extensions](extensions.md).
 
-## Practice
+## Practice {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="extension-functions-exercise-1"}
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Check whether an integer is positive" id="extension-functions-exercise-1">
 
 Write an extension function called `isPositive` that takes an integer and checks whether it is positive.
 
-|---|---|
 ```kotlin
 fun Int.// Write your code here
 
@@ -136,7 +125,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-extension-functions-exercise-1"}
 
-|---|---|
 ```kotlin
 fun Int.isPositive(): Boolean = this > 0
 
@@ -147,7 +135,8 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-extension-functions-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="extension-functions-exercise-2"}
+</def>
+<def title="Convert a string to lowercase" id="extension-functions-exercise-2">
 
 Write an extension function called `toLowercaseString` that takes a string and returns a lowercase version.
 
@@ -158,7 +147,6 @@ Write an extension function called `toLowercaseString` that takes a string and r
     </def>
 </deflist>
 
-|---|---|
 ```kotlin
 fun // Write your code here
 
@@ -169,7 +157,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-extension-functions-exercise-2"}
 
-|---|---|
 ```kotlin
 fun String.toLowercaseString(): String = this.lowercase()
 
@@ -180,6 +167,16 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-extension-functions-solution-2"}
 
-## Next step
+</def>
+</deflist>
 
-[Intermediate: Scope functions](kotlin-tour-intermediate-scope-functions.md)
+<seealso></seealso>
+
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-null-safety.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-scope-functions.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>

@@ -2,15 +2,6 @@
 
 <no-index/>
 
-<tldr>
-    <p><img src="icon-1-done.svg" width="20" alt="First step" /> <a href="kotlin-tour-hello-world.md">Hello world</a><br />
-        <img src="icon-2-done.svg" width="20" alt="Second step" /> <a href="kotlin-tour-basic-types.md">Basic types</a><br />
-        <img src="icon-3-done.svg" width="20" alt="Third step" /> <a href="kotlin-tour-collections.md">Collections</a><br />
-        <img src="icon-4-done.svg" width="20" alt="Fourth step" /> <a href="kotlin-tour-control-flow.md">Control flow</a><br />
-        <img src="icon-5-done.svg" width="20" alt="Fifth step" /> <a href="kotlin-tour-functions.md">Functions</a><br />
-        <img src="icon-6-done.svg" width="20" alt="Sixth step" /> <a href="kotlin-tour-classes.md">Classes</a><br />
-        <img src="icon-7.svg" width="20" alt="Final step" /> <strong>Null safety</strong><br /></p>
-</tldr>
 
 In Kotlin, it's possible to have a `null` value. Kotlin uses `null` values when something is missing or not yet set.
 You've already seen an example of Kotlin returning a `null` value in the [Collections](kotlin-tour-collections.md#kotlin-tour-map-no-key)
@@ -156,15 +147,15 @@ fun main() {
 
 For more information about null safety in Kotlin, see [Null safety](null-safety.md).
 
-## Practice
+## Practice {completion-point="true"}
 
-### Exercise {initial-collapse-state="collapsed" collapsible="true"}
+<deflist appearance="clear" collapsible="true">
+<def title="Calculate an employee's salary">
 
 You have the `employeeById` function that gives you access to a database of employees of a company. Unfortunately, this 
 function returns a value of the `Employee?` type, so the result can be `null`. Your goal is to write a function that 
 returns the salary of an employee when their `id` is provided, or `0` if the employee is missing from the database.
 
-|---|---|
 ```kotlin
 data class Employee (val name: String, var salary: Int)
 
@@ -184,7 +175,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-null-safety-exercise"}
 
-|---|---|
 ```kotlin
 data class Employee (val name: String, var salary: Int)
 
@@ -204,9 +194,21 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution"}
 
+</def>
+</deflist>
+
 ## What's next?
 
 Congratulations! Now that you have completed the beginner tour, take your understanding of Kotlin to the next level with
 our intermediate tour:
 
-<a href="kotlin-tour-intermediate-extension-functions.md"><img src="start-intermediate-tour.svg" width="700" alt="Start the intermediate Kotlin tour" style="block"/></a>
+<seealso></seealso>
+
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-classes.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-extension-functions.md" mode="classic" icon="arrow-right" icon-position="right">Start intermediate Kotlin tour</a>
+  </li>
+</list>

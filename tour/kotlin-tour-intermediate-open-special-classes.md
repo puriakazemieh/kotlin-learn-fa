@@ -1,18 +1,7 @@
-[//]: # (title: Intermediate: Open and special classes)
+[//]: # (title: Open and special classes)
 
 <no-index/>
 
-<tldr>
-    <p><img src="icon-1-done.svg" width="20" alt="First step" /> <a href="kotlin-tour-intermediate-extension-functions.md">Extension functions</a><br />
-        <img src="icon-2-done.svg" width="20" alt="Second step" /> <a href="kotlin-tour-intermediate-scope-functions.md">Scope functions</a><br />
-        <img src="icon-3-done.svg" width="20" alt="Third step" /> <a href="kotlin-tour-intermediate-lambdas-receiver.md">Lambda expressions with receiver</a><br />
-        <img src="icon-4-done.svg" width="20" alt="Fourth step" /> <a href="kotlin-tour-intermediate-classes-interfaces.md">Classes and interfaces</a><br />
-        <img src="icon-5-done.svg" width="20" alt="Fifth step" /> <a href="kotlin-tour-intermediate-objects.md">Objects</a><br />
-        <img src="icon-6.svg" width="20" alt="Fourth step" /> <strong>Open and special classes</strong><br />
-        <img src="icon-7-todo.svg" width="20" alt="Seventh step" /> <a href="kotlin-tour-intermediate-properties.md">Properties</a><br />
-        <img src="icon-8-todo.svg" width="20" alt="Eighth step" /> <a href="kotlin-tour-intermediate-null-safety.md">Null safety</a><br />
-        <img src="icon-9-todo.svg" width="20" alt="Ninth step" /> <a href="kotlin-tour-intermediate-libraries-and-apis.md">Libraries and APIs</a></p>
-</tldr>
 
 In this chapter, you'll learn about open classes, how they work with interfaces, and other special
 types of classes available in Kotlin.
@@ -390,15 +379,14 @@ This can significantly reduce memory footprint and improve your code's runtime p
 
 For more information about inline value classes, see [Inline value classes](inline-classes.md).
 
-## Practice
+## Practice {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="special-classes-exercise-1"}
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Model delivery statuses with a sealed class" id="special-classes-exercise-1">
 
 You manage a delivery service and need a way to track the status of packages. Create a sealed class called `DeliveryStatus`,
 containing data classes to represent the following statuses: `Pending`, `InTransit`, `Delivered`, `Canceled`. Complete
 the `DeliveryStatus` class declaration so that the code in the `main()` function runs successfully:
-
-|---|---|
 
 ```kotlin
 sealed class // Write your code here
@@ -438,7 +426,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-special-classes-exercise-1"}
 
-|---|---|
 ```kotlin
 sealed class DeliveryStatus {
     data class Pending(val sender: String) : DeliveryStatus()
@@ -482,13 +469,12 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-special-classes-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="special-classes-exercise-2"}
+</def>
+<def title="Define problem types with an enum class" id="special-classes-exercise-2">
 
 In your program, you want to be able to handle different statuses and types of errors. You have a sealed class to capture
 the different statuses which are declared in data classes or objects. Complete the code below by creating an enum class 
 called `Problem` that represents the different problem types: `NETWORK`, `TIMEOUT`, and `UNKNOWN`.
-
-|---|---|
 
 ```kotlin
 sealed class Status {
@@ -524,7 +510,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-special-classes-exercise-2"}
 
-|---|---|
 ```kotlin
 sealed class Status {
     data object Loading : Status()
@@ -563,6 +548,16 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-special-classes-solution-2"}
 
-## Next step
+</def>
+</deflist>
 
-[Intermediate: Properties](kotlin-tour-intermediate-properties.md)
+<seealso></seealso>
+
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-objects.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-properties.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>

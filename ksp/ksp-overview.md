@@ -1,95 +1,56 @@
 [//]: # (title: Kotlin Symbol Processing API)
 
-Kotlin Symbol Processing (_KSP_) is an API that you can use to develop lightweight compiler plugins.
-KSP provides a simplified compiler plugin API that leverages the power of Kotlin while keeping the learning curve at
-a minimum. Compared to [kapt](kapt.md), annotation processors that use KSP can run up to two times faster.
+Kotlin Symbol Processing (KSP) is a source code generation framework for Kotlin. With the KSP API, you can create 
+processors that inspect static information about your source code and generate new code from it. The most common use case 
+is generating code based on [annotations](annotations.md).
 
-* To learn more about how KSP compares to kapt, check out [why KSP](ksp-why-ksp.md).
-* To get started writing a KSP processor, take a look at the [KSP quickstart](ksp-quickstart.md).
+KSP aims to simplify the creation of lightweight compiler plugins. A compiler plugin built with KSP is called a symbol 
+processor, or processor for short. KSP's well-defined API hides compiler changes, so you don't need to spend much effort 
+maintaining your processors. However, this approach comes with trade-offs. For example, KSP-based processors can't 
+examine expressions or statements, and they can't modify the source code.
 
-## Overview
+Typical use cases for KSP-based plugins include: 
+* Dependency injection ([Dagger](https://dagger.dev/dev-guide/ksp))
+* Serialization ([Moshi](https://github.com/square/moshi))
+* Database management ([Room](https://developer.android.com/jetpack/androidx/releases/room#2.3.0-beta02))
 
-The KSP API processes Kotlin programs idiomatically. KSP understands Kotlin-specific features, such as extension functions,
-declaration-site variance, and local functions. It also models types explicitly and provides basic type checking,
-such as equivalence and assign-compatibility.
+To learn how to create your first KSP-based processor, see [Getting started with KSP](ksp-quickstart.md).
 
-The API models Kotlin program structures at the symbol level according to [Kotlin grammar](https://kotlinlang.org/docs/reference/grammar.html).
-When KSP-based plugins process source programs, constructs like classes, class members, functions, and associated parameters are accessible for the
-processors, while things like `if` blocks and `for` loops are not.
+## Requirements
 
-Conceptually, KSP is similar to [KType](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-type/) in Kotlin reflection.
-The API allows processors to navigate from class declarations to corresponding types with specific type arguments and vice-versa.
-You can also substitute type arguments, specify variances, apply star projections, and mark nullabilities of types.
+The latest KSP version, %kspVersion%, supports the following dependency versions:
 
-Another way to think of KSP is as a preprocessor framework of Kotlin programs. By considering KSP-based plugins as
-_symbol processors_, or simply _processors_, the data flow in a compilation can be described in the following steps:
+| Dependency                      |  Min and max versions                                  |
+| ------------------------------  | ------------------------------------------------------ |
+| Kotlin Gradle plugin (KGP)      | 2.2.10–2.3.x                                           |
+| Android Gradle Plugin (AGP)     | 8.12.0 or later                                        |
+| Gradle                          | 8.13 or later. For AGP 9.0 or later, use Gradle 9.x.   |
+| JDK                             | 17 or later                                            |
 
-1. Processors read and analyze source programs and resources.
-2. Processors generate code or other forms of output.
-3. The Kotlin compiler compiles the source programs together with the generated code.
+## How KSP works during compilation
 
-Unlike a full-fledged compiler plugin, processors cannot modify the code.
-A compiler plugin that changes language semantics can sometimes be very confusing.
-KSP avoids that by treating the source programs as read-only.
+KSP represents Kotlin source code as a hierarchy of symbols based on the [Kotlin grammar](https://kotlinlang.org/grammar/). 
+Processors use these symbols to inspect declarations such as classes, functions, properties, and types.
 
-You can also get an overview of KSP in this video:
+> KSP models declarations and type information, but doesn't give processors access to expressions or
+> function bodies.
+{style="note"}
+
+KSP fits into the compilation process as follows:
+
+1. KSP processors analyze source code and resources.
+
+2. The processors generate source files or other outputs.
+
+3. The Kotlin compiler compiles the original source code together with the generated code.
+
+To learn more about KSP, watch this video:
 
 <video src="https://www.youtube.com/v/bv-VyGM3HCY" title="Kotlin Symbol Processing (KSP)"/>
 
+## How KSP runs a processor
 
-## How KSP looks at source files
-
-Most processors navigate through the various program structures of the input source code.
-Before diving into usage of the API, let's see at how a file might look from KSP's point of view:
-
-```text
-KSFile
-  packageName: KSName
-  fileName: String
-  annotations: List<KSAnnotation>  (File annotations)
-  declarations: List<KSDeclaration>
-    KSClassDeclaration // class, interface, object
-      simpleName: KSName
-      qualifiedName: KSName
-      containingFile: String
-      typeParameters: KSTypeParameter
-      parentDeclaration: KSDeclaration
-      classKind: ClassKind
-      primaryConstructor: KSFunctionDeclaration
-      superTypes: List<KSTypeReference>
-      // contains inner classes, member functions, properties, etc.
-      declarations: List<KSDeclaration>
-    KSFunctionDeclaration // top level function
-      simpleName: KSName
-      qualifiedName: KSName
-      containingFile: String
-      typeParameters: KSTypeParameter
-      parentDeclaration: KSDeclaration
-      functionKind: FunctionKind
-      extensionReceiver: KSTypeReference?
-      returnType: KSTypeReference
-      parameters: List<KSValueParameter>
-      // contains local classes, local functions, local variables, etc.
-      declarations: List<KSDeclaration>
-    KSPropertyDeclaration // global variable
-      simpleName: KSName
-      qualifiedName: KSName
-      containingFile: String
-      typeParameters: KSTypeParameter
-      parentDeclaration: KSDeclaration
-      extensionReceiver: KSTypeReference?
-      type: KSTypeReference
-      getter: KSPropertyGetter
-        returnType: KSTypeReference
-      setter: KSPropertySetter
-        parameter: KSValueParameter
-```
-
-This view lists common things that are declared in the file: classes, functions, properties, and so on.
-
-## SymbolProcessorProvider: the entry point
-
-KSP expects an implementation of the `SymbolProcessorProvider` interface to instantiate `SymbolProcessor`:
+KSP uses an implementation of `SymbolProcessorProvider` as the entry point for creating a `SymbolProcessor` instance:
 
 ```kotlin
 interface SymbolProcessorProvider {
@@ -97,67 +58,23 @@ interface SymbolProcessorProvider {
 }
 ```
 
-While `SymbolProcessor` is defined as:
+The `SymbolProcessor` interface contains the processing logic. KSP calls the `process()` function and provides a 
+`Resolver`, which the processor uses to access symbols in the source code:
 
 ```kotlin
 interface SymbolProcessor {
-    fun process(resolver: Resolver): List<KSAnnotated> // Let's focus on this
+    fun process(resolver: Resolver): List<KSAnnotated>
     fun finish() {}
     fun onError() {}
 }
 ```
 
-A `Resolver` provides `SymbolProcessor` with access to compiler details such as symbols.
-A processor that finds all top-level functions and non-local functions in top-level classes might look something like
-the following:
+For a step-by-step guide on how to implement and register a processor, see [Getting started with KSP](ksp-quickstart.md).
 
-```kotlin
-class HelloFunctionFinderProcessor : SymbolProcessor() {
-    // ...
-    val functions = mutableListOf<KSClassDeclaration>()
-    val visitor = FindFunctionsVisitor()
-
-    override fun process(resolver: Resolver) {
-        resolver.getAllFiles().forEach { it.accept(visitor, Unit) }
-    }
-
-    inner class FindFunctionsVisitor : KSVisitorVoid() {
-        override fun visitClassDeclaration(classDeclaration: KSClassDeclaration, data: Unit) {
-            classDeclaration.getDeclaredFunctions().forEach { it.accept(this, Unit) }
-        }
-
-        override fun visitFunctionDeclaration(function: KSFunctionDeclaration, data: Unit) {
-            functions.add(function)
-        }
-
-        override fun visitFile(file: KSFile, data: Unit) {
-            file.declarations.forEach { it.accept(this, Unit) }
-        }
-    }
-    // ...
-    
-    class Provider : SymbolProcessorProvider {
-        override fun create(environment: SymbolProcessorEnvironment): SymbolProcessor = TODO()
-    }
-}
-```
-
-## Resources
-
-* [Quickstart](ksp-quickstart.md)
-* [Why use KSP?](ksp-why-ksp.md)
-* [Examples](ksp-examples.md)
-* [How KSP models Kotlin code](ksp-additional-details.md)
-* [Reference for Java annotation processor authors](ksp-reference.md)
-* [Incremental processing notes](ksp-incremental.md)
-* [Multiple round processing notes](ksp-multi-round.md)
-* [KSP on multiplatform projects](ksp-multiplatform.md)
-* [Running KSP from command line](ksp-command-line.md)
-* [FAQ](ksp-faq.md)
 
 ## Supported libraries
 
-The table includes a list of popular libraries on Android and their various stages of support for KSP:
+This table lists popular libraries on Android and their various stages of support for KSP:
 
 | Library          | Status                                                                                            |
 |------------------|---------------------------------------------------------------------------------------------------|
@@ -178,8 +95,19 @@ The table includes a list of popular libraries on Android and their various stag
 | SealedX          | [Officially supported](https://github.com/skydoves/sealedx)                                       |
 | Ktorfit          | [Officially supported](https://github.com/Foso/Ktorfit)                                           |
 | Mockative        | [Officially supported](https://github.com/mockative/mockative)                                    |
+| Kotest           | [Officially supported](https://github.com/kotest/kotest)                                          |
 | DeeplinkDispatch | [Supported via airbnb/DeepLinkDispatch#323](https://github.com/airbnb/DeepLinkDispatch/pull/323)  |
 | Dagger           | [Alpha](https://dagger.dev/dev-guide/ksp)                                                         |
 | Motif            | [Alpha](https://github.com/uber/motif)                                                            |
 | Hilt             | [In progress](https://dagger.dev/dev-guide/ksp)                                                   |
 | Auto Factory     | [Not yet supported](https://github.com/google/auto/issues/982)                                    |
+
+## Other resources
+
+* [Getting started with KSP](ksp-quickstart.md)
+* [How KSP models Kotlin code](ksp-kotlin-model.md)
+* [Reference for Java annotation processor authors](ksp-reference.md)
+* [Incremental processing notes](ksp-incremental.md)
+* [Multiple round processing notes](ksp-multi-round.md)
+* [KSP on multiplatform projects](ksp-multiplatform.md)
+* [Running KSP from the command line](ksp-command-line.md)

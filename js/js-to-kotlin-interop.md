@@ -1,7 +1,7 @@
 [//]: # (title: Use Kotlin code from JavaScript)
 
 Depending on the selected [JavaScript Module](js-modules.md) system, the Kotlin/JS compiler generates different output.
-But in general, the Kotlin compiler generates normal JavaScript classes, functions and properties, which you can freely
+But in general, the Kotlin compiler generates normal JavaScript classes, functions, and properties, which you can freely
 use from JavaScript code. There are some subtle things you should remember, though.
 
 ## Isolating declarations in a separate JavaScript object in plain mode 
@@ -66,7 +66,7 @@ import { foo } from 'myModule';
 alert(foo());
 ```
 
-### @JsName annotation
+### `@JsName` annotation
 
 In some cases (for example, to support overloads), the Kotlin compiler mangles the names of generated functions and attributes
 in JavaScript code. To control the generated names, you can use the `@JsName` annotation:
@@ -102,7 +102,7 @@ Note that there are some cases in which the Kotlin compiler does not apply mangl
 - Any overridden functions in non-`external` classes inheriting from `external` classes are not mangled.
 
 The parameter of `@JsName` is required to be a constant string literal which is a valid identifier.
-The compiler will report an error on any attempt to pass non-identifier string to `@JsName`.
+The compiler will report an error on any attempt to pass a non-identifier string to `@JsName`.
 The following example produces a compile-time error:
 
 ```kotlin
@@ -110,31 +110,169 @@ The following example produces a compile-time error:
 external fun newC()
 ```
 
-### @JsExport annotation
+### `@JsExport` annotation
+<primary-label ref="experimental-general"/>
 
-> This feature is [Experimental](components-stability.md#stability-levels-explained).
-> Its design may change in future versions.
->
-{style="warning"} 
+By applying the `@JsExport` annotation to a top-level declaration (like a class, interface, or function), you can make
+Kotlin declarations available from JavaScript or TypeScript. The annotation exports all nested declarations with the
+name given in Kotlin.
 
-By applying the `@JsExport` annotation to a top-level declaration (like a class or function), you make the Kotlin
-declaration available from JavaScript. The annotation exports all nested declarations with the name given in Kotlin.
-It can also be applied on file-level using `@file:JsExport`.
+For example, here's how you can export a Kotlin interface with a nested class and a named companion object:
 
-To resolve ambiguities in exports (like overloads for functions with the same name), you can use the `@JsExport`
-annotation together with `@JsName` to specify the names for the generated and exported functions.
+```kotlin
+@JsExport
+interface Identity {
+     class Metadata(val tag: String)
+
+    companion object Registry {
+        val defaultTag = "GUEST"
+    }
+}
+```
 
 Currently, the `@JsExport` annotation is the only way to make your functions visible from Kotlin.
 
-For multiplatform projects, `@JsExport` is available in common code as well. It only has an effect when compiling for
-the JavaScript target, and allows you to also export Kotlin declarations that are not platform specific.
+The `@JsExport` annotation is also available:
 
-### @JsStatic
+* In common code in multiplatform projects. It only has an effect when compiling for the JavaScript target and allows you
+  to also export Kotlin declarations that are not platform-specific.
+* Together with the [`@JsName` annotation](#jsname-annotation) to specify the names for the generated and exported functions.
+  This helps to resolve ambiguities in exports (like overloads for functions with the same name).
+* At the file level using `@file:JsExport`.
 
-> This feature is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
-> Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-18891/JS-provide-a-way-to-declare-static-members-JsStatic).
->
-{style="warning"}
+#### Export value classes
+
+You can export Kotlin's [inline value classes](inline-classes.md) as regular TypeScript classes.
+
+To export a value class, mark it with the `@JsExport` annotation on the Kotlin side:
+
+```kotlin
+// Kotlin
+@JsExport
+@JvmInline
+value class Email(val address: String) {
+    init { require(address.contains("@")) { "Invalid email" } }
+}
+
+@JsExport
+class AuthService {
+    suspend fun login(email: Email): String = ...
+}
+```
+
+On the TypeScript side, it looks like a regular class:
+
+```typescript
+// TypeScript
+import { AuthService, Email } from "..."
+const auth = new AuthService();
+
+console.log(await auth.login(new Email("jane@example.com"))); 
+// "Welcome, jane@example.com!"
+console.log(await auth.login(new Email("not-an-email"))); 
+// "Invalid email"
+```
+
+#### Export suspending lambdas
+
+You can export Kotlin's [suspending lambda expressions](lambdas.md#lambda-expressions-and-anonymous-functions) as
+JavaScript [async functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function):
+
+1. To enable this feature, add the following compiler option to your `build.gradle.kts` file:
+
+    ```kotlin
+    kotlin {
+        js {
+            compilations.all {
+                compileTaskProvider.configure {
+                    compilerOptions {
+                        freeCompilerArgs.add("-Xsuspend-lambda-exporting")
+                    }
+                }
+            }
+        }
+    }
+    ```
+
+2. Mark the relevant Kotlin declarations with the `@JsExport` annotation:
+
+    ```kotlin
+    // Kotlin
+    @JsExport
+    class TaskRunner {
+        suspend fun runTask(task: suspend () -> String): String {
+            return task()
+        }
+    }
+    ```
+
+3. On the TypeScript side, the `suspend` lambda will be mapped to a regular `async` function:
+
+    ```typescript
+    // TypeScript
+    import { TaskRunner } from "..."
+    
+    const runner = new TaskRunner();
+    const result = await runner.runTask(async () => "done");
+    console.log(result); // "done"
+    ```
+
+### `@JsNoRuntime` annotation
+
+You can export Kotlin interfaces to JavaScript/TypeScript with the `@JsNoRuntime` annotation.
+It allows for direct mapping to regular TypeScript interfaces.
+
+To export a Kotlin interface, for example, from a Kotlin Multiplatform project:
+
+1. Annotate the Kotlin interface with `@JsNoRuntime` in common code:
+
+    ```kotlin
+    // commonMain
+    import kotlin.js.JsNoRuntime
+    
+    @JsNoRuntime
+    expect interface DataProcessor {
+        fun process(data: String): Int 
+    }
+    ```
+
+2. Provide the actual implementation with `@JsNoRuntime` in your JS-specific source code:
+
+    ```kotlin
+    // jsMain
+    import kotlin.js.JsNoRuntime
+    
+    @JsNoRuntime
+    actual interface DataProcessor {
+        actual fun process(data: String): Int
+    } 
+    ```
+    
+3. On the TypeScript side, the interface will be mapped to a regular TypeScript interface:
+    
+    ```typescript
+    // Generated .d.ts
+    export interface DataProcessor {
+        process(data: string): number;
+    }
+    ```
+
+For Kotlin Multiplatform projects, the general rules are:
+
+* Both `expect` and `actual` interface declarations must be annotated with `@JsNoRuntime`. The only exception is
+  `external` implementations in platform-specific code on the `actual` side that require no annotation.
+* Using `external` interface declarations in common code on the `expect` side is prohibited. Instead, use regular 
+  interfaces annotated with `@JsNoRuntime`.
+
+Exporting Kotlin interfaces with `@JsNoRuntime` has some restrictions. The annotation isn't allowed with:
+
+* `external` interfaces as they already behave as if they have `@JsNoRuntime` by default. Adding it results in a compiler warning.
+* `is` and `as` type checks.
+* Class references that use the [`::class` syntax](js-reflection.md).
+* Interfaces that are passed as [reified type argument](inline-functions.md#reified-type-parameters).
+
+### `@JsStatic`
+<primary-label ref="experimental-general"/>
 
 The `@JsStatic` annotation instructs the compiler to generate additional static methods for the target declaration.
 This helps you use static members from your Kotlin code directly in JavaScript.
@@ -166,6 +304,9 @@ C.Companion.callNonStatic(); // The only way it works
 
 It's also possible to apply the `@JsStatic` annotation to a property of an object or a companion object, making its getter
 and setter methods static members in that object or the class containing the companion object.
+
+This feature is [Experimental](components-stability.md#stability-levels-explained). Share your feedback in our issue tracker,
+[YouTrack](https://youtrack.jetbrains.com/issue/KT-18891/JS-provide-a-way-to-declare-static-members-JsStatic).
 
 ### Use `BigInt` type to represent Kotlin's `Long` type
 <primary-label ref="experimental-general"/>
@@ -199,49 +340,73 @@ To enable this feature:
 1. Allow exporting `Long` in Kotlin/JS. Add the following compiler option to the `freeCompilerArgs` attribute
    in your `build.gradle(.kts)` file:
 
- ```kotlin
+     ```kotlin
+    // build.gradle.kts
+    kotlin {
+        js {
+            ...
+            compilerOptions { 
+                freeCompilerArgs.add("-XXLanguage:+JsAllowLongInExportedDeclarations")
+            }
+        }
+    }
+    ```
+
+2. Enable the `BigInt` type. See how to enable it in [Use `BigInt` type to represent Kotlin's `Long` type](#use-bigint-type-to-represent-kotlin-s-long-type).
+
+### Use `BigInt64Array` type to represent Kotlin's `LongArray` type
+<primary-label ref="experimental-general"/>
+
+Kotlin/JS can use JavaScript's built-in `BigInt64Array` type
+to represent Kotlin's `LongArray` values when compiling to JavaScript.
+
+To enable support for the `BigInt64Array` type, add the following compiler option to your
+`build.gradle(.kts)` file:
+
+```kotlin
 // build.gradle.kts
 kotlin {
     js {
         ...
-        compilerOptions { 
-            freeCompilerArgs.add("-XXLanguage:+JsAllowLongInExportedDeclarations")
+        compilerOptions {
+            freeCompilerArgs.add("-Xes-long-as-bigint")
         }
     }
 }
 ```
 
-2. Enable the `BigInt` type. See how to enable it in [Use of `BigInt` type to represent Kotlin's `Long` type](#use-bigint-type-to-represent-kotlin-s-long-type).
+This feature is [Experimental](components-stability.md#stability-levels-explained). Share your feedback in our issue tracker,
+[YouTrack](https://youtrack.jetbrains.com/issue/KT-79284/Use-BigInt64Array-for-LongArray).
 
 ## Kotlin types in JavaScript
 
 See how Kotlin types are mapped to JavaScript ones:
 
-| Kotlin                                                           | JavaScript                | Comments                                                                              |
-|------------------------------------------------------------------|---------------------------|---------------------------------------------------------------------------------------|
-| `Byte`, `Short`, `Int`, `Float`, `Double`                        | `Number`                  |                                                                                       |
-| `Char`                                                           | `Number`                  | The number represents the character's code.                                           |
-| `Long`                                                           | `BigInt`                  | Needs the [`-Xes-long-as-bigint` compiler option](compiler-reference.md#xes-long-as-bigint) configured. |
-| `Boolean`                                                        | `Boolean`                 |                                                                                       |
-| `String`                                                         | `String`                  |                                                                                       |
-| `Array`                                                          | `Array`                   |                                                                                       |
-| `ByteArray`                                                      | `Int8Array`               |                                                                                       |
-| `ShortArray`                                                     | `Int16Array`              |                                                                                       |
-| `IntArray`                                                       | `Int32Array`              |                                                                                       |
-| `CharArray`                                                      | `UInt16Array`             | Carries the property `$type$ == "CharArray"`.                                         |
-| `FloatArray`                                                     | `Float32Array`            |                                                                                       |
-| `DoubleArray`                                                    | `Float64Array`            |                                                                                       |
-| `LongArray`                                                      | `Array<kotlin.Long>`      | Carries the property `$type$ == "LongArray"`. Also see Kotlin's Long type comment.    |
-| `BooleanArray`                                                   | `Int8Array`               | Carries the property `$type$ == "BooleanArray"`.                                      |
-| `List`, `MutableList`                                            | `KtList`, `KtMutableList` | Exposes an `Array` via `KtList.asJsReadonlyArrayView` or `KtMutableList.asJsArrayView`. |
-| `Map`, `MutableMap`                                              | `KtMap`, `KtMutableMap`   | Exposes an ES2015 `Map` via `KtMap.asJsReadonlyMapView` or `KtMutableMap.asJsMapView`. |
-| `Set`, `MutableSet`                                              | `KtSet`, `KtMutableSet`   | Exposes an ES2015 `Set` via `KtSet.asJsReadonlySetView` or `KtMutableSet.asJsSetView`. |
-| `Unit`                                                           | Undefined                 | Exportable when used as return type, but not when used as parameter type.             |
-| `Any`                                                            | `Object`                  |                                                                                       |
-| `Throwable`                                                      | `Error`                   |                                                                                       |
-| `enum class Type`                                                | `Type`                    | Enum entries are exposed as static class properties (`Type.ENTRY`).                   |
-| Nullable `Type?`                                                 | `Type                     | null                                                                                  | undefined` |                                                                                            |
-| All other Kotlin types, except for those marked with `@JsExport` | Not supported             | Includes Kotlin's [unsigned integer types](unsigned-integer-types.md).                |
+| Kotlin                                                           | JavaScript                | Comments                                                                                                       |
+|------------------------------------------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------|
+| `Byte`, `Short`, `Int`, `Float`, `Double`                        | `Number`                  |                                                                                                                |
+| `Char`                                                           | `Number`                  | The number represents the character's code.                                                                    |
+| `Long`                                                           | `BigInt`                  | Set [`target = "es2020"`](js-project-setup.md#set-an-ecmascript-target) or configure the [`-Xes-long-as-bigint` compiler option](compiler-reference.md#xes-long-as-bigint).          |
+| `Boolean`                                                        | `Boolean`                 |                                                                                                                |
+| `String`                                                         | `String`                  |                                                                                                                |
+| `Array`                                                          | `Array`                   |                                                                                                                |
+| `ByteArray`                                                      | `Int8Array`               |                                                                                                                |
+| `ShortArray`                                                     | `Int16Array`              |                                                                                                                |
+| `IntArray`                                                       | `Int32Array`              |                                                                                                                |
+| `CharArray`                                                      | `UInt16Array`             | Carries the property `$type$ == "CharArray"`.                                                                  |
+| `FloatArray`                                                     | `Float32Array`            |                                                                                                                |
+| `DoubleArray`                                                    | `Float64Array`            |                                                                                                                |
+| `LongArray`                                                      | `BigInt64Array`           | Set [`target = "es2020"`](js-project-setup.md#set-an-ecmascript-target) or configure the [`-Xes-long-as-bigint` compiler option](compiler-reference.md#xes-long-as-bigint).          |
+| `BooleanArray`                                                   | `Int8Array`               | Carries the property `$type$ == "BooleanArray"`.                                                               |
+| `List`, `MutableList`                                            | `KtList`, `KtMutableList` | Exposes an `Array` via `KtList.asJsReadonlyArrayView` or `KtMutableList.asJsArrayView`.                        |
+| `Map`, `MutableMap`                                              | `KtMap`, `KtMutableMap`   | Exposes an ES2015 `Map` via `KtMap.asJsReadonlyMapView` or `KtMutableMap.asJsMapView`.                         |
+| `Set`, `MutableSet`                                              | `KtSet`, `KtMutableSet`   | Exposes an ES2015 `Set` via `KtSet.asJsReadonlySetView` or `KtMutableSet.asJsSetView`.                         |
+| `Unit`                                                           | `undefined`                 | Exportable when used as return type, but not when used as parameter type.                                      |
+| `Any`                                                            | `Object`                  |                                                                                                                |
+| `Throwable`                                                      | `Error`                   |                                                                                                                |
+| `enum class Type`                                                | `Type`                    | Enum entries are exposed as static class properties (`Type.ENTRY`).                                            |
+| Nullable `Type?`                                                 | `Type`, ` null`, or `undefined` |                                                                                                                |
+| All other Kotlin types, except for those marked with `@JsExport` | Not supported             | Includes Kotlin's [unsigned integer types](unsigned-integer-types.md).                                                              |
 
 Additionally, it is important to know that:
 

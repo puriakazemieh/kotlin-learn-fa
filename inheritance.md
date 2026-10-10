@@ -1,7 +1,7 @@
 [//]: # (title: Inheritance)
 
 > Before creating an inheritance hierarchy with classes, consider using [abstract classes](classes.md#abstract-classes) or [interfaces](interfaces.md). 
-> You can inherit from abstract classes and interfaces by default. They are designed so that other classes can inherit their members amd implement them.
+> You can inherit from abstract classes and interfaces by default. They are designed so that other classes can inherit their members and implement them.
 >
 {style="tip"}
 
@@ -34,7 +34,7 @@ If the derived class has a primary constructor, the base class can (and must) be
 according to its parameters.
 
 If the derived class has no primary constructor, then each secondary constructor has to initialize the base type using
-the `super` keyword or it has to delegate to another constructor which does. Note that in this case different secondary
+the `super` keyword or it has to delegate to another constructor which does. Note that in this case, different secondary
 constructors can call different constructors of the base type:
 
 ```kotlin

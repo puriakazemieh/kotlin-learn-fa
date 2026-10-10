@@ -2,15 +2,6 @@
 
 <no-index/>
 
-<tldr>
-    <p><img src="icon-1-done.svg" width="20" alt="First step" /> <a href="kotlin-tour-hello-world.md">Hello world</a><br />
-        <img src="icon-2-done.svg" width="20" alt="Second step" /> <a href="kotlin-tour-basic-types.md">Basic types</a><br />
-        <img src="icon-3.svg" width="20" alt="Third step" /> <strong>Collections</strong><br />
-        <img src="icon-4-todo.svg" width="20" alt="Fourth step" /> <a href="kotlin-tour-control-flow.md">Control flow</a><br />
-        <img src="icon-5-todo.svg" width="20" alt="Fifth step" /> <a href="kotlin-tour-functions.md">Functions</a><br />
-        <img src="icon-6-todo.svg" width="20" alt="Sixth step" /> <a href="kotlin-tour-classes.md">Classes</a><br />
-        <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
-</tldr>
 
 When programming, it is useful to be able to group data into structures for later processing. Kotlin provides collections
 for exactly this purpose.
@@ -427,14 +418,14 @@ For more information on what you can do with collections, see [Collections](coll
 Now that you know about basic types and how to manage collections, it's time to explore the [control flow](kotlin-tour-control-flow.md)
 that you can use in your programs.
 
-## Practice
+## Practice {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true"}
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Count the total number of items in two lists">
 
 You have a list of “green” numbers and a list of “red” numbers. Complete the code to print how many numbers there
 are in total.
 
-|---|---|
 ```kotlin
 fun main() {
     val greenNumbers = listOf(1, 4, 23)
@@ -444,7 +435,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-collections-exercise-1"}
 
-|---|---|
 ```kotlin
 fun main() {
     val greenNumbers = listOf(1, 4, 23)
@@ -455,12 +445,12 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true"}
+</def>
+<def title="Check whether a requested protocol is supported">
 
 You have a set of protocols supported by your server. A user requests to use a particular protocol. Complete the program
 to check whether the requested protocol is supported or not (`isSupported` must be a Boolean value).
 
-|---|---|
 ```kotlin
 fun main() {
     val SUPPORTED = setOf("HTTP", "HTTPS", "FTP")
@@ -478,7 +468,6 @@ function to help you with this.
     </def>
 </deflist>
 
-|---|---|
 ```kotlin
 fun main() {
     val SUPPORTED = setOf("HTTP", "HTTPS", "FTP")
@@ -489,31 +478,40 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed" collapsible="true"}
+</def>
+<def title="Spell out a number using a map">
 
 Define a map that relates integer numbers from 1 to 3 to their corresponding spelling. Use this map to spell the given 
 number.
 
-|---|---|
 ```kotlin
 fun main() {
     val number2word = // Write your code here
     val n = 2
-    println("$n is spelt as '${<Write your code here >}'")
+    println("$n is spelled as '${<Write your code here >}'")
 }
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-collections-exercise-3"}
 
-|---|---|
 ```kotlin
 fun main() {
     val number2word = mapOf(1 to "one", 2 to "two", 3 to "three")
     val n = 2
-    println("$n is spelt as '${number2word[n]}'")
+    println("$n is spelled as '${number2word[n]}'")
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-3"}
 
-## Next step
+</def>
+</deflist>
 
-[Control flow](kotlin-tour-control-flow.md)
+<seealso></seealso>
+
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-basic-types.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-control-flow.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>

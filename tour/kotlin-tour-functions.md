@@ -2,15 +2,6 @@
 
 <no-index/>
 
-<tldr>
-    <p><img src="icon-1-done.svg" width="20" alt="First step" /> <a href="kotlin-tour-hello-world.md">Hello world</a><br />
-        <img src="icon-2-done.svg" width="20" alt="Second step" /> <a href="kotlin-tour-basic-types.md">Basic types</a><br />
-        <img src="icon-3-done.svg" width="20" alt="Third step" /> <a href="kotlin-tour-collections.md">Collections</a><br />
-        <img src="icon-4-done.svg" width="20" alt="Fourth step" /> <a href="kotlin-tour-control-flow.md">Control flow</a><br />
-        <img src="icon-5.svg" width="20" alt="Fifth step" /> <strong>Functions</strong><br />
-        <img src="icon-6-todo.svg" width="20" alt="Sixth step" /> <a href="kotlin-tour-classes.md">Classes</a><br />
-        <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
-</tldr>
 
 You can declare your own functions in Kotlin using the `fun` keyword.
 
@@ -119,7 +110,7 @@ fun main() {
 
 ## Functions without return
 
-If your function doesn't return a useful value then its return type is `Unit`. `Unit` is a type with only one value – 
+If your function doesn't return a useful value, then its return type is `Unit`. `Unit` is a type with only one value – 
 `Unit`. You don't have to declare that `Unit` is returned explicitly in your function body. This means that you don't 
 have to use the `return` keyword or declare a return type:
 
@@ -211,9 +202,10 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-function-early-return"}
 
-## Functions practice
+## Practice: Functions
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="functions-exercise-1"}
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Calculate the area of a circle" id="functions-exercise-1">
 
 Write a function called `circleArea` that takes the radius of a circle in integer format as a parameter and outputs the
 area of that circle.
@@ -229,7 +221,6 @@ area of that circle.
     </def>
 </deflist>
 
-|---|---|
 ```kotlin
 import kotlin.math.PI
 
@@ -241,7 +232,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-functions-exercise-1"}
 
-|---|---|
 ```kotlin
 import kotlin.math.PI
 
@@ -255,11 +245,11 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="functions-exercise-2"}
+</def>
+<def title="Rewrite a function as a single expression" id="functions-exercise-2">
 
 Rewrite the `circleArea` function from the previous exercise as a single-expression function.
 
-|---|---|
 ```kotlin
 import kotlin.math.PI
 
@@ -271,7 +261,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-functions-exercise-2"}
 
-|---|---|
 ```kotlin
 import kotlin.math.PI
 
@@ -283,13 +272,13 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="functions-exercise-3"}
+</def>
+<def title="Refactor a function using default parameters and named arguments" id="functions-exercise-3">
 
 You have a function that translates a time interval given in hours, minutes, and seconds into seconds. In most cases,
 you need to pass only one or two function parameters while the rest are equal to 0. Improve the function and the code that
 calls it by using default parameter values and named arguments so that the code is easier to read.
 
-|---|---|
 ```kotlin
 fun intervalInSeconds(hours: Int, minutes: Int, seconds: Int) =
     ((hours * 60) + minutes) * 60 + seconds
@@ -304,7 +293,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-functions-exercise-3"}
 
-|---|---|
 ```kotlin
 fun intervalInSeconds(hours: Int = 0, minutes: Int = 0, seconds: Int = 0) =
     ((hours * 60) + minutes) * 60 + seconds
@@ -318,6 +306,9 @@ fun main() {
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-3"}
+
+</def>
+</deflist>
 
 ## Lambda expressions
 
@@ -347,7 +338,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-variable"}
 
-Lambda expressions can be hard to understand at first glance so let's break it down. Lambda expressions are written 
+Lambda expressions can be hard to understand at first glance, so let's break it down. Lambda expressions are written 
 within curly braces `{}`.
 
 Within the lambda expression, you write:
@@ -425,7 +416,7 @@ the type of function parameters (`x`) in the lambda expression.
 >
 {style="note"}
 
-Another good example, is using the [`.map()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html) 
+Another good example is using the [`.map()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html) 
 function to transform items in a collection:
 
 ```kotlin
@@ -480,7 +471,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-function-type"}
 
-If your lambda expression has no parameters then the parentheses `()` are left empty. For example: `() -> Unit`
+If your lambda expression has no parameters, then the parentheses `()` are left empty. For example: `() -> Unit`
 
 > You must declare parameter and return types either in the lambda expression or as a function type. Otherwise, the
 > compiler won't be able to know what type your lambda expression is.
@@ -561,15 +552,15 @@ For more information on lambda expressions, see [Lambda expressions and anonymou
 
 The next step in our tour is to learn about [classes](kotlin-tour-classes.md) in Kotlin.
 
-## Lambda expressions practice
+## Practice: Lambda expressions {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="lambdas-exercise-1"}
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Build a list of URLs using a lambda expression" id="lambdas-exercise-1">
 
 You have a list of actions supported by a web service, a common prefix for all requests, and an ID of a particular resource.
 To request an action `title` over the resource with ID: 5, you need to create the following URL: `https://example.com/book-info/5/title`.
 Use a lambda expression to create a list of URLs from the list of actions.
 
-|---|---|
 ```kotlin
 fun main() {
     val actions = listOf("title", "year", "author")
@@ -581,7 +572,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambdas-exercise-1"}
 
-|---|---|
 ```kotlin
 fun main() {
     val actions = listOf("title", "year", "author")
@@ -593,12 +583,12 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="lambdas-exercise-2"}
+</def>
+<def title="Repeat an action multiple times" id="lambdas-exercise-2">
 
 Write a function that takes an `Int` value and an action (a function with type `() -> Unit`) which then repeats the 
 action the given number of times. Then use this function to print “Hello” 5 times.
 
-|---|---|
 ```kotlin
 fun repeatN(n: Int, action: () -> Unit) {
     // Write your code here
@@ -610,7 +600,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambdas-exercise-2"}
 
-|---|---|
 ```kotlin
 fun repeatN(n: Int, action: () -> Unit) {
     for (i in 1..n) {
@@ -626,6 +615,16 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-2"}
 
-## Next step
+</def>
+</deflist>
 
-[Classes](kotlin-tour-classes.md)
+<seealso></seealso>
+
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-control-flow.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-classes.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>

@@ -40,19 +40,11 @@ You can use classes or functions from a Kotlin project in your scratches.
 To use classes or functions from a project in a scratch, import them into the scratch file with the
 `import` statement, as usual. Then write your code and run it with the appropriate module selected in the **Use classpath of module** list.
 
-Scratches and use the compiled versions of connected modules. So, if you modify a module's source files,
+Scratches use the compiled versions of connected modules. So, if you modify a module's source files,
 the changes will propagate to scratches when you rebuild the module.
 To rebuild the module automatically before each run of a scratch, select **Make module before Run**.
 
 ![Scratch select module](scratch-select-module.png){width=700}
-
-### Run as REPL 
-
-To evaluate each particular expression in a scratch, run it with **Use REPL** selected. The code lines
-will run sequentially, providing the results of each call.
-You can later use the results in the same file by referring to their auto-generated `res*` names (they are shown in the corresponding lines).
-
-![Scratch REPL](scratch-repl.png){width=700}
 
 ## Browser: Kotlin Playground
 

@@ -1,18 +1,7 @@
-[//]: # (title: Intermediate: Scope functions)
+[//]: # (title: Scope functions)
 
 <no-index/>
 
-<tldr>
-    <p><img src="icon-1-done.svg" width="20" alt="First step" /> <a href="kotlin-tour-intermediate-extension-functions.md">Extension functions</a><br />
-        <img src="icon-2.svg" width="20" alt="Second step" /> <strong>Scope functions</strong><br />
-        <img src="icon-3-todo.svg" width="20" alt="Third step" /> <a href="kotlin-tour-intermediate-lambdas-receiver.md">Lambda expressions with receiver</a><br />
-        <img src="icon-4-todo.svg" width="20" alt="Fourth step" /> <a href="kotlin-tour-intermediate-classes-interfaces.md">Classes and interfaces</a><br />
-        <img src="icon-5-todo.svg" width="20" alt="Fifth step" /> <a href="kotlin-tour-intermediate-objects.md">Objects</a><br />
-        <img src="icon-6-todo.svg" width="20" alt="Sixth step" /> <a href="kotlin-tour-intermediate-open-special-classes.md">Open and special classes</a><br />
-        <img src="icon-7-todo.svg" width="20" alt="Seventh step" /> <a href="kotlin-tour-intermediate-properties.md">Properties</a><br />
-        <img src="icon-8-todo.svg" width="20" alt="Eighth step" /> <a href="kotlin-tour-intermediate-null-safety.md">Null safety</a><br />
-        <img src="icon-9-todo.svg" width="20" alt="Ninth step" /> <a href="kotlin-tour-intermediate-libraries-and-apis.md">Libraries and APIs</a></p>
-</tldr>
 
 In this chapter, you'll build on your understanding of extension functions to learn how to use scope functions to 
 write more idiomatic code.
@@ -148,7 +137,10 @@ class Client() {
     var token: String? = null
     fun connect() = println("connected!")
     fun authenticate() = println("authenticated!")
-    fun getData(): String = "Mock data"
+    fun getData() : String {
+        println("getting data!")
+        return "Mock data"
+    }
 }
 
 val client = Client()
@@ -160,6 +152,7 @@ fun main() {
     client.authenticate()
     // authenticated!
     client.getData()
+    // getting data!
 }
 ```
 {kotlin-runnable="true" id="kotlin-tour-scope-function-apply-before"}
@@ -179,19 +172,23 @@ class Client() {
     var token: String? = null
     fun connect() = println("connected!")
     fun authenticate() = println("authenticated!")
-    fun getData(): String = "Mock data"
+    fun getData() : String {
+        println("getting data!")
+        return "Mock data"
+    }
 }
 //sampleStart
 val client = Client().apply {
     token = "asdf"
     connect()
+    // connected!
     authenticate()
+    // authenticated!
 }
 
 fun main() {
     client.getData()
-    // connected!
-    // authenticated!
+    // getting data!
 }
 //sampleEnd
 ```
@@ -222,7 +219,10 @@ class Client() {
     var token: String? = null
     fun connect() = println("connected!")
     fun authenticate() = println("authenticated!")
-    fun getData(): String = "Mock data"
+    fun getData() : String {
+        println("getting data!")
+        return "Mock data"
+    }
 }
 
 //sampleStart
@@ -237,6 +237,7 @@ fun main() {
         authenticate()
         // authenticated!
         getData()
+        // getting data!
     }
 }
 //sampleEnd
@@ -321,7 +322,7 @@ Now the example:
 * Passes a lambda expression to the `also` scope function that calls the `println()` function using the `medals` variable as a function parameter via the `it` keyword.
 
 Since the `also` function returns the object, it is useful for not only logging but debugging, chaining
-multiple operations, and performing other side-effect operations that don't affect the main flow of your code.
+multiple operations, and performing other side effect operations that don't affect the main flow of your code.
 
 ### With
 
@@ -414,9 +415,10 @@ of how these functions work in order to use them in your code.
 
 For more information about scope functions, see [Scope functions](scope-functions.md).
 
-## Practice
+## Practice {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="scope-functions-exercise-1"}
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Rewrite a function using safe calls and let" id="scope-functions-exercise-1">
 
 Rewrite the `.getPriceInEuros()` function as a single-expression function that uses safe call operators `?.` and the `let` scope function.
 
@@ -427,7 +429,6 @@ Rewrite the `.getPriceInEuros()` function as a single-expression function that u
     </def>
 </deflist>
 
-|---|---|
 ```kotlin
 data class ProductInfo(val priceInDollars: Double?)
 
@@ -464,7 +465,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-scope-functions-exercise-1"}
 
-|---|---|
 ```kotlin
 data class ProductInfo(val priceInDollars: Double?)
 
@@ -494,12 +494,12 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-scope-functions-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="scope-functions-exercise-2"}
+</def>
+<def title="Chain apply and also" id="scope-functions-exercise-2">
 
 You have an `updateEmail()` function that updates the email address of a user. Use the `apply` scope function
 to update the email address and then the `also` scope function to print a log message: `Updating email for user with ID: ${it.id}`.
 
-|---|---|
 ```kotlin
 data class User(val id: Int, var email: String)
 
@@ -516,7 +516,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-scope-functions-exercise-2"}
 
-|---|---|
 ```kotlin
 data class User(val id: Int, var email: String)
 
@@ -535,6 +534,16 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-scope-functions-solution-2"}
 
-## Next step
+</def>
+</deflist>
 
-[Intermediate: Lambda expressions with receiver](kotlin-tour-intermediate-lambdas-receiver.md)
+<seealso></seealso>
+
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-extension-functions.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-lambdas-receiver.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>

@@ -2,15 +2,6 @@
 
 <no-index/>
 
-<tldr>
-    <p><img src="icon-1-done.svg" width="20" alt="First step" /> <a href="kotlin-tour-hello-world.md">Hello world</a><br />
-        <img src="icon-2-done.svg" width="20" alt="Second step" /> <a href="kotlin-tour-basic-types.md">Basic types</a><br />
-        <img src="icon-3-done.svg" width="20" alt="Third step" /> <a href="kotlin-tour-collections.md">Collections</a><br />
-        <img src="icon-4-done.svg" width="20" alt="Fourth step" /> <a href="kotlin-tour-control-flow.md">Control flow</a><br />
-        <img src="icon-5-done.svg" width="20" alt="Fifth step" /> <a href="kotlin-tour-functions.md">Functions</a><br />
-        <img src="icon-6.svg" width="20" alt="Sixth step" /> <strong>Classes</strong><br />
-        <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
-</tldr>
 
 Kotlin supports object-oriented programming with classes and objects. Objects are useful for storing data in your program.
 Classes allow you to declare a set of characteristics for an object. When you create objects from a class, you can save
@@ -151,6 +142,10 @@ To declare a data class, use the keyword `data`:
 data class User(val name: String, val id: Int)
 ```
 
+The Kotlin compiler only uses the properties defined inside the [primary constructor](classes.md#primary-constructor)
+when generating member functions. If you declare properties in the data class body, they aren't included in the output
+of the generated functions.
+
 The most useful predefined member functions of data classes are:
 
 | **Function**       | **Description**                                                                          |
@@ -251,15 +246,15 @@ For more information about data classes, see [Data classes](data-classes.md).
 
 The last chapter of this tour is about Kotlin's [null safety](kotlin-tour-null-safety.md).
 
-## Practice
+## Practice {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true"}
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Declare a data class">
 
 Define a data class `Employee` with two properties: one for a name, and another for a salary. Make sure that the property
 for salary is mutable, otherwise you won't get a salary boost at the end of the year! The main function demonstrates how
 you can use this data class.
 
-|---|---|
 ```kotlin
 // Write your code here
 
@@ -272,7 +267,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-exercise-1"}
 
-|---|---|
 ```kotlin
 data class Employee(val name: String, var salary: Int)
 
@@ -285,11 +279,11 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true"}
+</def>
+<def title="Declare nested data classes">
 
 Declare the additional data classes that are needed for this code to compile.
 
-|---|---|
 ```kotlin
 data class Person(val name: Name, val address: Address, val ownsAPet: Boolean = true)
 // Write your code here
@@ -305,7 +299,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-exercise-2"}
 
-|---|---|
 ```kotlin
 data class Person(val name: Name, val address: Address, val ownsAPet: Boolean = true)
 data class Name(val first: String, val last: String)
@@ -322,7 +315,8 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed" collapsible="true"}
+</def>
+<def title="Generate random employees with a class">
 
 To test your code, you need a generator that can create random employees. Define a `RandomEmployeeGenerator` class with 
 a fixed list of potential names (inside the class body). Configure the class with a minimum and maximum salary (inside 
@@ -347,7 +341,6 @@ how you can use this class.
     </def>
 </deflist>
 
-|---|---|
 ```kotlin
 import kotlin.random.Random
 
@@ -367,7 +360,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-exercise-3"}
 
-|---|---|
 ```kotlin
 import kotlin.random.Random
 
@@ -392,6 +384,16 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-3"}
 
-## Next step
+</def>
+</deflist>
 
-[Null safety](kotlin-tour-null-safety.md)
+<seealso></seealso>
+
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-functions.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-null-safety.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>

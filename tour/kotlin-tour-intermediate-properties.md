@@ -1,18 +1,7 @@
-[//]: # (title: Intermediate: Properties)
+[//]: # (title: Properties)
 
 <no-index/>
 
-<tldr>
-    <p><img src="icon-1-done.svg" width="20" alt="First step" /> <a href="kotlin-tour-intermediate-extension-functions.md">Extension functions</a><br />
-        <img src="icon-2-done.svg" width="20" alt="Second step" /> <a href="kotlin-tour-intermediate-scope-functions.md">Scope functions</a><br />
-        <img src="icon-3-done.svg" width="20" alt="Third step" /> <a href="kotlin-tour-intermediate-lambdas-receiver.md">Lambda expressions with receiver</a><br />
-        <img src="icon-4-done.svg" width="20" alt="Fourth step" /> <a href="kotlin-tour-intermediate-classes-interfaces.md">Classes and interfaces</a><br />
-        <img src="icon-5-done.svg" width="20" alt="Fifth step" /> <a href="kotlin-tour-intermediate-objects.md">Objects</a><br />
-        <img src="icon-6-done.svg" width="20" alt="Sixth step" /> <a href="kotlin-tour-intermediate-open-special-classes.md">Open and special classes</a><br />
-        <img src="icon-7.svg" width="20" alt="Seventh step" /> <strong>Properties</strong><br />
-        <img src="icon-8-todo.svg" width="20" alt="Eighth step" /> <a href="kotlin-tour-intermediate-null-safety.md">Null safety</a><br />
-        <img src="icon-9-todo.svg" width="20" alt="Ninth step" /> <a href="kotlin-tour-intermediate-libraries-and-apis.md">Libraries and APIs</a></p>
-</tldr>
 
 In the beginner tour, you learned how properties are used to declare characteristics of class instances and how to access
 them. This chapter digs deeper into how properties work in Kotlin and explores other ways that you can use them in your code.
@@ -426,9 +415,10 @@ updating a UI or to perform additional checks, like verifying the validity of da
 
 For more information, see [Observable properties](delegated-properties.md#observable-properties).
 
-## Practice
+## Practice {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="properties-exercise-1"}
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Find out-of-stock books" id="properties-exercise-1">
 
 You manage an inventory system at a bookstore. The inventory is stored in a list where each item represents the quantity
 of a specific book. For example, `listOf(3, 0, 7, 12)` means the store has 3 copies of the first book, 0 of the second,
@@ -448,8 +438,6 @@ Write a function called `findOutOfStockBooks()` that returns a list of indices f
     </def>
 </deflist>
 
-|--|--|
-
 ```kotlin
 fun findOutOfStockBooks(inventory: List<Int>): List<Int> {
     // Write your code here
@@ -463,7 +451,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-exercise-1"}
 
-|---|---|
 ```kotlin
 fun findOutOfStockBooks(inventory: List<Int>): List<Int> {
     val outOfStockIndices = mutableListOf<Int>()
@@ -483,7 +470,6 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-properties-solution-1-1"}
 
-|---|---|
 ```kotlin
 fun findOutOfStockBooks(inventory: List<Int>): List<Int> = buildList {
     for (index in inventory.indices) {
@@ -501,7 +487,8 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-properties-solution-1-2"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="properties-exercise-2"}
+</def>
+<def title="Convert kilometers to miles" id="properties-exercise-2">
 
 You have a travel app that needs to display distances in both kilometers and miles. Create an extension property for the
 `Double` type called `asMiles` to convert a distance in kilometers to miles:
@@ -515,8 +502,6 @@ You have a travel app that needs to display distances in both kilometers and mil
         Remember that extension properties need a custom <code>get()</code> function.
     </def>
 </deflist>
-
-|---|---|
 
 ```kotlin
 val // Write your code here
@@ -533,7 +518,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-exercise-2"}
 
-|---|---|
 ```kotlin
 val Double.asMiles: Double
     get() = this * 0.621371
@@ -550,13 +534,12 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="properties-exercise-3"}
+</def>
+<def title="Initialize health checks lazily" id="properties-exercise-3">
 
 You have a system health checker that can determine the state of a cloud system. However, the two functions it can run 
 to perform a health check are performance intensive. Use lazy properties to initialize the checks so that the expensive
 functions are only run when needed:
-
-|---|---|
 
 ```kotlin
 fun checkAppServer(): Boolean {
@@ -583,7 +566,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-exercise-3"}
 
-|---|---|
 ```kotlin
 fun checkAppServer(): Boolean {
     println("Performing application server health check...")
@@ -610,7 +592,8 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-3"}
 
-### Exercise 4 {initial-collapse-state="collapsed" collapsible="true" id="properties-exercise-4"}
+</def>
+<def title="Track budget changes" id="properties-exercise-4">
 
 You're building a simple budget tracker app. The app needs to observe changes to the user's remaining budget and notify
 them whenever it goes below a certain threshold. You have a `Budget` class that is initialized with a `totalBudget` property
@@ -618,8 +601,6 @@ that contains the initial budget amount. Within the class, create an observable 
 
 * A warning when the value is lower than 20% of the initial budget.
 * An encouraging message when the budget is increased from the previous value.
-
-|---|---|
 
 ```kotlin
 import kotlin.properties.Delegates.observable
@@ -641,7 +622,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-exercise-4"}
 
-|---|---|
 ```kotlin
 import kotlin.properties.Delegates.observable
 
@@ -668,6 +648,16 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-4"}
 
-## Next step
+</def>
+</deflist>
 
-[Intermediate: Null safety](kotlin-tour-intermediate-null-safety.md)
+<seealso></seealso>
+
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-open-special-classes.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-null-safety.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>

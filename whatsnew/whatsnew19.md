@@ -1,6 +1,8 @@
 [//]: # (title: What's new in Kotlin 1.9.0)
 
-_[Release date: July 6, 2023](releases.md#release-details)_
+<web-summary>Read the Kotlin 1.9.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and Wasm, and build tool support for Gradle and Maven.</web-summary>
+
+_[Release date: July 6, 2023](releases.md#release-history)_
 
 The Kotlin 1.9.0 release is out and the K2 compiler for the JVM is now in **Beta**. Additionally, here are some of the main highlights:
 
@@ -18,6 +20,10 @@ The Kotlin 1.9.0 release is out and the K2 compiler for the JVM is now in **Beta
 You can also find a short overview of the updates in this video:
 
 <video src="https://www.youtube.com/v/fvwTZc-dxsM" title="What's new in Kotlin 1.9.0"/>
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## IDE support
 
@@ -497,10 +503,8 @@ The new layout requires the Android Gradle plugin version 7.0 or later and is su
 
 ### Preview of the Gradle configuration cache
 
-<anchor name="preview-of-gradle-configuration-cache"/>
-
-Kotlin 1.9.0 comes with support for the [Gradle configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html)
-in multiplatform libraries. If you're a library author, you can already benefit from the improved build performance.
+<p id="preview-of-gradle-configuration-cache">Kotlin 1.9.0 comes with support for the <a href="https://docs.gradle.org/current/userguide/configuration_cache.html">Gradle configuration cache</a>
+in multiplatform libraries. If you're a library author, you can already benefit from the improved build performance.</p>
 
 The Gradle configuration cache speeds up the build process by reusing the results of the configuration phase for subsequent
 builds. The feature has become Stable since Gradle 8.1. To enable it, follow the instructions in the [Gradle documentation](https://docs.gradle.org/current/userguide/configuration_cache.html#config_cache:usage).
@@ -1229,6 +1233,6 @@ If the repository is not specified, Gradle uses the sunset JCenter repository, w
 
 ## Compatibility guide for Kotlin 1.9.0
 
-Kotlin 1.9.0 is a [feature release](kotlin-evolution-principles.md#language-and-tooling-releases) and can, therefore, 
+Kotlin 1.9.0 is a feature release and can, therefore, 
 bring changes that are incompatible with your code written for earlier versions of the language. Find the detailed list 
 of these changes in the [Compatibility guide for Kotlin 1.9.0](compatibility-guide-19.md).

@@ -26,7 +26,7 @@ compilations, making them take less time to complete.
 
 When building in containers (such as Docker) or with continuous integration systems, the compiler may have to create
 the `~/.konan` directory from scratch for each build. To avoid this step, configure your environment to preserve `~/.konan`
-between builds. For example, redefine its location using the `kotlin.data.dir` Gradle property.
+between builds. For example, redefine its location using the `konan.data.dir` Gradle property.
 
 Alternatively, you can use the `-Xkonan-data-dir` compiler option to configure your custom path to the directory via
 the `cinterop` and `konanc` tools.
@@ -97,10 +97,35 @@ Similarly, instead of running `assembleXCFramework`, you can run `assembleShared
 >
 {style="tip"}
 
-### Don't disable Gradle daemon
+### Enable caches for release binaries
+<primary-label ref="experimental-opt-in"/>
 
-Don't disable the [Gradle daemon](https://docs.gradle.org/current/userguide/gradle_daemon.html) without having a good reason. By default, [Kotlin/Native runs from the Gradle daemon](https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-3-70-released/#kotlin-native).
-When it's enabled, the same JVM process is used, and there is no need to warm it up for each compilation.
+By default, Kotlin/Native compiles release binaries in the link-time optimization (LTO) mode: all modules are compiled and
+optimized together. This makes release binaries faster at runtime but significantly increases compilation time.
+
+If you prefer to prioritize faster compilation over some compiler optimizations, you can enable
+caching in release mode. To enable caching, add both following options to your `gradle.properties` file:
+
+```properties
+# Enables the compiler to use caches in release mode
+kotlin.native.binary.enableReleaseBinaryCache=true
+# Makes the Kotlin Gradle plugin invoke the compiler with `-Xauto-cache-from` and related options
+kotlin.internal.native.enableReleaseBinaryCache=true
+```
+
+> The feature is in active development, so runtime performance still has room for improvement.
+> Performance improvements are planned in upcoming Kotlin releases.
+> 
+{style="warning"}
+
+### Reduce the size of release binaries
+<primary-label ref="experimental-opt-in"/>
+
+To reduce the size of release binaries and improve build time, try [enabling the binary option](native-binary-options.md#how-to-enable)
+`smallBinary`.
+
+It effectively sets `-Oz` as the default optimization argument for the compiler during the LLVM compilation phase.
+The option is still [Experimental](components-stability.md#stability-levels-explained) and might affect runtime performance in some cases.
 
 ### Don't use transitive export
 
@@ -124,34 +149,41 @@ Enable the Gradle [build cache](https://docs.gradle.org/current/userguide/build_
 
 ### Use Gradle configuration cache
 
-To use the Gradle [configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html),
-add `org.gradle.configuration-cache=true` to your `gradle.properties` file.
+The Gradle [configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html) improves build performance
+by caching the results of the configuration phase. It also enables parallel execution of independent tasks within a single
+project and implicitly enables the `org.gradle.parallel` property, allowing tasks across different projects to [execute in parallel](https://docs.gradle.org/current/userguide/performance.html#sec:enable_parallel_execution).
 
-> Configuration cache also enables running `link*` tasks in parallel which could heavily load the machine, 
+To use the Gradle configuration cache, add the `org.gradle.configuration-cache=true` property to your `gradle.properties` file.
+
+> The configuration cache also enables running `link*` tasks in parallel which could heavily load the machine, 
 > specifically with a lot of CPU cores. This issue will be fixed in [KT-70915](https://youtrack.jetbrains.com/issue/KT-70915).
 >
 {style="note"}
 
 ### Enable previously disabled features
 
-There are Kotlin/Native properties that disable the Gradle daemon and compiler caches:
+You might have disabled some Kotlin/Native features in the past to work around build issues. For example:
 
-* `kotlin.native.disableCompilerDaemon=true`
-* `kotlin.native.cacheKind=none`
-* `kotlin.native.cacheKind.$target=none`, where `$target` is a Kotlin/Native compilation target, for example `iosSimulatorArm64`.
+* `kotlin.native.disableCompilerDaemon=true` disables the [Gradle daemon](https://docs.gradle.org/current/userguide/gradle_daemon.html).
+* `disableNativeCache` disables the [compilation cache](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#binaries).
 
-If you had issues with these features before and added these lines to your `gradle.properties` file or Gradle arguments,
-remove them and check whether the build completes successfully. It is possible that these properties were added previously
-to work around issues that have already been fixed.
+The issues that originally required these workarounds might have already been fixed. If your `gradle.properties` file
+or Gradle build files contain these lines, remove them and check whether the build completes successfully.
 
 ### Try incremental compilation of klib artifacts
+<primary-label ref="beta"/>
 
 With incremental compilation, if only a part of the `klib` artifact produced by the project module changes,
 just a part of `klib` is further recompiled into a binary.
 
-This feature is [Experimental](components-stability.md#stability-levels-explained). To enable it,
-add the `kotlin.incremental.native=true` option to your `gradle.properties` file. If you face any problems,
-create an [issue in YouTrack](https://kotl.in/issue).
+This feature is in [Beta](components-stability.md#stability-levels-explained). To enable it,
+add the following option to your `gradle.properties` file:
+
+```properties
+kotlin.incremental.native=true
+```
+
+If you face any problems, create an [issue in YouTrack](https://kotl.in/issue).
 
 ## Windows configuration
 

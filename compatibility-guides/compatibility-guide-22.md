@@ -1,4 +1,4 @@
-[//]: # (title: Compatibility guide for Kotlin 2.2)
+[//]: # (title: Compatibility guide for Kotlin 2.2.x)
 
 _[Keeping the Language Modern](kotlin-evolution-principles.md)_ and _[Comfortable Updates](kotlin-evolution-principles.md)_ are among the fundamental principles in
 Kotlin Language Design. The former says that constructs which obstruct language evolution should be removed, and the
@@ -321,6 +321,7 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 1.4.20: the plugin is deprecated
 > - 2.1.20: a configuration error is introduced, and no plugin code is executed
 > - 2.2.0: the plugin code is removed
+> - 2.4.0: remove the plugin ID
 
 ### Deprecate `kotlinOptions` DSL
 
@@ -375,6 +376,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.1.0: deprecate the use of REPL in `kotlinc` with a warning
 > - 2.2.0: to use REPL via `kotlinc`, opt in with the `-Xrepl` compiler option; deprecate JSR-223, support can be restored by switching to language version 1.9; deprecate the `KotlinScriptMojo` Maven plugin
+> - 2.4.0: remove Kotlin script execution through the `KotlinScriptMojo` Maven plugin
 
 ### Deprecate disambiguation classifier properties
 

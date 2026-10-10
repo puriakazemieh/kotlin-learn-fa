@@ -1,6 +1,8 @@
 [//]: # (title: What's new in Kotlin 2.2.0)
 
-_[Released: June 23, 2025](releases.md#release-details)_
+<web-summary>Read the Kotlin 2.2.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and Wasm, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: June 23, 2025](releases.md#release-history)_
 
 The Kotlin 2.2.0 release is here! Here are the main highlights:
 
@@ -8,18 +10,22 @@ The Kotlin 2.2.0 release is here! Here are the main highlights:
   Several
   [previously experimental features are now Stable](#stable-features-guard-conditions-non-local-break-and-continue-and-multi-dollar-interpolation),
   such as guard conditions, non-local break and continue, and multi-dollar interpolation.
-* **Kotlin compiler**: [unified management of compiler warnings](#kotlin-compiler-unified-management-of-compiler-warnings).
-* **Kotlin/JVM**: [changes to default method generation for interface functions](#changes-to-default-method-generation-for-interface-functions).
+* **Kotlin compiler**: [Unified management of compiler warnings](#kotlin-compiler-unified-management-of-compiler-warnings).
+* **Kotlin/JVM**: [Changes to default method generation for interface functions](#changes-to-default-method-generation-for-interface-functions).
 * **Kotlin/Native**: [LLVM 19 and new features for tracking and adjusting memory consumption](#kotlin-native).
-* **Kotlin/Wasm**: [separated Wasm target](#build-infrastructure-for-wasm-target-separated-from-javascript-target) and the ability to configure [Binaryen per project](#per-project-binaryen-configuration).
-* **Kotlin/JS**: [fix for the `copy()` method generated for `@JsPlainObject` interfaces](#fix-for-copy-in-jsplainobject-interfaces).
-* **Gradle**: [binary compatibility validation in the Kotlin Gradle plugin](#binary-compatibility-validation-included-in-kotlin-gradle-plugin).
-* **Standard library**: [stable Base64 and HexFormat APIs](#stable-base64-encoding-and-decoding).
-* **Documentation**: our [documentation survey is open](https://surveys.jetbrains.com/s3/Kotlin-Docs-2025), and [notable improvements have been made to the Kotlin documentation](#documentation-updates).
+* **Kotlin/Wasm**: [Separated Wasm target](#build-infrastructure-for-wasm-target-separated-from-javascript-target) and the ability to configure [Binaryen per project](#per-project-binaryen-configuration).
+* **Kotlin/JS**: [Fix for the `copy()` method generated for `@JsPlainObject` interfaces](#fix-for-copy-in-jsplainobject-interfaces).
+* **Gradle**: [Binary compatibility validation in the Kotlin Gradle plugin](#binary-compatibility-validation-included-in-kotlin-gradle-plugin).
+* **Standard library**: [Stable Base64 and HexFormat APIs](#stable-base64-encoding-and-decoding).
+* **Documentation**: [Important improvements have been made to the Kotlin documentation](#documentation-updates).
 
 You can also watch this video of the Kotlin Language Evolution team discussing new features and answering questions:
 
 <video src="https://www.youtube.com/watch?v=jne3923lWtw" title="What's new in Kotlin 2.2.0"/>
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## IDE support
 
@@ -389,7 +395,7 @@ Nested type aliases are currently in [Beta](components-stability.md#stability-le
 any problems to our issue tracker, [YouTrack](https://kotl.in/issue). For more information about this feature, 
 read this [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/nested-typealias.md) proposal.
 
-### Stable features: guard conditions, non-local `break` and `continue`, and multi-dollar interpolation
+### Stable features: Guard conditions, non-local `break` and `continue`, and multi-dollar interpolation
 
 In Kotlin 2.1.0, several new language features were introduced in preview.
 We're happy to announce that the following language features are now
@@ -401,7 +407,7 @@ We're happy to announce that the following language features are now
 
 [See the full list of Kotlin language design features and proposals](kotlin-language-features-and-proposals.md).
 
-## Kotlin compiler: unified management of compiler warnings
+## Kotlin compiler: Unified management of compiler warnings
 <primary-label ref="experimental-general"/>
 
 Kotlin 2.2.0 introduces a new compiler option, `-Xwarning-level`. It's designed to provide a unified way of managing 
@@ -1122,7 +1128,7 @@ For the KGP, using the BTA already has the following benefits:
 
 ### Improved "in process" compiler execution strategy
 
-The KGP supports three [Kotlin compiler execution strategies](gradle-compilation-and-caches.md#defining-kotlin-compiler-execution-strategy). 
+The KGP supports three [Kotlin compiler execution strategies](compiler-execution-strategy.md). 
 The "in process" strategy, which runs the compiler 
 inside the Gradle daemon process, previously didn't support incremental compilation.
 
@@ -1317,13 +1323,9 @@ for a complete overview of all breaking changes and deprecations in this release
 
 * Starting with Kotlin 2.2.0, the compiler [no longer supports `-language-version=1.6` or `-language-version=1.7`](compatibility-guide-22.md#drop-support-in-language-version-for-1-6-and-1-7).
   Language feature sets older than 1.8 aren't supported but the language itself remains fully backward compatible with Kotlin 1.0.
-
-* Support for the [](ant.md) build system is deprecated. Kotlin support for Ant hasn't been in active development for a 
-  long time, and there are no plans to maintain it further due to its relatively small user base.
-  
-  We plan to remove Ant support in 2.3.0. However, Kotlin remains open to [contribution](contribute.md). If you're 
-  interested in becoming an external maintainer for Ant, leave a comment with the "jetbrains-team" visibility setting in [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-75875/).
-
+* Support for the Ant build system is deprecated. Kotlin support for Ant hasn't been 
+  in active development for a long time, and there are no plans to maintain it further due to its relatively small user base.
+  We plan to remove Ant support in 2.3.0.
 * Kotlin 2.2.0 raises the deprecation level of the [`kotlinOptions{}` block in Gradle to error](compatibility-guide-22.md#deprecate-kotlinoptions-dsl). 
   Use the `compilerOptions{}` block instead. For guidance on updating your build scripts, see [Migrate from `kotlinOptions{}` to `compilerOptions{}`](gradle-compiler-options.md#migrate-from-kotlinoptions-to-compileroptions).
 * Kotlin scripting remains an important part of Kotlin's ecosystem, but we're focusing on specific use cases such as 

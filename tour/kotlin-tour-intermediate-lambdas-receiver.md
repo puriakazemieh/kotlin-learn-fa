@@ -1,18 +1,7 @@
-[//]: # (title: Intermediate: Lambda expressions with receiver)
+[//]: # (title: Lambda expressions with receiver)
 
 <no-index/>
 
-<tldr>
-    <p><img src="icon-1-done.svg" width="20" alt="First step" /> <a href="kotlin-tour-intermediate-extension-functions.md">Extension functions</a><br />
-        <img src="icon-2-done.svg" width="20" alt="Second step" /> <a href="kotlin-tour-intermediate-scope-functions.md">Scope functions</a><br />
-        <img src="icon-3.svg" width="20" alt="Third step" /> <strong>Lambda expressions with receiver</strong><br />
-        <img src="icon-4-todo.svg" width="20" alt="Fourth step" /> <a href="kotlin-tour-intermediate-classes-interfaces.md">Classes and interfaces</a><br />
-        <img src="icon-5-todo.svg" width="20" alt="Fifth step" /> <a href="kotlin-tour-intermediate-objects.md">Objects</a><br />
-        <img src="icon-6-todo.svg" width="20" alt="Sixth step" /> <a href="kotlin-tour-intermediate-open-special-classes.md">Open and special classes</a><br />
-        <img src="icon-7-todo.svg" width="20" alt="Seventh step" /> <a href="kotlin-tour-intermediate-properties.md">Properties</a><br />
-        <img src="icon-8-todo.svg" width="20" alt="Eighth step" /> <a href="kotlin-tour-intermediate-null-safety.md">Null safety</a><br />
-        <img src="icon-9-todo.svg" width="20" alt="Ninth step" /> <a href="kotlin-tour-intermediate-libraries-and-apis.md">Libraries and APIs</a></p>
-</tldr>
 
 In this chapter, you'll learn how to use receivers with another type of function, lambda expressions, and how they
 can help you create a domain-specific language.
@@ -171,14 +160,14 @@ standard library.
 >
 {style="tip"}
 
-## Practice
+## Practice {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="lambda-receivers-exercise-1"}
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Process data with a lambda expression with receiver" id="lambda-receivers-exercise-1">
 
 You have a `fetchData()` function that accepts a lambda expression with receiver. Update the lambda expression to use 
 the `append()` function so that the output of your code is: `Data received - Processed`.
 
-|---|---|
 ```kotlin
 fun fetchData(callback: StringBuilder.() -> Unit) {
     val builder = StringBuilder("Data received")
@@ -194,7 +183,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-receivers-exercise-1"}
 
-|---|---|
 ```kotlin
 fun fetchData(callback: StringBuilder.() -> Unit) {
     val builder = StringBuilder("Data received")
@@ -211,7 +199,8 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambda-receivers-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="lambda-receivers-exercise-2"}
+</def>
+<def title="Handle a double-click event" id="lambda-receivers-exercise-2">
 
 You have a `Button` class and `ButtonEvent` and `Position` data classes. Write some code that triggers the `onEvent()`
 member function of the `Button` class to trigger a double-click event. Your code should print `"Double click!"`.
@@ -247,7 +236,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-receivers-exercise-2"}
 
-|---|---|
 ```kotlin
 class Button {
     fun onEvent(action: ButtonEvent.() -> Unit) {
@@ -281,7 +269,8 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambda-receivers-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="lambda-receivers-exercise-3"}
+</def>
+<def title="Create an incremented list" id="lambda-receivers-exercise-3">
 
 Write a function that creates a copy of a list of integers where every element is incremented by 1. Use the provided 
 function skeleton that extends `List<Int>` with an `incremented` function.
@@ -303,7 +292,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-receivers-exercise-3"}
 
-|---|---|
 ```kotlin
 fun List<Int>.incremented(): List<Int> {
     val originalList = this
@@ -321,6 +309,16 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambda-receivers-solution-3"}
 
-## Next step
+</def>
+</deflist>
 
-[Intermediate: Classes and interfaces](kotlin-tour-intermediate-classes-interfaces.md)
+<seealso></seealso>
+
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-scope-functions.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-classes-interfaces.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>

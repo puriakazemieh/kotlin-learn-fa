@@ -2,6 +2,10 @@
 
 <primary-label ref="eap"/>
 
+<show-structure depth="1"/>
+
+<web-summary>Read the Kotlin Early Access Preview release notes and try the latest experimental Kotlin features before they are officially released.</web-summary>
+
 _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 > This document doesn't cover all of the features of the Early Access Preview (EAP) release,
@@ -13,440 +17,252 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP release:
 
-* **Language**: [more stable and default features, a new checker for unused return values, and changes to context-sensitive resolution](#language).
-* **Kotlin/JVM**: [support for Java 25](#kotlin-jvm-support-for-java-25).
-* **Kotlin/Native**: [improved interop through Swift export](#kotlin-native-improved-interop-through-swift-export).
-* **Kotlin/Wasm**: [fully qualified names and new exception handling proposal enabled by default](#kotlin-wasm).
-* **Kotlin/JS**: [new experimental suspend function export and `LongArray` representation](#kotlin-js).
-* **Gradle**: [compatibility with Gradle 9.0 and a new API for registering generated sources](#gradle).
-* **Standard library**: [stable time tracking functionality](#standard-library).
+* **Language**: [Stable name-based destructuring in `only-syntax` mode](#stable-language-features) and [new experimental companion extensions and blocks](#companion-extensions-and-blocks)
+* **Standard library**: [New experimental functions for simplifying common patterns with `if` expressions](#standard-library-new-functions-for-simplifying-common-patterns-with-if-expressions)
+* **Kotlin/JS**: [Support for the `es2020` target](#kotlin-js-support-for-the-es2020-target)
+* **Kotlin compiler**: [More consistent inline function behavior during `.klib` compilation](#consistent-cross-module-function-inlining-during-klib-compilation)<!--and a [new experimental compilation scheme for Kotlin Multiplatform]().-->
 
-## IDE support
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
-The Kotlin plugins that support %kotlinEapVersion% are bundled in the latest versions of IntelliJ IDEA and Android Studio.
-You don't need to update the Kotlin plugin in your IDE.
-All you need to do is [change the Kotlin version](configure-build-for-eap.md) to %kotlinEapVersion% in your build scripts.
+## Update to Kotlin %kotlinEapVersion%
 
-See [Update to a new release](releases.md#update-to-a-new-kotlin-version) for details.
+The latest version of Kotlin is included in the latest versions of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
+and [Android Studio](https://developer.android.com/studio).
+
+To update to the new Kotlin version, make sure your IDE is updated to the latest version and [change the Kotlin version](releases.md#update-to-a-new-kotlin-version)
+to %kotlinEapVersion% in your build scripts.
 
 ## Language
 
-Kotlin %kotlinEapVersion% focuses on feature stabilization, introduces a new check mechanism for unused return values,
-and improves context-sensitive resolution.
+Kotlin %kotlinEapVersion% stabilizes two language features introduced in earlier releases. It also introduces experimental
+companion extensions and companion blocks.
 
-### Stable features
+### Stable language features
 
-In previous Kotlin releases, several new language features were introduced as Experimental and Beta.
-We're happy to announce that in this release, the following features become [Stable](components-stability.md#stability-levels-explained):
+<secondary-label ref="language"/>
 
-* [Support for nested type aliases](whatsnew22.md#support-for-nested-type-aliases)
-* [Data-flow-based exhaustiveness checks for `when` expressions](whatsnew2220.md#data-flow-based-exhaustiveness-checks-for-when-expressions)
+Kotlin 2.3.20 and 2.4.0 introduced a few language features as [Experimental](components-stability.md#stability-levels-explained).
+We're happy to announce that the following language features are now [Stable](components-stability.md#stability-levels-explained) in this release:
 
-### Features enabled by default
+* [Name-based destructuring](destructuring-declarations.md#name-based-destructuring) in `only-syntax` mode.
 
-Starting with Kotlin %kotlinEapVersion%, support for [`return` statements in expression bodies with explicit return types](whatsnew2220.md#support-for-return-statements-in-expression-bodies-with-explicit-return-types)
-is now enabled by default.
+  In this mode, the "old" destructuring syntax `val (x, y)` keeps its position-based behavior, while the "new" syntax `(val x, val y)` performs name-based destructuring.
 
-> In Kotlin %kotlinEapVersion%, [improved overload resolution for lambdas with `suspend` function types](whatsnew2220.md#improved-overload-resolution-for-lambdas-with-suspend-function-types)
-> is **disabled**.
-> 
-> The feature was initially planned to be enabled by default in Kotlin 2.3.0, but after discovering some issues,
-> we decided to postpone its implementation. It will be available again with an improved design in future releases.
->
-{style="note"}
+* [Improved compile-time constants](whatsnew24.md#improved-compile-time-constants).
 
-[See the full list of Kotlin language design features and proposals](kotlin-language-features-and-proposals.md).
+### Companion extensions and blocks
 
-### Unused return value checker
-<primary-label ref="experimental-general"/>
+<primary-label ref="experimental-opt-in"/>
 
-Kotlin %kotlinEapVersion% introduces a new feature, the unused return value checker.
-This feature warns you when an expression returns a value other than `Unit` or `Nothing` and isn't passed to a function,
-checked in a condition, or used otherwise.
+<secondary-label ref="language"/>
 
-You can use it to catch bugs where a function call produces a meaningful result, but the result is silently dropped,
-which can lead to unexpected behavior or hard-to-trace issues.
+Kotlin %kotlinEapVersion% introduces companion extensions and companion blocks.
 
-> The checker ignores values returned from increment operations such as `++` and `--`.
->
-{style="note"}
+Previously, to declare extensions, functions, and properties that you could access through a type's name, the type needed
+to have a companion object. Companion extensions and blocks remove this requirement and let you:
 
-Consider the following example:
+* Declare a companion extension by adding the `companion` modifier to a top-level extension, even if the type it extends has no companion object.
+* Declare functions and properties in a `companion {}` block inside a class or interface without creating an object instance. On platforms that support static members, the compiler generates these declarations as static members. As a result, you don't need to annotate them with `@JvmStatic` on the JVM.
+
+Here's an example that declares `UnitX` as a companion extension and `Zero` in a companion block:
 
 ```kotlin
-fun formatGreeting(name: String): String {
-    if (name.isBlank()) return "Hello, anonymous user!"
-    if (!name.contains(' ')) {
-        // The checker reports a warning that this result is ignored
-        "Hello, " + name.replaceFirstChar(Char::titlecase) + "!"
-    }
-    val (first, last) = name.split(' ')
-    return "Hello, $first! Or should I call you Dr. $last?"
-}
-```
+// Declares UnitX as a companion extension
+companion val Vector.UnitX get() = Vector(1.0, 0.0)
 
-In this example, a string is created but never used, so the checker reports it as an ignored result.
-
-This feature is [Experimental](components-stability.md#stability-levels-explained).
-To opt in, add the following compiler option to your `build.gradle.kts` file:
-
-```kotlin
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.add("-Xreturn-value-checker=check")
+data class Vector(val x: Double, val y: Double) {
+    companion {
+        // Declares Zero in a companion block
+        val Zero: Vector get() = Vector(0.0, 0.0)
     }
 }
-```
-
-With this option, the checker only reports ignored results from expressions that are marked, like most functions in the
-Kotlin standard library.
-
-To mark your functions, use the `@MustUseReturnValues` annotation to mark the scope on which you want the checker to
-report ignored return values.
-
-For example, you can mark an entire file:
-
-```kotlin
-// Marks all functions and classes in this file so the checker reports unused return values
-@file:MustUseReturnValues
-
-package my.project
-
-fun someFunction(): String
-```
-
-Or a specific class:
-
-```kotlin
-// Marks all functions in this class so the checker reports unused return values
-@MustUseReturnValues
-class Greeter {
-    fun greet(name: String): String = "Hello, $name"
-}
-
-fun someFunction(): Int = ...
-```
-{validate="false"}
-
-You can also mark your entire project using the `full` mode.
-To do so, add the following compiler option to your `build.gradle.kts` file:
-
-```kotlin
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.add("-Xreturn-value-checker=full")
-    }
-}
-```
-
-In this mode, Kotlin automatically treats your compiled files as if they are annotated with `@MustUseReturnValues`,
-so the checker applies to all return values from your project's functions.
-
-You can suppress warnings on specific functions by marking them with the `@IgnorableReturnValue` annotation.
-Annotate functions where ignoring the result is common and expected, such as `MutableList.add`:
-
-```kotlin
-@IgnorableReturnValue
-fun <T> MutableList<T>.addAndIgnoreResult(element: T): Boolean {
-    return add(element)
-}
-```
-
-You can suppress a warning without marking the function itself as ignorable.
-To do this, assign the result to a special unnamed variable with an underscore syntax (`_`):
-
-```kotlin
-// Non-ignorable function
-fun computeValue(): Int = 42
 
 fun main() {
-
-    // Reports a warning: result is ignored
-    computeValue()
-
-    // Suppresses the warning only at this call site with a special unused variable
-    val _ = computeValue()
+    println(Vector.UnitX)
+    // Vector(x=1.0, y=0.0)
+    
+    println(Vector.Zero)
+    // Vector(x=0.0, y=0.0)
 }
 ```
 
-We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-12719). For more information,
-see the feature's [KEEP]( https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0412-unused-return-value-checker.md).
+For more information about the design, see the feature's [KEEP](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0449-companions-block-extension.md).
 
-### Changes to context-sensitive resolution
-<primary-label ref="experimental-general"/>
+Companion extensions and blocks are [Experimental](components-stability.md#stability-levels-explained). To opt in, add
+the following compiler option to your build file:
 
-Context-sensitive resolution is still [Experimental](components-stability.md#stability-levels-explained),
-but we continue improving the feature based on user feedback:
-
-* The sealed and enclosing supertypes of the current type are now considered as part of the contextual scope of the search.
-  No other supertype scopes are considered.
-* In cases with type operators and equalities, the compiler now reports a warning if using context-sensitive resolution
-  makes the resolution ambiguous. This can happen, for example, when a clashing declaration of a class is imported.
-
-For details, see the full text of the current proposal in [KEEP](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0379-context-sensitive-resolution.md).
-
-## Kotlin/JVM: support for Java 25
-
-Starting with Kotlin %kotlinEapVersion%, the compiler can generate classes containing Java 25 bytecode.
-
-## Kotlin/Native: improved interop through Swift export
-<primary-label ref="experimental-general"/>
-
-Kotlin %kotlinEapVersion% further improves Kotlin interoperability with Swift through Swift export, adding support for
-native enum classes and variadic function parameters.
-
-Previously, Kotlin enums were exported as ordinary Swift classes. Now the mapping is direct, and you can use regular
-native Swift enums. For example:
-
-```kotlin
-// Kotlin
-enum class Color(val rgb: Int) {
-    RED(0xFF0000),
-    GREEN(0x00FF00),
-    BLUE(0x0000FF)
-}
-
-val color = Color.RED
-```
-
-```Swift
-// Swift
-public enum Color: Swift.CaseIterable, Swift.LosslessStringConvertible, Swift.RawRepresentable {
-    case RED, GREEN, BLUE
-
-    var rgb: Int { get } 
-}
-```
-
-Kotlin's [`vararg`](functions.md#variable-number-of-arguments-varargs) functions are now directly mapped to Swift's
-variadic function parameters too.
-
-Such functions let you pass a variable number of arguments. This is useful when you don't know the number of arguments
-in advance or want to create or pass a collection without specifying its type. For example:
-
-```kotlin
-// Kotlin
-fun log(vararg messages: String)
-```
-
-```Swift
-// Swift
-public func log(messages: Swift.String...)
-```
-
-> Generic types in variadic function parameters are not supported yet.
->
-{style="note"}
-
-## Kotlin/Wasm
-
-### Fully qualified names enabled by default
-
-On Kotlin/Wasm targets, fully qualified names (FQNs) were not enabled by default at runtime.
-You had to manually enable support for the `KClass.qualifiedName` property.
-
-Previously, only the class name (without the package) was accessible, which caused issues for code ported from JVM to
-Wasm targets or for libraries that expected fully qualified names at runtime.
-
-In Kotlin %kotlinEapVersion%, the `KClass.qualifiedName` property is enabled by default on Kotlin/Wasm targets.
-This means that FQNs are available at runtime without any additional configuration.
-
-Enabling FQNs by default improves code portability and makes runtime errors more informative by displaying the fully
-qualified name.
-
-This change does not increase the size of the compiled Wasm binary, thanks to compiler optimizations that reduce
-metadata by using compact storage for Latin-1 string literals.
-
-### New exception handling proposal enabled by default for `wasmWasi`
-
-Previously, Kotlin/Wasm used the [legacy exception handling proposal](https://github.com/WebAssembly/exception-handling/blob/master/proposals/exception-handling/legacy/Exceptions.md)
-for all targets, including [`wasmWasi`](wasm-overview.md#kotlin-wasm-and-wasi). However, most standalone WebAssembly
-virtual machines (VMs) are aligning with the [new version of the exception handling proposal](https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/Exceptions.md).
-
-Starting with Kotlin %kotlinEapVersion%, the new WebAssembly exception handling proposal is enabled by default for the
-`wasmWasi` target, ensuring better compatibility with modern WebAssembly runtimes.
-
-For the `wasmWasi` target, the change is safe to introduce early because applications targeting it usually run in a less
-diverse runtime environment (often running on a single specific VM) and it is typically controlled by the user, reducing
-the risk of compatibility issues.
-
-The new exception handling proposal remains off by default for the [`wasmJs` target](wasm-overview.md#kotlin-wasm-and-compose-multiplatform).
-You can manually enable it using the `-Xwasm-use-new-exception-proposal` compiler option.
-
-## Kotlin/JS
-
-### New export of suspend function with `JsExport`
-<primary-label ref="experimental-opt-in"/>
-
-Previously, the `@JsExport` annotation did not allow exporting suspend functions (or classes and interfaces containing
-such functions) to JavaScript. You had to manually wrap each suspend function, which was cumbersome and error-prone.
-
-Starting with Kotlin %kotlinEapVersion%, suspend functions can be exported directly to JavaScript using the `@JsExport`
-annotation.
-
-Enabling suspend function exports removes the need for boilerplate and improves interoperability between Kotlin/JS and
-JavaScript/TypeScript (JS/TS). Kotlin's async functions can now be called directly from JS/TS without extra code.
-
-To enable this feature, add the following compiler option to your `build.gradle.kts` file:
+<tabs group="build-system">
+<tab title="Gradle" group-key="gradle">
 
 ```kotlin
 kotlin {
     compilerOptions {
-        freeCompilerArgs.add("-Xenable-suspend-function-exporting")
+        freeCompilerArgs.add("-Xcompanion-blocks-and-extensions")
     }
 }
 ```
 
-Once enabled, classes and functions marked with the `@JsExport` annotation can include suspend functions without
-additional wrappers.
+</tab>
+<tab title="Maven" group-key="maven">
 
-They could be consumed as regular JavaScript async functions and could be overridden as an async function as well:
-
-```kotlin
-@JsExport
-open class Foo {
-    suspend fun foo() = "Foo"
-}
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <configuration>
+                <args>
+                    <arg>-Xcompanion-blocks-and-extensions</arg>
+                </args>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
 ```
 
-```typescript
-class Bar extends Foo {
-    override async foo(): Promise<string> {
-        return "Bar"
-    }
-}
-```
+</tab>
+</tabs>
 
-This feature is [Experimental](components-stability.md#stability-levels-explained). We would appreciate your feedback in
-our issue tracker, [YouTrack](https://youtrack.jetbrains.com/issue/KT-56281/KJS-Cant-export-suspend-functions).
+We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-11968).
 
-### Usage of the `BigInt64Array` type to represent Kotlin's `LongArray` type
+## Standard library: New functions for simplifying common patterns with `if` expressions
+
 <primary-label ref="experimental-opt-in"/>
+<secondary-label ref="standard-library"/>
 
-Previously, Kotlin/JS represented `LongArray` as a JavaScript `Array<bigint>`. This approach worked but was not ideal
-for interoperability with JavaScript APIs that expect typed arrays.
+Kotlin %kotlinEapVersion% introduces new standard library functions that let you inspect a `Boolean` value before returning
+it or return a nullable result depending on that value.
 
-Starting with this release, Kotlin/JS now uses JavaScript's built-in `BigInt64Array` type to represent Kotlin's
-`LongArray` values when compiling to JavaScript.
+Previously, these patterns required explicit `if` expressions with `else` branches. You can now simplify them with the
+following functions:
 
-Using `BigInt64Array` simplifies interop with JavaScript APIs that use typed arrays. It also allows APIs that accept
-or return `LongArray` to be exported more naturally from Kotlin to JavaScript.
+* `onTrue()` runs a specified code block when a `Boolean` value is `true` and returns the original Boolean value.
+* `onFalse()` runs a specified code block when a `Boolean` value is `false` and returns the original Boolean value.
+* `ifOrNull()` runs a specified code block and returns its result if the `Boolean` value is `true`. If the value is `false`, the function returns `null` without running the block.
 
-To enable this feature, add the following compiler option to your `build.gradle.kts` file:
+These functions are [Experimental](components-stability.md#stability-levels-explained) and require opt-in with the 
+`@OptIn(ExperimentalStdlibApi::class)` annotation or the `-opt-in=kotlin.ExperimentalStdlibApi` compiler option.
+
+Here's an example:
 
 ```kotlin
-kotlin {
-    js {
-        // ...
-        compilerOptions {
-            freeCompilerArgs.add("-Xes-long-as-bigint")
+@OptIn(ExperimentalStdlibApi::class)
+fun main() {
+    val tags = mutableSetOf("kotlin", "jvm")
+
+    // Uses the onTrue() function to print a message when add() returns true
+    val added = tags.add("wasm").onTrue {
+        println("Tag added")
+    }
+    println(added)
+    // Tag added
+    // true
+
+    // Uses the onFalse() function to print a message when remove() returns false
+    val removed = tags.remove("native").onFalse {
+        println("Tag not found")
+    }
+    println(removed)
+    // Tag not found
+    // false
+
+    // Uses the ifOrNull() function to return a message when "wasm" is in tags
+    val message = ifOrNull("wasm" in tags) {
+        "Wasm tag is available"
+    }
+    println(message)
+    // Wasm tag is available
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="2.5.0-Beta1" validate="false"}
+
+We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-6938).
+
+## Kotlin/JS: Support for the `es2020` target
+<secondary-label ref="js"/>
+
+Kotlin %kotlinEapVersion% adds the `es2020` target to the Kotlin/JS compiler and Gradle plugin. Previously, only the `es5` and
+`es2015` targets were available, and support for newer JavaScript features, such as `BigInt`, had to be enabled separately
+targeting ES2015. By targeting ES2020, you can use all supported JavaScript features up to ECMAScript 2020, including `BigInt`,
+without additional configuration.
+
+To enable the new target, set `target` to `es2020` in the `compilerOptions` block:
+
+```kotlin
+kotlin { 
+    js { 
+        compilerOptions { 
+            target.set("es2020") 
         }
     }
 }
 ```
 
-This feature is [Experimental](components-stability.md#stability-levels-explained). We would appreciate your feedback in
-our issue tracker, [YouTrack](https://youtrack.jetbrains.com/issue/KT-79284/Use-BigInt64Array-for-LongArray).
+## Kotlin compiler
 
-## Gradle
+Kotlin %kotlinEapVersion% brings more improvements to function inlining during `.klib` compilation and experimental features
+such as improved type inference performance<!-- and a new compilation scheme for Kotlin Multiplatform -->.
 
-Kotlin %kotlinEapVersion% is fully compatible with Gradle 7.6.3 through 9.0.0. You can also use Gradle versions up to
-the latest Gradle release. However, be aware that doing so may result in deprecation warnings, and some new Gradle
-features might not work.
+### Consistent cross-module function inlining during klib compilation
 
-In addition, the minimum supported Android Gradle plugin version is now 8.2.2 and the maximum supported version is
-8.13.0.
+<secondary-label ref="compiler"/>
 
-### New API for registering generated sources in Gradle projects
-<primary-label ref="experimental-general"/>
+Kotlin 2.4.0 enabled [consistent intra-module function inlining on Kotlin/Native, Kotlin/JS, and
+Kotlin/Wasm](whatsnew24.md#consistent-intra-module-function-inlining-during-klib-compilation) during `.klib` compilation.
+The consistency of function inlining across different Kotlin platforms makes it easier to provide compatibility guarantees.
 
-Kotlin %kotlinEapVersion% introduces a new [experimental](components-stability.md#stability-levels-explained) API in
-the [`KotlinSourceSet`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-source-set/)
-interface that you can use to register generated sources in your Gradle projects.
+Kotlin 2.4.0 also introduced the possibility to enable **cross-module** inlining during `.klib` compilation, ensuring that
+all inline functions in a project are consistently inlined. Kotlin %kotlinEapVersion% enables cross-module inlining by default.
 
-This new API is a quality-of-life improvement that helps IDEs distinguish between generated code and regular source files.
-The API allows IDEs to highlight the generated code differently in the UI and trigger generation tasks when the project
-is imported. We are currently working on adding this support in IntelliJ IDEA. The API is also especially useful for
-third-party plugins or tools that generate code, such as [KSP](ksp-overview.md) (Kotlin Symbol Processing).
+If you face unexpected problems with this feature, you can disable it with the following command-line compiler option:
 
-To register a directory that contains Kotlin or Java files, use the `generatedKotlin` property with the [`SourceDirectorySet`](https://docs.gradle.org/current/kotlin-dsl/gradle/org.gradle.api.file/-source-directory-set/index.html)
-type in your `build.gradle(.kts)` file. For example:
-
-```kotlin
-val generatorTask = project.tasks.register("generator") {
-    val outputDirectory = project.layout.projectDirectory.dir("src/main/kotlinGen")
-    outputs.dir(outputDirectory)
-    doLast {
-        outputDirectory.file("generated.kt").asFile.writeText(
-            // language=kotlin
-            """
-            fun printHello() {
-                println("hello")
-            }
-            """.trimIndent()
-        )
-    }
-}
-
-kotlin.sourceSets.getByName("main").generatedKotlin.srcDir(generatorTask)
+```bash
+-Xklib-ir-inliner=disabled
 ```
 
-This example creates a new task `"generator"` with an output directory of `"src/main/kotlinGen"`. When the task runs,
-the `doLast {}` block creates a `generated.kt` file in the output directory. Finally, the example registers the task's
-output as a generated source.
+Please share your feedback and report any problems in [YouTrack](https://kotl.in/issue).
 
-As part of the new API, the `allKotlinSources` property provides access to all sources registered in the
-`KotlinSourceSet.kotlin` and `KotlinSourceSet.generatedKotlin` properties.
+### Improved type inference performance
 
-## Standard library
+<primary-label ref="experimental-opt-in"/>
 
-In Kotlin %kotlinEapVersion%, the new time tracking functionality, [`kotlin.time.Clock` and `kotlin.time.Instant`](whatsnew2120.md#new-time-tracking-functionality)
-becomes [Stable](components-stability.md#stability-levels-explained).
+<secondary-label ref="compiler"/>
 
-## Compose compiler: stack traces for minified Android applications
+Kotlin %kotlinEapVersion% improves compiler performance by reducing the number of constraints generated during type inference.
+Previously, complex generic code could generate excessive constraints, causing compilation or IDE analysis to hang. This
+change may affect type inference in certain edge cases, particularly those involving builder inference or complex platform
+types with unusual bounds. As a result, the compiler may infer different types, select different overloads, or report
+different diagnostics. These differences can be an expected result of the improvement.
 
-Starting from Kotlin 2.3.0, the compiler outputs ProGuard mappings for Compose stack traces when applications are minified by R8.
-This expands the experimental stack traces feature that was previously only available in debuggable variants.
+The functionality is enabled by default. To restore the previous type inference behavior, use the
+`-XXLanguage:-EliminateSecondKindIncorporation` option.
 
-The release variant of stack traces contains group keys that can be used to identify composable functions in minified
-applications without the overhead of recording source information at runtime. The group key stack traces require your
-application to be built with Compose runtime 1.10 or newer.
+We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-85879).
 
-To enable group key stack traces, add the following line before initializing any `@Composable` content:
+<!--
+### New experimental compilation scheme for Kotlin Multiplatform
 
-```kotlin
-Composer.setDiagnosticStackTraceMode(ComposeStackTraceMode.GroupKeys)
-```
+<primary-label ref="experimental-opt-in"/>
 
-With these stack traces enabled, Compose runtime will append its own stack trace after a crash is captured during
-composition, measure, or draw passes, even when the app is minified:
+<secondary-label ref="compiler"/>
 
-```text
-java.lang.IllegalStateException: <message>
-          at <original trace>
-Suppressed: androidx.compose.runtime.DiagnosticComposeException: Composition stack when thrown:
-         at $$compose.m$123(SourceFile:1)
-         at $$compose.m$234(SourceFile:1)
-          ...
-```
+Kotlin %kotlinEapVersion% introduces a new experimental compilation scheme for Kotlin Multiplatform (KMP) that makes the
+compiler handle common source sets more consistently with the IDE. This change prevents common code from accidentally
+resolving to platform-specific declarations, improves consistency in overload resolution and type inference, and enables
+incremental compilation for common source sets. Learn more about KMP separate compilation and how to try it in our [blog post](TBD).
+-->
 
-Stack traces produced by Jetpack Compose 1.10 in this mode only contain group keys that still have to be deobfuscated.
-This is addressed in the Kotlin 2.3.0 release, with the Compose compiler Gradle plugin that now appends group key
-entries to the ProGuard mapping files produced by R8. If you see new warnings in cases when the compiler fails to create
-mappings for some functions, please report them to the [Google IssueTracker](https://issuetracker.google.com/issues/new?component=610764&template=1424126).
+## Breaking changes and deprecations
 
-> The Compose compiler Gradle plugin only creates deobfuscation mappings for the group key stack traces
-> when R8 is enabled for the build due to dependencies on R8 mapping files.
->
-{style="note"}
+Kotlin %kotlinEapVersion% introduces a warning as the first step to raising the minimum JDK version required to run the
+Kotlin compiler from JDK 8 to JDK 17. We're raising the minimum required JDK to speed up development and give the compiler
+access to new libraries that require newer Java versions. JDK 17 has a long support window and helps us maintain compatibility
+with newer versions of Gradle and Maven. Opt out of the warning with the `-Xallow-pre-17-runtime-jdk` compiler option. 
+This option will be removed in Kotlin 2.5.20 or 2.6.0 when JDK 17 becomes mandatory.
 
-By default, the mapping file Gradle tasks run regardless of whether you enable the traces. If they cause problems in your
-build, you can disable the feature entirely. Add the following property in the `composeCompiler {}` block of your Gradle configuration:
-
-```kotlin
-composeCompiler {
-    includeComposeMappingFile.set(false)
-}
-```
-
-Please report any problems encountered to the [Google IssueTracker](https://issuetracker.google.com/issues/new?component=610764&template=1424126).
+If you have difficulty upgrading your project, share your experience on [YouTrack](https://kotl.in/issue) or reach out 
+directly to developers on Kotlin Slack. [Get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw)
+and join the [#compiler](https://kotlinlang.slack.com/archives/C7L3JB43G) channel.

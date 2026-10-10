@@ -1,13 +1,11 @@
 [//]: # (title: Kotlin brand assets)
 
-## Kotlin Logo
+## Kotlin logo
 
 Our logo consists of a mark and a typeface. 
 The full-color version is the main one and should be used in the vast majority of cases.
 
-[Download all versions](https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_logos.zip){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
-
-![Kotlin logo](kotlin-logo.png){width=700}
+<a href="https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_logos.zip" as="button" mode="classic" icon="download" icon-position="right">Download all logos</a>
 
 Our logo and mark have a protective field. Please position the logo so that other design elements do not come into the box.
 The minimum size of the protective field is half the height of the mark.
@@ -25,6 +23,25 @@ Pay special attention to the following restrictions concerning the use of the lo
 
 [Read the Kotlin brand usage guidelines](https://kotlinfoundation.org/guidelines/).
 
+## Kotlin ecosystem logos
+
+The Kotlin brand package also includes logos for several official Kotlin ecosystem projects, libraries, frameworks, and technologies.
+These assets follow the same visual principles as the Kotlin logo and help ensure consistent representation across the ecosystem.
+
+The package contains logos for:
+
+* [Kotlin Foundation](https://kotlinfoundation.org)
+* [Kotlin Multiplatform (KMP)](https://kotlinlang.org/multiplatform/)
+* [Talking Kotlin](https://www.youtube.com/playlist?list=PLlFc5cFwUnmz1TwkP9SKCHU978dqLTANB)
+* [Compose Multiplatform (CMP)](https://kotlinlang.org/compose-multiplatform/)
+* [Compose Hot Reload](https://kotlinlang.org/docs/multiplatform/compose-hot-reload.html)
+* [Ktor](https://ktor.io)
+* [Exposed](https://www.jetbrains.com/exposed/)
+
+You can find these logos in the same download bundle:
+
+<a href="https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_logos.zip" as="button" mode="classic" icon="download" icon-position="right">Download all logos</a>
+
 ## Kotlin mascot
 
 Meet Kodee, the Kotlin mascot and your friendly companion who's always there to encourage and inspire your creativity.
@@ -35,7 +52,7 @@ When using it, we ask you to follow these [simple guidelines](https://resources.
 You can use Kodee in your digital and print materials. For this purpose, we have prepared a variety of 
 Kotlin mascot assets for you to download and explore.
 
-[Download all assets](https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_mascot_2.zip){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
+<a href="https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_mascot_2.zip" as="button" mode="classic" icon="download" icon-position="right">Download all logos</a>
 
 ![Kotlin mascot Kodee in action](mascot-in-action.png){width=700}
 
@@ -48,7 +65,7 @@ We provide Kotlin user groups with a logo that is specifically designed to be re
 * User groups logo also means that the opinions and actions of the community are independent of the Kotlin team.
 * Your opinions don't have to agree with ours, and we think this is the most beneficial model for a creative and strong community.
 
-[Download all assets](https://drive.google.com/drive/folders/0B3Zi34svOj1RZ2sxZExhblRJc1k){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
+<a href="https://drive.google.com/drive/folders/0B3Zi34svOj1RZ2sxZExhblRJc1k" as="button" mode="classic" icon="download" icon-position="right">Download all logos</a>
 
 ### Style for user groups
 
@@ -70,7 +87,7 @@ There are two main reasons why we are doing it:
 ### Create the logo of your user group
 
 To create a logo of your users group:
-1. Copy the Kotlin user group [logo file](https://docs.google.com/drawings/d/1IcJp8Z2jAwEliXrHB-l9RNK_2LrqGTkNuPPtjrW1iIU/edit) to your Google drive (you have to be signed in to your Google account).
+1. Copy the Kotlin user group [logo file](https://docs.google.com/drawings/d/1IcJp8Z2jAwEliXrHB-l9RNK_2LrqGTkNuPPtjrW1iIU/edit) to your Google Drive (you have to be signed in to your Google account).
 2. Replace the **Your City** text with the name of your user group.
 3. Download the picture and use it for the user group materials.
 
@@ -105,7 +122,7 @@ JetBrains provides branding and materials for Kotlin Night events.
 Our team will prepare digital assets for the event promotion and ship your merchandise pack containing stickers and t-shirts. 
 Check out what we have to make your Kotlin Night fun!
 
-[Download all assets](https://drive.google.com/drive/folders/1wTJ-PiO6VvbY6XdACGLsWZ_N8KHI0Nvr){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
+<a href="https://drive.google.com/drive/folders/1wTJ-PiO6VvbY6XdACGLsWZ_N8KHI0Nvr" as="button" mode="classic" icon="download" icon-position="right">Download all assets</a>
 
 ### Social media
 

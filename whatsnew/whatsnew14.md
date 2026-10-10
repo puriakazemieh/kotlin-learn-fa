@@ -1,9 +1,15 @@
 [//]: # (title: What's new in Kotlin 1.4.0)
 
-_[Released: 17 August 2020](releases.md#release-details)_
+<web-summary>Read the Kotlin 1.4.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: 17 August 2020](releases.md#release-history)_
 
 In Kotlin 1.4.0, we ship a number of improvements in all of its components, with the [focus on quality and performance](https://blog.jetbrains.com/kotlin/2020/08/kotlin-1-4-released-with-a-focus-on-quality-and-performance/).
 Below you will find the list of the most important changes in Kotlin 1.4.0.
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## Language features and improvements
 
@@ -1517,5 +1523,5 @@ to help you decide which suggestions to accept and which to ignore.
 
 ![Migration inspections](migration-inspection-wn.png)
 
-Kotlin 1.4.0 is a [feature release](kotlin-evolution-principles.md#language-and-tooling-releases) and therefore can 
+Kotlin 1.4.0 is a feature release and therefore can 
 bring incompatible changes to the language. Find the detailed list of such changes in the **[Compatibility Guide for Kotlin 1.4](compatibility-guide-14.md)**.

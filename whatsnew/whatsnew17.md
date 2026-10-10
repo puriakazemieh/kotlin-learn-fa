@@ -1,10 +1,12 @@
 [//]: # (title: What's new in Kotlin 1.7.0)
 
+<web-summary>Read the Kotlin 1.7.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and build tool support for Gradle and Maven.</web-summary>
+
 <tldr>
    <p>The IDE support for Kotlin 1.7.0 is available for IntelliJ IDEA 2021.2, 2021.3, and 2022.1.</p>
 </tldr>
 
-_[Released: 9 June 2022](releases.md#release-details)_
+_[Released: 9 June 2022](releases.md#release-history)_
 
 Kotlin 1.7.0 has been released. It unveils the Alpha version of the new Kotlin/JVM K2 compiler, stabilizes language
 features, and brings performance improvements for the JVM, JS, and Native platforms.
@@ -25,6 +27,10 @@ Here is a list of the major updates in this version:
 You can also find a short overview of the changes in this video:
 
 <video src="https://www.youtube.com/v/54WEfLKtCGk" title="What's new in Kotlin 1.7.0"/>
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## New Kotlin K2 compiler for the JVM in Alpha
 
@@ -238,7 +244,7 @@ The default target version for Kotlin/JVM compilations is `1.8`. The `1.6` targe
 Please migrate to JVM target 1.8 or above. Learn how to update the JVM target version for:
 
 * [Gradle](gradle-compiler-options.md#attributes-specific-to-jvm)
-* [Maven](maven.md#attributes-specific-to-jvm)
+* [Maven](maven-kotlin-compiler.md#attributes-specific-to-jvm)
 * [The command-line compiler](compiler-reference.md#jvm-target-version)
 
 ## Kotlin/Native
@@ -936,7 +942,7 @@ Enable the statistics in two steps:
   kapt.verbose=true
   ```
 
-> You can also enable verbose output via the [command line option `verbose`](kapt.md#use-in-cli).
+> You can also enable verbose output with the [command line option `verbose`](kapt.md#cli).
 >
 {style="note"}
 
@@ -971,7 +977,7 @@ kotlin.compiler.execution.strategy=out-of-process
 ```
 
 You can also use the compile task property `compilerExecutionStrategy`. Learn more about this on
-the [Gradle page](gradle-compilation-and-caches.md#defining-kotlin-compiler-execution-strategy).
+the [Compiler execution strategy page](compiler-execution-strategy.md).
 
 ### Removal of deprecated options, methods, and plugins
 
@@ -1075,5 +1081,5 @@ project. [Learn how to update to Kotlin 1.7.0](releases.md#update-to-a-new-kotli
 
 ### Compatibility guide for Kotlin 1.7.0
 
-Kotlin 1.7.0 is a [feature release](kotlin-evolution-principles.md#language-and-tooling-releases) and can, therefore, bring changes that are incompatible with your code written for earlier versions of the language.
+Kotlin 1.7.0 is a feature release and can, therefore, bring changes that are incompatible with your code written for earlier versions of the language.
 Find the detailed list of such changes in the [Compatibility guide for Kotlin 1.7.0](compatibility-guide-17.md).

@@ -1,18 +1,7 @@
-[//]: # (title: Intermediate: Libraries and APIs)
+[//]: # (title: Libraries and APIs)
 
 <no-index/>
 
-<tldr>
-    <p><img src="icon-1-done.svg" width="20" alt="First step" /> <a href="kotlin-tour-intermediate-extension-functions.md">Extension functions</a><br />
-        <img src="icon-2-done.svg" width="20" alt="Second step" /> <a href="kotlin-tour-intermediate-scope-functions.md">Scope functions</a><br />
-        <img src="icon-3-done.svg" width="20" alt="Third step" /> <a href="kotlin-tour-intermediate-lambdas-receiver.md">Lambda expressions with receiver</a><br />
-        <img src="icon-4-done.svg" width="20" alt="Fourth step" /> <a href="kotlin-tour-intermediate-classes-interfaces.md">Classes and interfaces</a><br />
-        <img src="icon-5-done.svg" width="20" alt="Fifth step" /> <a href="kotlin-tour-intermediate-objects.md">Objects</a><br />
-        <img src="icon-6-done.svg" width="20" alt="Sixth step" /> <a href="kotlin-tour-intermediate-open-special-classes.md">Open and special classes</a><br />
-        <img src="icon-7-done.svg" width="20" alt="Seventh step" /> <a href="kotlin-tour-intermediate-properties.md">Properties</a><br />
-        <img src="icon-8-done.svg" width="20" alt="Eighth step" /> <a href="kotlin-tour-intermediate-null-safety.md">Null safety</a><br />
-        <img src="icon-9.svg" width="20" alt="Ninth step" /> <strong>Libraries and APIs</strong><br /></p>
-</tldr>
 
 To get the most out of Kotlin, use existing libraries and APIs so you can spend more time coding and less time 
 reinventing the wheel.
@@ -176,9 +165,10 @@ fun main() {
 
 This is the easiest way to opt in, but there are other ways. To learn more, see [Opt-in requirements](opt-in-requirements.md).
 
-## Practice
+## Practice {completion-point="true"}
 
-### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="libraries-exercise-1"}
+<deflist appearance="clear" collapsible="true" numbered="true">
+<def title="Calculate compound interest" id="libraries-exercise-1">
 
 You are developing a financial application that helps users calculate the future value of their investments. The formula
 to calculate compound interest is:
@@ -197,8 +187,6 @@ Update the code to:
 
 1. Import the necessary functions from the [`kotlin.math` package](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.math/).
 2. Add a body to the `calculateCompoundInterest()` function that calculates the final amount after applying compound interest.
-
-|--|--|
 
 ```kotlin
 // Write your code here
@@ -220,7 +208,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-libraries-exercise-1"}
 
-|---|---|
 ```kotlin
 import kotlin.math.*
 
@@ -240,12 +227,11 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-libraries-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="libraries-exercise-2"}
+</def>
+<def title="Measure the time taken by data processing" id="libraries-exercise-2">
 
 You want to measure the time it takes to perform multiple data processing tasks in your program. Update the code
 to add the correct import statements and functions from the [`kotlin.time`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.time/) package:
-
-|---|---|
 
 ```kotlin
 // Write your code here
@@ -266,7 +252,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-libraries-exercise-2"}
 
-|---|---|
 ```kotlin
 import kotlin.time.measureTime
 
@@ -286,23 +271,45 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-libraries-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="properties-exercise-3"}
+</def>
+<def title="Opt in to an experimental API" id="libraries-exercise-3">
 
 There's a new feature in the standard library available in the latest Kotlin release. You want to try it out, but it 
 requires opt-in. The feature falls under [`@ExperimentalStdlibApi`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-experimental-stdlib-api/).
 What should the opt-in look like in your code?
 
-|---|---|
 ```kotlin
 @OptIn(ExperimentalStdlibApi::class)
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-libraries-solution-3"}
 
+</def>
+</deflist>
+
 ## What's next?
 
-Congratulations! You've completed the intermediate tour! As a next step, check out our tutorials for popular Kotlin applications:
+Congratulations! You've completed the intermediate tour! Would you like to [share your feedback](https://surveys.hotjar.com/bf4ce865-99ce-4fc1-b107-e9b16bc31592) about your experience? 
 
-* [Create a backend application with Spring Boot and Kotlin](jvm-create-project-with-spring-boot.md)
-* Create a cross-platform application for Android and iOS from scratch and:
-    * [Share business logic while keeping the UI native](https://kotlinlang.org/docs/multiplatform/multiplatform-create-first-app.html)
-    * [Share business logic and UI](https://kotlinlang.org/docs/multiplatform/compose-multiplatform-create-first-app.html)
+As a next step, check out our tutorials for popular Kotlin applications:
+
+<p></p> <!-- workaround for MRK057: Paragraph can only contain inline elements -->
+<panels columns="2" id="kotlin-tour-whats-next">
+    <panel>
+        <title>Kotlin for backend</title>
+        <p>Create a backend application with Spring Boot and Kotlin.</p>
+        <a href="jvm-create-project-with-spring-boot.md" as="button" icon="arrow-right" icon-position="right" id="kotlin-tour-backend-tutorial">Start</a>
+    </panel>
+    <panel>
+        <title>Kotlin Multiplatform</title>
+        <p>Create a cross-platform application from scratch and share business logic and UI.</p>
+        <a href="https://kotlinlang.org/docs/multiplatform/compose-multiplatform-create-first-app.html" as="button" icon="arrow-right" icon-position="right" id="kotlin-tour-cmp-tutorial">Start</a>
+    </panel>
+</panels>
+
+<seealso></seealso>
+
+<list id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-null-safety.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+</list>

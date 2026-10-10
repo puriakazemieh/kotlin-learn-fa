@@ -13,7 +13,7 @@ For example:
 // 'x' is a parameter of Int type
 // The expected return value is of Int type too
 fun double(x: Int): Int {
-return 2 * x
+    return 2 * x
 }
 //sampleEnd
 
@@ -48,11 +48,17 @@ You must separate parameters using commas and give each parameter a type explici
 fun powerOf(number: Int, exponent: Int): Int { /*...*/ }
 ```
 
-Inside the body of a function, received arguments are read-only (implicitly declared as `val`):
+When you pass an object to a function, the compiler passes a copy of the reference to that object.
+The copied reference points to the same object, so the function can modify the object's mutable state.
+
+Function parameters are read-only inside the function body (implicitly declared as `val`), so you can't reassign them:
 
 ```kotlin
-fun powerOf (number: Int, exponent: Int): Int {
-    number = 2 // Error: 'val' cannot be reassigned.
+class Counter(var value: Int)
+
+fun reset(counter: Counter) {
+    counter.value = 0    // Allowed: modifies the object
+    counter = Counter(0) // Error: 'val' cannot be reassigned
 }
 ```
 
@@ -104,11 +110,11 @@ fun greeting(
     message: String,
 ) { /*...*/ }
 
-fun main () {
+fun main() {
     // Uses 0 as the default value for 'userId'
     greeting(message = "Hello!")
     
-    // Error: No value passed for parameter 'userId'
+    // Error: No value passed for parameter 'message'
     greeting("Hello!")
 }
 ```
@@ -177,16 +183,16 @@ For example, this function prints out a line only when it is called without the 
 ```kotlin
 fun main() {
 //sampleStart
-fun read(
-    b: Int,
-    print: Unit? = println("No argument passed for 'print'")
-) { println(b) }
-
-// Prints "No argument passed for 'print'", then "1"
-read (1)
-// Prints only "1"
-read (1, null)
-//sampleEnd
+    fun read(
+        b: Int,
+        print: Unit? = println("No argument passed for 'print'")
+    ) { println(b) }
+    
+    // Prints "No argument passed for 'print'", then "1"
+    read(1)
+    // Prints only "1"
+    read(1, null)
+    //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="non-constant-default"}
@@ -196,24 +202,24 @@ you can pass the corresponding [lambda](lambdas.md#lambda-expression-syntax) arg
 
 ```kotlin
 fun main() {
-//sampleStart
-fun log(
-    level: Int = 0,
-    code:  Int = 1,
-    action: () -> Unit,
-) { println (level)
-    println (code)
-    action() }
-
-// Passes 1 for 'level' and uses the default value 1 for 'code'
-log(1) { println("Connection established") }
-
-// Uses both default values, 0 for 'level' and 1 for 'code'
-log(action = { println("Connection established") })
-
-// Equivalent to the previous call, uses both default values
-log { println("Connection established") }
-//sampleEnd   
+    //sampleStart
+    fun log(
+        level: Int = 0,
+        code:  Int = 1,
+        action: () -> Unit,
+    ) { println (level)
+        println (code)
+        action() }
+    
+    // Passes 1 for 'level' and uses the default value 1 for 'code'
+    log(1) { println("Connection established") }
+    
+    // Uses both default values, 0 for 'level' and 1 for 'code'
+    log(action = { println("Connection established") })
+    
+    // Equivalent to the previous call, uses both default values
+    log { println("Connection established") }
+    //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="lambda-outside-parentheses"}
@@ -250,7 +256,7 @@ reformat(
 )
 ```
 
-You can skip all the ones with default values:
+You can skip all the arguments with default values:
 
 ```kotlin
 reformat("This is a long String!")
@@ -285,14 +291,98 @@ mergeStrings(strings = arrayOf("a", "b", "c"))
 
 ### Return types
 
-When you declare a function with a block body (by putting instructions within curly braces `{}`),
-you must always specify a return type explicitly.
-The only exception is when they return `Unit`,
-[in which case specifying the return type is optional](#unit-returning-functions).
+When you declare a function with a block body (by putting instructions within curly braces `{}`), you must always specify
+a return type explicitly. The only exception is when the function returns `Unit`,[in which case specifying the return type is optional](#unit-returning-functions).
 
-Kotlin doesn't infer return types for functions with block bodies.
-Their control flow can be complex, which makes the return type unclear to the reader and sometimes even to the compiler.
-However, Kotlin can infer the return type for [single-expression functions](#single-expression-functions) if you don't specify it.
+Kotlin doesn't infer return types for functions with block bodies. Their control flow can be complex, which makes the
+return type unclear to the reader and sometimes even to the compiler. However, Kotlin can infer the return type for
+[single-expression functions](#single-expression-functions) if you don't specify it.
+
+Kotlin functions return a single value, but that value can contain multiple pieces of data. For ways to represent these
+values, see [Return multiple values](#return-multiple-values).
+
+#### Return multiple values
+
+When you need to return multiple related values with distinct meanings, declare a [data class](data-classes.md), even if you only use
+it with one function:
+
+```kotlin
+data class OrderSummary(
+    val subtotal: Double,
+    val tax: Double,
+)
+
+fun calculateOrderSummary(prices: List<Double>): OrderSummary {
+    val subtotal = prices.sum()
+    val tax = subtotal * 0.2
+    return OrderSummary(subtotal, tax)
+}
+
+fun main() {
+    val summary = calculateOrderSummary(listOf(12.50, 8.00, 4.50))
+
+    println(summary.subtotal)
+    // 25.0
+    println(summary.tax)
+    // 5.0
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="return-multiple-values-data-class"}
+
+A data class works well when you need to return multiple values with distinct meanings. If the returned values
+are of the same kind and you want to handle them as a group, consider returning a collection instead:
+
+```kotlin
+data class Person(val name: String)
+
+val friendGroups = listOf(
+    listOf(Person("Alice"), Person("Bob")),
+    listOf(Person("Charlie"), Person("Diana"), Person("Eve")),
+    listOf(Person("Frank"))
+)
+
+fun findLargestGroupOfFriends(): List<Person> {
+    return friendGroups.maxByOrNull { it.size } ?: emptyList()
+}
+
+fun main() {
+    val largestGroup = findLargestGroupOfFriends()
+
+    println(largestGroup.map { it.name })
+    // [Charlie, Diana, Eve]
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.4" id="return-multiple-values-list"}
+
+If you need to return a fixed number of values, you can also use [`Pair`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-pair/) or [`Triple`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-triple/)
+data classes from the standard library. However, their properties have generic names such as `first`, `second`, and `third`,
+which can make the result difficult to understand.
+
+For example, although the `calculateOrderTotals()` function returns a `Pair`, it's not clear what each `Double` represents:
+
+```kotlin
+fun calculateOrderTotals(prices: List<Double>): Pair<Double, Double> {
+    val subtotal = prices.sum()
+    val tax = subtotal * 0.2
+    return Pair(subtotal, tax)
+}
+
+fun main() {
+    val totals = calculateOrderTotals(listOf(12.50, 8.00, 4.50))
+
+    // What does 'first' mean?
+    println(totals.first)
+    // 25.0
+  
+    // What does 'second' mean?
+    println(totals.second)
+    // 5.0
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="return-multiple-values-pair"}
+
+For results with distinct meanings, prefer a data class with descriptive property names, as demonstrated in the 
+[`OrderSummary` data class example](#return-multiple-values).
 
 ### Single-expression functions
 
@@ -319,69 +409,82 @@ make sure to check the actual result because the compiler may infer a type that 
 In the example above, if you want the `double()` function to return `Number` instead of `Int`, 
 you have to declare this explicitly.
 
+If you use a `return` statement inside an expression body, you must specify the return type explicitly:
+
+```kotlin
+fun getDisplayNameOrDefault(userId: String?): String =
+    getDisplayName(userId ?: return "default")
+```
+
 ### Unit-returning functions
 
-If a function has a block body (instructions within curly braces `{}`) and does not return a useful value,
-the compiler assumes its return type  is `Unit`.
-`Unit` is a type that has only one value, also called `Unit`.
+If a function has a block body and no explicit return type, the compiler infers its return type as `Unit`.
 
-You don't have to specify `Unit` as a return type, except for functional type parameters.
-You never have to return `Unit` explicitly.
+`Unit` is a type that has only one value, also called `Unit`. This value is an [object](object-declarations.md), so only a single `Unit` instance exists.
+Unlike `void` in other programming languages, `Unit` is an actual type, and you can use its value if your code requires one.
+This way functions that produce results and functions that only perform actions fit the same type model: both return a value
+and can be represented by function types or used with generic APIs.
 
-For example, you can declare a `printHello()` function without returning `Unit`:
+You don't need to specify `Unit` in function declarations or return its value explicitly. However, you must specify
+`Unit` when it is part of a function type, such as `() -> Unit`. For example, let's declare a `printHello()` function
+without returning `Unit`:
 
 ```kotlin
 // The declaration of the functional type parameter ('action') still 
 // needs an explicit return type
 fun printHello(name: String?, action: () -> Unit) {
-  if (name != null)
-    println("Hello $name")
-  else
-    println("Hi there!")
+    if (name != null)
+        println("Hello $name")
+    else
+        println("Hi there!")
 
-  action()
+    action()
 }
 
 fun main() {
-  printHello("Kodee") {
-    println("This runs after the greeting.")
-  }
-  // Hello Kodee
-  // This runs after the greeting.
+    printHello("Kodee") {
+        println("This runs after the greeting.")
+        // Hello Kodee
+        // This runs after the greeting.
+    }
 
-  printHello(null) {
-    println("No name provided, but action still runs.")
-  }
-  // No name provided, but action still runs
+    printHello(null) {
+        println("No name provided, but action still runs.")
+        // Hi there!
+        // No name provided, but action still runs.
+    }
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="return-unit-implicit"}
 
-Which is equivalent to this verbose declaration:
+This is equivalent to the following more verbose declaration, which specifies the return type and value explicitly:
 
 ```kotlin
-//sample Start
+//sampleStart
+// `Unit` is required in the `() -> Unit` function type,
+// but declaring `: Unit` as the return type of `printHello()` is optional
 fun printHello(name: String?, action: () -> Unit): Unit {
-  if (name != null)
-    println("Hello $name")
-  else
-    println("Hi there!")
+    if (name != null)
+        println("Hello $name")
+    else
+        println("Hi there!")
 
-  action()
-  return Unit
+    action()
+    // Returning the `Unit` value explicitly is optional
+    return Unit
 }
-// sampleEnd
+//sampleEnd
 fun main() {
-  printHello("Kodee") {
-    println("This runs after the greeting.")
-  }
-  // Hello Kodee
-  // This runs after the greeting.
-
-  printHello(null) {
-    println("No name provided, but action still runs.")
-  }
-  // No name provided, but action still runs
+    printHello("Kodee") {
+        println("This action runs when a name is given.")
+        // Hello Kodee
+        // This action runs when a name is given.
+    }
+    printHello(null) {
+        println("This action runs when no name is provided.")
+        // Hi there!
+        // This action runs when no name is provided.
+    }
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="return-unit-explicit"}
@@ -405,18 +508,18 @@ Then you can pass a variable number of arguments to the function:
 
 ```kotlin
 fun <T> asList(vararg ts: T): List<T> {
-  val result = ArrayList<T>()
-  for (t in ts) // ts is an Array
-    result.add(t)
-  return result
+    val result = ArrayList<T>()
+    for (t in ts) // ts is an Array
+        result.add(t)
+    return result
 }
 
 fun main() {
-  //sampleStart
-  val list = asList(1, 2, 3)
-  println(list)
-  // [1, 2, 3]
-  //sampleEnd
+    //sampleStart
+    val list = asList(1, 2, 3)
+    println(list)
+    // [1, 2, 3]
+    //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="varargs-aslist"}
@@ -432,23 +535,22 @@ use the [spread operator](arrays.md#pass-variable-number-of-arguments-to-a-funct
 
 ```kotlin
 fun <T> asList(vararg ts: T): List<T> {
-  val result = ArrayList<T>()
-  for (t in ts)
-    result.add(t)
-  return result
+    val result = ArrayList<T>()
+    for (t in ts)
+        result.add(t)
+    return result
 }
 
 fun main() {
-  //sampleStart
-  val a = arrayOf(1, 2, 3)
+    //sampleStart
+    val a = arrayOf(1, 2, 3)
 
-  // The function receives the array [-1, 0, 1, 2, 3, 4]
-  val list = asList(-1, 0, *a, 4)
+    // The function receives the array [-1, 0, 1, 2, 3, 4]
+    list = asList(-1, 0, *a, 4)
 
-  println(list)
-  // [-1, 0, 1, 2, 3, 4]
-
-  //sampleEnd
+    println(list)
+    // [-1, 0, 1, 2, 3, 4]
+    //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="varargs-aslist-with-array"}
@@ -503,31 +605,31 @@ This ensures unambiguous parsing.
 
 ```kotlin
 class MyStringCollection {
-  val items = mutableListOf<String>()
+    val items = mutableListOf<String>()
 
-  infix fun add(s: String) {
-    println("Adding: $s")
-    items += s
-  }
+    infix fun add(s: String) {
+        println("Adding: $s")
+        items += s
+    }
 
-  fun build() {
-      add("first")       // Correct: ordinary function call
-      this add "second"  // Correct: infix call with explicit receiver
-      // add "third"     // Compiler error: needs an explicit receiver
-  }
+    fun build() {
+        add("first")      // Correct: ordinary function call
+        this add "second" // Correct: infix call with an explicit receiver
+        // add "third"    // Compiler error: needs an explicit receiver
+    }
 
-  fun printAll() = println("Items = $items")
+    fun printAll() = println("Items = $items")
 }
 
 fun main() {
-  val myStrings = MyStringCollection()
-  // Adds "first" and "second" to the list twice
-  myStrings.build()
-  
-  myStrings.printAll()
-  // Adding: first
-  // Adding: second
-  // Items = [first, second]
+    val myStrings = MyStringCollection()
+    // Adds "first" and "second" to the list
+    myStrings.build()
+      
+    myStrings.printAll()
+    // Adding: first
+    // Adding: second
+    // Items = [first, second]
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="infix-notation-example"}

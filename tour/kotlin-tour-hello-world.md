@@ -2,15 +2,6 @@
 
 <no-index/>
 
-<tldr>
-    <p><img src="icon-1.svg" width="20" alt="First step" /> <strong>Hello world</strong><br />
-        <img src="icon-2-todo.svg" width="20" alt="Second step" /> <a href="kotlin-tour-basic-types.md">Basic types</a><br />
-        <img src="icon-3-todo.svg" width="20" alt="Third step" /> <a href="kotlin-tour-collections.md">Collections</a><br />
-        <img src="icon-4-todo.svg" width="20" alt="Fourth step" /> <a href="kotlin-tour-control-flow.md">Control flow</a><br />
-        <img src="icon-5-todo.svg" width="20" alt="Fifth step" /> <a href="kotlin-tour-functions.md">Functions</a><br />
-        <img src="icon-6-todo.svg" width="20" alt="Sixth step" /> <a href="kotlin-tour-classes.md">Classes</a><br />
-        <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
-</tldr>
 
 Here is a simple program that prints "Hello, world!":
 
@@ -105,13 +96,13 @@ For more information, see [String templates](strings.md#string-templates).
 You will notice that there aren't any types declared for variables. Kotlin has inferred the type itself: `Int`. This tour
 explains the different Kotlin basic types and how to declare them in the [next chapter](kotlin-tour-basic-types.md).
 
-## Practice
+## Practice {completion-point="true"}
 
-### Exercise {initial-collapse-state="collapsed" collapsible="true"}
+<deflist appearance="clear" collapsible="true">
+<def title="Print a statement using string templates">
 
 Complete the code to make the program print `"Mary is 20 years old"` to standard output:
 
-|---|---|
 ```kotlin
 fun main() {
     val name = "Mary"
@@ -121,7 +112,6 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-hello-world-exercise"}
 
-|---|---|
 ```kotlin
 fun main() {
     val name = "Mary"
@@ -131,6 +121,14 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-hello-world-solution"}
 
-## Next step
+</def>
+</deflist>
 
-[Basic types](kotlin-tour-basic-types.md)
+<seealso></seealso>
+
+<list id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-basic-types.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>
+

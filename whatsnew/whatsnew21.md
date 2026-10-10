@@ -1,6 +1,8 @@
 [//]: # (title: What's new in Kotlin 2.1.0)
 
-_[Released: November 27, 2024](releases.md#release-details)_
+<web-summary>Read the Kotlin 2.1.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and Wasm, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: November 27, 2024](releases.md#release-history)_
 
 The Kotlin 2.1.0 release is here! Here are the main highlights:
 
@@ -14,6 +16,10 @@ The Kotlin 2.1.0 release is here! Here are the main highlights:
 * **Gradle support**: [Improved compatibility with newer versions of Gradle and the Android Gradle plugin](#gradle-improvements),
   along with [updates to the Kotlin Gradle plugin API](#new-api-for-kotlin-gradle-plugin-extensions).
 * **Documentation**: [Significant improvements to the Kotlin documentation](#documentation-updates).
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## IDE support
 
@@ -1579,7 +1585,6 @@ The Kotlin documentation has received some notable changes:
 * New [Building a Kotlin library for multiplatform](https://kotlinlang.org/docs/api-guidelines-build-for-multiplatform.html) page –
   Learn how to design your Kotlin libraries for Kotlin Multiplatform.
 * New [Introduction to Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/get-started.html) page – Learn about Kotlin Multiplatform's key concepts, dependencies, libraries, and more.
-* Updated [Kotlin Multiplatform overview](multiplatform.topic) page – Navigate through the essentials of Kotlin Multiplatform and popular use cases.
 * New [iOS integration](https://kotlinlang.org/docs/multiplatform/multiplatform-ios-integration-overview.html) section – Learn how to integrate a Kotlin Multiplatform shared module into your iOS app.
 * New [Kotlin/Native's definition file](native-definition-file.md) page – Learn how to create a definition file to consume C and Objective-C libraries.
 * [Get started with WASI](wasm-wasi.md) –

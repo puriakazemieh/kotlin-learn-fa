@@ -1,6 +1,8 @@
 [//]: # (title: What's new in Kotlin 1.9.20)
 
-_[Released: November 1, 2023](releases.md#release-details)_
+<web-summary>Read the Kotlin 1.9.20 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and Wasm, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: November 1, 2023](releases.md#release-history)_
 
 The Kotlin 1.9.20 release is out, the [K2 compiler for all the targets is now in Beta](#new-kotlin-k2-compiler-updates),
 and [Kotlin Multiplatform is now Stable](#kotlin-multiplatform-is-stable). Additionally, here are some of the main highlights:
@@ -15,6 +17,10 @@ and [Kotlin Multiplatform is now Stable](#kotlin-multiplatform-is-stable). Addit
 You can also find a short overview of the updates in this video:
 
 <video src="https://www.youtube.com/v/Ol_96CHKqg8" title="What's new in Kotlin 1.9.20"/>
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## IDE support
 
@@ -825,11 +831,11 @@ now have access to `internal` declarations within main source set classes. In ad
 
 ### New property to configure paths to Konan directories
 
-In Kotlin 1.9.20, the `kotlin.data.dir` Gradle property is available to customize your path to the `~/.konan` directory 
+In Kotlin 1.9.20, the `konan.data.dir` Gradle property is available to customize your path to the `~/.konan` directory 
 so that you don't have to configure it through the environment variable `KONAN_DATA_DIR`.
 
 Alternatively, you can use the `-Xkonan-data-dir` compiler option to configure your custom path to the `~/.konan` directory via 
-the `cinterop` and  `konanc` tools.
+the `cinterop` and `konanc` tools.
 
 ### New build report metrics for Kotlin/Native tasks
 

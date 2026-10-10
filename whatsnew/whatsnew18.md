@@ -1,6 +1,8 @@
 [//]: # (title: What's new in Kotlin 1.8.0)
 
-_[Released: 28 December 2022](releases.md#release-details)_
+<web-summary>Read the Kotlin 1.8.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: 28 December 2022](releases.md#release-history)_
 
 The Kotlin 1.8.0 release is out and here are some of its biggest highlights:
 
@@ -10,6 +12,10 @@ The Kotlin 1.8.0 release is out and here are some of its biggest highlights:
 * [`kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` merged into `kotlin-stdlib`](#updated-jvm-compilation-target)
 * [Improved Objective-C/Swift interoperability](#improved-objective-c-swift-interoperability)
 * [Compatibility with Gradle 7.3](#gradle)
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## IDE support
 
@@ -492,8 +498,8 @@ to run the compilation, you can see a message about it in the logs.
 
 The Kotlin compiler's fallback strategy is to run a compilation outside the Kotlin daemon if the daemon somehow fails.
 If the Gradle daemon is on, the compiler uses the "In process" strategy. If the Gradle daemon is off, the compiler uses
-the "Out of process" strategy. Learn more about these
-[execution strategies in the documentation](gradle-compilation-and-caches.md#defining-kotlin-compiler-execution-strategy).
+the "Out of process" strategy. For more information, see
+[Compiler execution strategy](compiler-execution-strategy.md).
 Note that silent fallback to another strategy can consume a lot of system resources or lead to non-deterministic builds;
 see this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-48843/Add-ability-to-disable-Kotlin-daemon-fallback-strategy)
 for more details.
@@ -575,7 +581,7 @@ In Kotlin 1.8.0, the deprecation cycle continues for the following properties an
   By default, [kapt has been using Gradle workers](kapt.md#run-kapt-tasks-in-parallel) since Kotlin 1.3.70,
   and we recommend sticking to this method.
 * In Kotlin 1.7.0, we [announced the start of a deprecation cycle for the `kotlin.compiler.execution.strategy` property](whatsnew17.md#deprecation-of-the-kotlin-compiler-execution-strategy-system-property).
-  In this release, we removed this property. Learn how to [define a Kotlin compiler execution strategy](gradle-compilation-and-caches.md#defining-kotlin-compiler-execution-strategy)
+  In this release, we removed this property. Learn how to [define a Kotlin compiler execution strategy](compiler-execution-strategy.md)
   in other ways.
 
 ## Standard library
@@ -818,6 +824,6 @@ the upcoming Android Studios updates. The new command-line compiler is available
 
 ## Compatibility guide for Kotlin 1.8.0
 
-Kotlin 1.8.0 is a [feature release](kotlin-evolution-principles.md#language-and-tooling-releases) and can, therefore,
+Kotlin 1.8.0 is a feature release and can, therefore,
 bring changes that are incompatible with your code written for earlier versions of the language. Find the detailed list
 of these changes in the [Compatibility guide for Kotlin 1.8.0](compatibility-guide-18.md).
