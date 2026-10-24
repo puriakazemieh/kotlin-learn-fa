@@ -11,9 +11,9 @@
 
 - پیشرفت همگام: **۴ از ۳۰۶ فایل رسمی**
 - ترجمهٔ موجود ولی نیازمند تطبیق با متن تازه: **۱۳ فایل** با علامت 🔄
-- ترجمهٔ آماده و در انتظار تمرین و مرور یادگیرنده: **۱ فایل**
+- ترجمهٔ آماده و در انتظار تمرین و مرور یادگیرنده: **۲ فایل**
 - ترجمهٔ همگام و در انتظار مطالعهٔ یادگیرنده: **۱ فایل**
-- فایل رسمی بدون ترجمه: **۲۸۷ فایل**
+- فایل رسمی بدون ترجمه: **۲۸۶ فایل**
 - فایل سفارشی خارج از فهرست رسمی: [واژه‌نامهٔ فارسی](glossary-fa.md)
 
 > علامت 🔄 یعنی ترجمه وجود دارد، اما checkbox تا پایان بازبینی تغییرهای متن مبنا خالی می‌ماند.
@@ -188,7 +188,7 @@ spring-ai-guide.md
 - [x] [`getting-started-fa.md`](getting-started-fa.md) ← [`getting-started.md`](getting-started.md) — Get started
 - [x] [`tour/kotlin-tour-welcome-fa.md`](tour/kotlin-tour-welcome-fa.md) ← [`tour/kotlin-tour-welcome.md`](tour/kotlin-tour-welcome.md) — Kotlin tour overview
 - [ ] [`tour/kotlin-tour-hello-world-fa.md`](tour/kotlin-tour-hello-world-fa.md) ← [`tour/kotlin-tour-hello-world.md`](tour/kotlin-tour-hello-world.md) — kotlin-tour-hello-world (ترجمه آماده؛ در انتظار تمرین و مرور)
-- [ ] `tour/kotlin-tour-basic-types-fa.md` ← [`tour/kotlin-tour-basic-types.md`](tour/kotlin-tour-basic-types.md) — kotlin-tour-basic-types
+- [ ] [`tour/kotlin-tour-basic-types-fa.md`](tour/kotlin-tour-basic-types-fa.md) ← [`tour/kotlin-tour-basic-types.md`](tour/kotlin-tour-basic-types.md) — kotlin-tour-basic-types (ترجمه آماده؛ در انتظار تمرین و مرور)
 - [ ] `tour/kotlin-tour-collections-fa.md` ← [`tour/kotlin-tour-collections.md`](tour/kotlin-tour-collections.md) — kotlin-tour-collections
 - [ ] `tour/kotlin-tour-control-flow-fa.md` ← [`tour/kotlin-tour-control-flow.md`](tour/kotlin-tour-control-flow.md) — kotlin-tour-control-flow
 - [ ] `tour/kotlin-tour-functions-fa.md` ← [`tour/kotlin-tour-functions.md`](tour/kotlin-tour-functions.md) — kotlin-tour-functions
@@ -215,7 +215,7 @@ spring-ai-guide.md
 - [ ] [`annotations-fa.md`](annotations-fa.md) ← [`annotations.md`](annotations.md) — annotations 🔄
 - [ ] [`visibility-modifiers-fa.md`](visibility-modifiers-fa.md) ← [`visibility-modifiers.md`](visibility-modifiers.md) — visibility-modifiers 🔄
 - [ ] [`coding-conventions-fa.md`](coding-conventions-fa.md) ← [`coding-conventions.md`](coding-conventions.md) — coding-conventions 🔄
-- [x] [`idioms-fa.md`](idioms-fa.md) ← [`idioms.md`](idioms.md) — idioms
+- [ ] [`idioms-fa.md`](idioms-fa.md) ← [`idioms.md`](idioms.md) — idioms
 - [ ] [`types-overview-fa.md`](types-overview-fa.md) ← [`types-overview.md`](types-overview.md) — Overview 🔄
 - [ ] [`numbers-fa.md`](numbers-fa.md) ← [`numbers.md`](numbers.md) — numbers 🔄
 - [ ] [`unsigned-integer-types-fa.md`](unsigned-integer-types-fa.md) ← [`unsigned-integer-types.md`](unsigned-integer-types.md) — unsigned-integer-types 🔄
@@ -226,7 +226,7 @@ spring-ai-guide.md
 - [ ] `typecasts-fa.md` ← [`typecasts.md`](typecasts.md) — typecasts
 - [ ] `type-aliases-fa.md` ← [`type-aliases.md`](type-aliases.md) — type-aliases
 - [ ] [`control-flow-fa.md`](control-flow-fa.md) ← [`control-flow.md`](control-flow.md) — control-flow 🔄
-- [x] [`returns-fa.md`](returns-fa.md) ← [`returns.md`](returns.md) — returns
+- [ ] [`returns-fa.md`](returns-fa.md) ← [`returns.md`](returns.md) — returns
 - [ ] `exceptions-fa.md` ← [`exceptions.md`](exceptions.md) — Exception handling
 - [ ] `null-safety-fa.md` ← [`null-safety.md`](null-safety.md) — null-safety
 - [ ] `equality-fa.md` ← [`equality.md`](equality.md) — equality
