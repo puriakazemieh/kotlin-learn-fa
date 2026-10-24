@@ -11,7 +11,7 @@ cssclasses:
 
 تازه با Kotlin آشنا شده‌اید؟ برای یادگیری مفاهیم پایه، تور Kotlin را مستقیماً در مرورگر خود بگذرانید.
 
-[شروع تور Kotlin](tour/kotlin-tour-welcome.md)
+[شروع تور Kotlin](tour/kotlin-tour-welcome-fa.md)
 
 ## نصب Kotlin
 

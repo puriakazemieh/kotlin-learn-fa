@@ -9,9 +9,11 @@
 
 ## وضعیت فعلی
 
-- پیشرفت همگام: **۳ از ۳۰۶ فایل رسمی**
-- ترجمهٔ موجود ولی نیازمند تطبیق با متن تازه: **۱۴ فایل** با علامت 🔄
-- فایل رسمی بدون ترجمه: **۲۸۹ فایل**
+- پیشرفت همگام: **۴ از ۳۰۶ فایل رسمی**
+- ترجمهٔ موجود ولی نیازمند تطبیق با متن تازه: **۱۳ فایل** با علامت 🔄
+- ترجمهٔ آماده و در انتظار تمرین و مرور یادگیرنده: **۱ فایل**
+- ترجمهٔ همگام و در انتظار مطالعهٔ یادگیرنده: **۱ فایل**
+- فایل رسمی بدون ترجمه: **۲۸۷ فایل**
 - فایل سفارشی خارج از فهرست رسمی: [واژه‌نامهٔ فارسی](glossary-fa.md)
 
 > علامت 🔄 یعنی ترجمه وجود دارد، اما checkbox تا پایان بازبینی تغییرهای متن مبنا خالی می‌ماند.
@@ -184,8 +186,8 @@ spring-ai-guide.md
 این مرحله دروازهٔ مسیر یادگیری است و جدول ۱۲ هفتهٔ نخست نیز مستقیماً از همین ترتیب پیروی می‌کند.
 
 - [x] [`getting-started-fa.md`](getting-started-fa.md) ← [`getting-started.md`](getting-started.md) — Get started
-- [ ] `tour/kotlin-tour-welcome-fa.md` ← [`tour/kotlin-tour-welcome.md`](tour/kotlin-tour-welcome.md) — Kotlin tour overview
-- [ ] `tour/kotlin-tour-hello-world-fa.md` ← [`tour/kotlin-tour-hello-world.md`](tour/kotlin-tour-hello-world.md) — kotlin-tour-hello-world
+- [x] [`tour/kotlin-tour-welcome-fa.md`](tour/kotlin-tour-welcome-fa.md) ← [`tour/kotlin-tour-welcome.md`](tour/kotlin-tour-welcome.md) — Kotlin tour overview
+- [ ] [`tour/kotlin-tour-hello-world-fa.md`](tour/kotlin-tour-hello-world-fa.md) ← [`tour/kotlin-tour-hello-world.md`](tour/kotlin-tour-hello-world.md) — kotlin-tour-hello-world (ترجمه آماده؛ در انتظار تمرین و مرور)
 - [ ] `tour/kotlin-tour-basic-types-fa.md` ← [`tour/kotlin-tour-basic-types.md`](tour/kotlin-tour-basic-types.md) — kotlin-tour-basic-types
 - [ ] `tour/kotlin-tour-collections-fa.md` ← [`tour/kotlin-tour-collections.md`](tour/kotlin-tour-collections.md) — kotlin-tour-collections
 - [ ] `tour/kotlin-tour-control-flow-fa.md` ← [`tour/kotlin-tour-control-flow.md`](tour/kotlin-tour-control-flow.md) — kotlin-tour-control-flow
@@ -219,7 +221,7 @@ spring-ai-guide.md
 - [ ] [`unsigned-integer-types-fa.md`](unsigned-integer-types-fa.md) ← [`unsigned-integer-types.md`](unsigned-integer-types.md) — unsigned-integer-types 🔄
 - [ ] [`booleans-fa.md`](booleans-fa.md) ← [`booleans.md`](booleans.md) — booleans 🔄
 - [ ] [`characters-fa.md`](characters-fa.md) ← [`characters.md`](characters.md) — characters 🔄
-- [ ] [`strings-fa.md`](strings-fa.md) ← [`strings.md`](strings.md) — strings 🔄
+- [ ] [`strings-fa.md`](strings-fa.md) ← [`strings.md`](strings.md) — strings (ترجمه همگام است؛ پس از پایان تور مقدماتی بخوانید)
 - [ ] [`arrays-fa.md`](arrays-fa.md) ← [`arrays.md`](arrays.md) — arrays 🔄
 - [ ] `typecasts-fa.md` ← [`typecasts.md`](typecasts.md) — typecasts
 - [ ] `type-aliases-fa.md` ← [`type-aliases.md`](type-aliases.md) — type-aliases
