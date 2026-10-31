@@ -11,9 +11,9 @@
 
 - پیشرفت همگام: **۴ از ۳۰۶ فایل رسمی**
 - ترجمهٔ موجود ولی نیازمند تطبیق با متن تازه: **۱۳ فایل** با علامت 🔄
-- ترجمهٔ آماده و در انتظار تمرین و مرور یادگیرنده: **۲ فایل**
+- ترجمهٔ آماده و در انتظار تمرین و مرور یادگیرنده: **۳ فایل**
 - ترجمهٔ همگام و در انتظار مطالعهٔ یادگیرنده: **۱ فایل**
-- فایل رسمی بدون ترجمه: **۲۸۶ فایل**
+- فایل رسمی بدون ترجمه: **۲۸۵ فایل**
 - فایل سفارشی خارج از فهرست رسمی: [واژه‌نامهٔ فارسی](glossary-fa.md)
 
 > علامت 🔄 یعنی ترجمه وجود دارد، اما checkbox تا پایان بازبینی تغییرهای متن مبنا خالی می‌ماند.
@@ -189,7 +189,7 @@ spring-ai-guide.md
 - [x] [`tour/kotlin-tour-welcome-fa.md`](tour/kotlin-tour-welcome-fa.md) ← [`tour/kotlin-tour-welcome.md`](tour/kotlin-tour-welcome.md) — Kotlin tour overview
 - [ ] [`tour/kotlin-tour-hello-world-fa.md`](tour/kotlin-tour-hello-world-fa.md) ← [`tour/kotlin-tour-hello-world.md`](tour/kotlin-tour-hello-world.md) — kotlin-tour-hello-world (ترجمه آماده؛ در انتظار تمرین و مرور)
 - [ ] [`tour/kotlin-tour-basic-types-fa.md`](tour/kotlin-tour-basic-types-fa.md) ← [`tour/kotlin-tour-basic-types.md`](tour/kotlin-tour-basic-types.md) — kotlin-tour-basic-types (ترجمه آماده؛ در انتظار تمرین و مرور)
-- [ ] `tour/kotlin-tour-collections-fa.md` ← [`tour/kotlin-tour-collections.md`](tour/kotlin-tour-collections.md) — kotlin-tour-collections
+- [ ] [`tour/kotlin-tour-collections-fa.md`](tour/kotlin-tour-collections-fa.md) ← [`tour/kotlin-tour-collections.md`](tour/kotlin-tour-collections.md) — kotlin-tour-collections (ترجمه آماده؛ در انتظار تمرین و مرور)
 - [ ] `tour/kotlin-tour-control-flow-fa.md` ← [`tour/kotlin-tour-control-flow.md`](tour/kotlin-tour-control-flow.md) — kotlin-tour-control-flow
 - [ ] `tour/kotlin-tour-functions-fa.md` ← [`tour/kotlin-tour-functions.md`](tour/kotlin-tour-functions.md) — kotlin-tour-functions
 - [ ] `tour/kotlin-tour-classes-fa.md` ← [`tour/kotlin-tour-classes.md`](tour/kotlin-tour-classes.md) — kotlin-tour-classes
