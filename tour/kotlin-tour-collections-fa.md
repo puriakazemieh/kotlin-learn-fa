@@ -434,4 +434,4 @@ fun main() {
 > }
 > ```
 
-[گام پیشین](kotlin-tour-basic-types-fa.md) · [گام بعدی](kotlin-tour-control-flow.md)
+[گام پیشین](kotlin-tour-basic-types-fa.md) · [گام بعدی](kotlin-tour-control-flow-fa.md)
