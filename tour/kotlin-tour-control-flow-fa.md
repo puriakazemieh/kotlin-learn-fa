@@ -465,7 +465,7 @@ fun main() {
 > }
 > ```
 
-[گام پیشین](kotlin-tour-collections-fa.md) · [گام بعدی](kotlin-tour-functions.md)
+[گام پیشین](kotlin-tour-collections-fa.md) · [گام بعدی](kotlin-tour-functions-fa.md)
 
 ---
 
