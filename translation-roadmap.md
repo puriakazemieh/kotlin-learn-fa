@@ -11,9 +11,9 @@
 
 - پیشرفت همگام: **۴ از ۳۰۶ فایل رسمی**
 - ترجمهٔ موجود ولی نیازمند تطبیق با متن تازه: **۱۳ فایل** با علامت 🔄
-- ترجمهٔ آماده و در انتظار تمرین و مرور یادگیرنده: **۵ فایل**
+- ترجمهٔ آماده و در انتظار تمرین و مرور یادگیرنده: **۶ فایل**
 - ترجمهٔ همگام و در انتظار مطالعهٔ یادگیرنده: **۱ فایل**
-- فایل رسمی بدون ترجمه: **۲۸۳ فایل**
+- فایل رسمی بدون ترجمه: **۲۸۲ فایل**
 - فایل سفارشی خارج از فهرست رسمی: [واژه‌نامهٔ فارسی](glossary-fa.md)
 
 > علامت 🔄 یعنی ترجمه وجود دارد، اما checkbox تا پایان بازبینی تغییرهای متن مبنا خالی می‌ماند.
@@ -193,7 +193,7 @@ spring-ai-guide.md
 - [ ] [`tour/kotlin-tour-collections-fa.md`](tour/kotlin-tour-collections-fa.md) ← [`tour/kotlin-tour-collections.md`](tour/kotlin-tour-collections.md) — kotlin-tour-collections (ترجمه آماده؛ در انتظار تمرین و مرور)
 - [ ] [`tour/kotlin-tour-control-flow-fa.md`](tour/kotlin-tour-control-flow-fa.md) ← [`tour/kotlin-tour-control-flow.md`](tour/kotlin-tour-control-flow.md) — kotlin-tour-control-flow (ترجمه آماده؛ در انتظار تمرین و مرور)
 - [ ] [`tour/kotlin-tour-functions-fa.md`](tour/kotlin-tour-functions-fa.md) ← [`tour/kotlin-tour-functions.md`](tour/kotlin-tour-functions.md) — kotlin-tour-functions (ترجمه آماده؛ در انتظار تمرین و مرور)
-- [ ] `tour/kotlin-tour-classes-fa.md` ← [`tour/kotlin-tour-classes.md`](tour/kotlin-tour-classes.md) — kotlin-tour-classes
+- [ ] [`tour/kotlin-tour-classes-fa.md`](tour/kotlin-tour-classes-fa.md) ← [`tour/kotlin-tour-classes.md`](tour/kotlin-tour-classes.md) — kotlin-tour-classes (ترجمه آماده؛ در انتظار تمرین و مرور)
 - [ ] `tour/kotlin-tour-null-safety-fa.md` ← [`tour/kotlin-tour-null-safety.md`](tour/kotlin-tour-null-safety.md) — kotlin-tour-null-safety
 - [ ] `tour/kotlin-tour-intermediate-extension-functions-fa.md` ← [`tour/kotlin-tour-intermediate-extension-functions.md`](tour/kotlin-tour-intermediate-extension-functions.md) — kotlin-tour-intermediate-extension-functions
 - [ ] `tour/kotlin-tour-intermediate-scope-functions-fa.md` ← [`tour/kotlin-tour-intermediate-scope-functions.md`](tour/kotlin-tour-intermediate-scope-functions.md) — kotlin-tour-intermediate-scope-functions

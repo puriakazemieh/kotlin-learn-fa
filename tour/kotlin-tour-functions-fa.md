@@ -484,7 +484,7 @@ fun main() {
 
 برای اطلاعات بیشتر دربارهٔ عبارت‌های لامبدا، [عبارت‌های لامبدا و توابع ناشناس](../lambdas.md#lambda-expressions-and-anonymous-functions) را ببینید.
 
-گام بعدی در تور یادگیری، آشنایی با [کلاس‌ها](kotlin-tour-classes.md) در کاتلین است.
+گام بعدی در تور یادگیری، آشنایی با [کلاس‌ها](kotlin-tour-classes-fa.md) در کاتلین است.
 
 ## تمرین: عبارت‌های لامبدا
 
@@ -542,7 +542,7 @@ fun main() {
 > }
 > ```
 
-[گام پیشین](kotlin-tour-control-flow-fa.md) · [گام بعدی](kotlin-tour-classes.md)
+[گام پیشین](kotlin-tour-control-flow-fa.md) · [گام بعدی](kotlin-tour-classes-fa.md)
 
 ---
 
